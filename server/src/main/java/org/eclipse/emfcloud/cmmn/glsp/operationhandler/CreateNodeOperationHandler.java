@@ -3,6 +3,12 @@ package org.eclipse.emfcloud.cmmn.glsp.operationhandler;
 import java.util.List;
 import java.util.function.Function;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emfcloud.cmmn.enotation.Diagram;
 import org.eclipse.emfcloud.cmmn.enotation.Shape;
@@ -42,11 +48,14 @@ public class CreateNodeOperationHandler extends BasicOperationHandler<CreateNode
 		String elementTypeId = operation.getElementTypeId();
 		CMMNEditorContext context = CMMNModelState.getEditorContext(modelState);
 		CMMNFacade facade = context.getCMMNFacade();
-		MetamodelPackage cmmnPackage = facade.getCMMNPackage();
-		CMMNElement cmmnElement = createNode(elementTypeId);
+		EPackage cmmnPackage = facade.getCMMNPackage();
+		//CMMNElement cmmnElement = createNode(elementTypeId);
+		EClassifier cmmnElement = createNode(elementTypeId);
+		
 
 		setName(cmmnElement, modelState);
 		//TODO
+		cmmnPackage.getEClassifiers().add(cmmnElement);
 		//cmmnPackage.getCMMNElement().add(cmmnElement);
 		//ePackage.getEClassifiers().add(cmmnElement);
 		Diagram diagram = facade.getDiagram();
@@ -57,28 +66,28 @@ public class CreateNodeOperationHandler extends BasicOperationHandler<CreateNode
 		diagram.getElements().add(shape);
 	}
 
-	protected void setName(CMMNElement element, GraphicalModelState modelState) {
+	protected void setName(EClassifier element, GraphicalModelState modelState) {
 		Function<Integer, String> nameProvider = i -> "Unknown" + i;
-		if (element instanceof Case) {
+		if (element instanceof EClass) {
 			nameProvider = i -> "NewCase" + i;
-		} else if (element instanceof Stage) {
+		} else if (element instanceof EEnum) {
 			nameProvider = i -> "NewStage" + i;
-		} else if (element instanceof Task) {
+		} else if (element instanceof EDataType) {
 			nameProvider = i -> "NewTask" + i;
 		}
 		int nodeCounter = modelState.getIndex().getCounter(GraphPackage.Literals.GNODE, nameProvider);
 		element.setName(nameProvider.apply(nodeCounter));
 	}
 
-	private CMMNElement createNode(String elementTypeId) {
+	private EClassifier createNode(String elementTypeId) {
 		if (elementTypeId.equals((Types.CASE))) {
-			Case cmmnCase = MetamodelFactory.eINSTANCE.createCase();
+			EClass cmmnCase = EcoreFactory.eINSTANCE.createEClass();
 			return cmmnCase;
 		} else if (elementTypeId.equals(Types.STAGE)) {
-			Stage stage = MetamodelFactory.eINSTANCE.createStage();
+			EEnum stage = EcoreFactory.eINSTANCE.createEEnum();
 			return stage;
 		} else {
-			Task task = MetamodelFactory.eINSTANCE.createTask();
+			EDataType task = EcoreFactory.eINSTANCE.createEDataType();
 			return task;
 		}
 	}

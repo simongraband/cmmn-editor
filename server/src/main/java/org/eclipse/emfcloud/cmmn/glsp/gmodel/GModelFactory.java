@@ -10,7 +10,11 @@
  ********************************************************************************/
 package org.eclipse.emfcloud.cmmn.glsp.gmodel;
 
+import java.util.stream.Collectors;
+
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
 import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
 import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
@@ -36,10 +40,10 @@ public class GModelFactory extends AbstractGModelFactory<EObject, GModelElement>
 	@Override
 	public GModelElement create(EObject semanticElement) {
 		GModelElement result = null;
-		if (semanticElement instanceof CMMNElement) {
-			result = classifierNodeFactory.create((CMMNElement) semanticElement);
-		} else if (semanticElement instanceof MetamodelPackage) {
-			result = create((MetamodelPackage) semanticElement);
+		if (semanticElement instanceof EClassifier) {
+			result = classifierNodeFactory.create((EClassifier) semanticElement);
+		} else if (semanticElement instanceof EPackage) {
+			result = create((EPackage) semanticElement);
 		} 
 		if (result == null) {
 			throw createFailed(semanticElement);
@@ -51,13 +55,13 @@ public class GModelFactory extends AbstractGModelFactory<EObject, GModelElement>
 		return create(modelState.getEditorContext().getCMMNFacade().getCMMNPackage());
 	}
 
-	public GGraph create(MetamodelPackage cmmnPackage) {
+	public GGraph create(EPackage cmmnPackage) {
 		GGraph graph = getOrCreateRoot();
 		graph.setId(toId(cmmnPackage));
 		//TODO is this right?
-		/*graph.getChildren().addAll(cmmnPackage.get().stream()//
+		graph.getChildren().addAll(cmmnPackage.getEClassifiers().stream()//
 				.map(this::create)//
-				.collect(Collectors.toList()));*/
+				.collect(Collectors.toList()));
 		return graph;
 	}
 

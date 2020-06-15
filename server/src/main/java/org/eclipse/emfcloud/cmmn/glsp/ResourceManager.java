@@ -17,6 +17,8 @@ import java.util.Collections;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -32,7 +34,7 @@ import org.eclipse.glsp.api.jsonrpc.GLSPServerException;
 import org.eclipse.glsp.api.utils.ClientOptions;
 
 public class ResourceManager {
-	public static final String CMMN_EXTENSION = ".cmmn";
+	public static final String CMMN_EXTENSION = ".ecore";
 	public static final String NOTATION_EXTENSION = ".enotation";
 
 	private static Logger LOG = Logger.getLogger(ResourceManager.class);
@@ -58,7 +60,7 @@ public class ResourceManager {
 		//TODO
 		editingDomain = new AdapterFactoryEditingDomain(new MetamodelAdapterFactory(), new BasicCommandStack());
 		ResourceSet resourceSet = editingDomain.getResourceSet();
-		resourceSet.getPackageRegistry().put(MetamodelPackage.eINSTANCE.getNsURI(), MetamodelPackage.eINSTANCE);
+		resourceSet.getPackageRegistry().put(EcorePackage.eINSTANCE.getNsURI(), EcorePackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(EnotationPackage.eINSTANCE.getNsURI(), EnotationPackage.eINSTANCE);
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
 		return resourceSet;

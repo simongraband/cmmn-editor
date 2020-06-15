@@ -13,5 +13,5 @@ export namespace CMMNLanguage {
     export const Name: string = "CMMN";
     export const Label: string = "CMMN diagram";
     export const DiagramType: string = "cmmndiagram";
-    export const FileExtension: string = ".cmmn";
+    export const FileExtension: string = ".ecore";
 }

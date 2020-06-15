@@ -16,6 +16,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emfcloud.cmmn.enotation.Diagram;
@@ -39,7 +40,7 @@ public class CMMNFacade {
 
 	private final Resource semanticResource;
 	private final Resource notationResource;
-	private final MetamodelPackage cmmnPackage;
+	private final EPackage cmmnPackage;
 
 	private boolean diagramIsNewlyCreated = false;
 
@@ -50,8 +51,8 @@ public class CMMNFacade {
 		this.semanticResource = semanticResource;
 		this.notationResource = notationResource;
 		this.modelIndex = modelIndex;
-		this.cmmnPackage = semanticResource.getContents().stream().filter(MetamodelPackage.class::isInstance)
-				.map(MetamodelPackage.class::cast).findFirst().orElseThrow();
+		this.cmmnPackage = semanticResource.getContents().stream().filter(EPackage.class::isInstance)
+				.map(EPackage.class::cast).findFirst().orElseThrow();
 		EcoreUtil.resolveAll(cmmnPackage);
 	}
 
@@ -63,7 +64,7 @@ public class CMMNFacade {
 		return notationResource;
 	}
 
-	public MetamodelPackage getCMMNPackage() {
+	public EPackage getCMMNPackage() {
 		return this.cmmnPackage;
 	}
 

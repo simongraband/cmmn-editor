@@ -35,7 +35,7 @@ import org.eclipse.glsp.graph.builder.impl.GNodeBuilder;
 import org.eclipse.glsp.graph.util.GConstants;
 import org.eclipse.glsp.graph.util.GraphUtil;
 
-public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GNode> {
+public class ClassifierNodeFactory extends AbstractGModelFactory<EClassifier, GNode> {
 
 	private GModelFactory parentFactory;
 
@@ -45,42 +45,40 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 	}
 
 	@Override
-	public GNode create(CMMNElement element) {
-		if (element instanceof Case) {
-			return create((Case) element);
-		} else if (element instanceof Stage) {
-			return create((Stage) element);
-		} else if (element instanceof Task) {
-			return create((Task) element);
+	public GNode create(EClassifier element) {
+		if (element instanceof EClass) {
+			return create((EClass) element);
+		} else if (element instanceof EEnum) {
+			return create((EEnum) element);
+		} else if (element instanceof EDataType) {
+			return create((EDataType) element);
 		}
 		return null;
 	}
 
-	public GNode create(Case cmmnCase) {
+	public GNode create(EClass cmmnCase) {
 		GNodeBuilder b = new GNodeBuilder(Types.CASE) //
 				.id(toId(cmmnCase)) //
 				.layout(GConstants.Layout.VBOX) //
 				.addCssClass(CSS.CASE) //
-				.add(buildHeader(cmmnCase))//
-				.add(createLabeledChildrenCompartment(cmmnCase.getStages(), cmmnCase));
+				.add(buildHeader(cmmnCase));//
 		applyShapeData(cmmnCase, b);
 		return b.build();
 	}
 
-	public GNode create(Stage cmmnStage) {
+	public GNode create(EEnum cmmnStage) {
 		GNodeBuilder b = new GNodeBuilder(Types.STAGE) //
 				.id(toId(cmmnStage)) //
 				.layout(GConstants.Layout.VBOX) //
 				.layoutOptions(new GLayoutOptions().resizeContainer(true)) //
 				.addCssClass(CSS.STAGE) //
-				.add(buildHeader(cmmnStage))//
-				.add(createLabeledChildrenCompartment(cmmnStage.getTasks(), cmmnStage));
+				.add(buildHeader(cmmnStage));//
 		applyShapeData(cmmnStage, b);
 
 		return b.build();
 	}
 
-	public GNode create(Task cmmnTask) {
+	public GNode create(EDataType cmmnTask) {
 		GNodeBuilder b = new GNodeBuilder(Types.TASK) //
 				.id(toId(cmmnTask)) //
 				.layout(GConstants.Layout.VBOX) //
@@ -100,7 +98,7 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 
 	}
 
-	private void applyShapeData(CMMNElement element, GNodeBuilder builder) {
+	private void applyShapeData(EClassifier element, GNodeBuilder builder) {
 		modelState.getIndex().getNotation(element, Shape.class).ifPresent(shape -> {
 			if (shape.getPosition() != null) {
 				builder.position(GraphUtil.copy(shape.getPosition()));
@@ -110,7 +108,7 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 		});
 	}
 
-	private GCompartment buildHeader(CMMNElement element) {
+	private GCompartment buildHeader(EClassifier element) {
 		return new GCompartmentBuilder(Types.COMP_HEADER) //
 				.layout("hbox") //
 				.id(toId(element) + "_header") //
