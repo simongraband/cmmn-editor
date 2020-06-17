@@ -13,10 +13,6 @@ package org.eclipse.emfcloud.cmmn.glsp.gmodel;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emfcloud.cmmn.enotation.Shape;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;

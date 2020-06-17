@@ -10,7 +10,10 @@
  ********************************************************************************/
 package org.eclipse.emfcloud.cmmn.glsp.gmodel;
 
+import java.util.stream.Collectors;
+
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
 import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
 import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
@@ -48,16 +51,16 @@ public class GModelFactory extends AbstractGModelFactory<EObject, GModelElement>
 	}
 
 	public GGraph create() {
-		return create(modelState.getEditorContext().getCMMNFacade().getCMMNPackage());
+		return create(modelState.getEditorContext().getCMMNFacade().getEPackage());
 	}
 
-	public GGraph create(MetamodelPackage cmmnPackage) {
+	public GGraph create(EPackage ePackage) {
 		GGraph graph = getOrCreateRoot();
-		graph.setId(toId(cmmnPackage));
+		graph.setId(toId(ePackage));
 		//TODO is this right?
-		/*graph.getChildren().addAll(cmmnPackage.get().stream()//
+		graph.getChildren().addAll(ePackage.getEClassifiers().stream()//
 				.map(this::create)//
-				.collect(Collectors.toList()));*/
+				.collect(Collectors.toList()));
 		return graph;
 	}
 

@@ -30,7 +30,7 @@ public interface MetamodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNAME = "metamodel";
+	String eNAME = "cmmn";
 
 	/**
 	 * The package namespace URI.
@@ -46,7 +46,7 @@ public interface MetamodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "org.eclipse.cmmnmetamodel";
+	String eNS_PREFIX = "cmmn";
 
 	/**
 	 * The singleton instance of the package.

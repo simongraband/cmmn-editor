@@ -69,7 +69,8 @@
 						</goals>
 						<configuration>
 							<sources>
-								<source>src/main/java-gen</source>
+								<source>src/main/java-gen/org/eclipse/emfcloud/cmmn/enotation</source>
+								<source>src/main/java-gen/org/eclipse/emfcloud/cmmn/metamodel</source>
 							</sources>
 						</configuration>
 					</execution>

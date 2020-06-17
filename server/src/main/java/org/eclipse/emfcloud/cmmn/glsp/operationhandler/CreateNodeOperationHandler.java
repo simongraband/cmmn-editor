@@ -3,6 +3,8 @@ package org.eclipse.emfcloud.cmmn.glsp.operationhandler;
 import java.util.List;
 import java.util.function.Function;
 
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emfcloud.cmmn.enotation.Diagram;
 import org.eclipse.emfcloud.cmmn.enotation.Shape;
@@ -42,13 +44,13 @@ public class CreateNodeOperationHandler extends BasicOperationHandler<CreateNode
 		String elementTypeId = operation.getElementTypeId();
 		CMMNEditorContext context = CMMNModelState.getEditorContext(modelState);
 		CMMNFacade facade = context.getCMMNFacade();
-		MetamodelPackage cmmnPackage = facade.getCMMNPackage();
+		EPackage ePackage = facade.getEPackage();
 		CMMNElement cmmnElement = createNode(elementTypeId);
 
 		setName(cmmnElement, modelState);
 		//TODO
 		//cmmnPackage.getCMMNElement().add(cmmnElement);
-		//ePackage.getEClassifiers().add(cmmnElement);
+		ePackage.getEClassifiers().add((EClassifier) cmmnElement);
 		Diagram diagram = facade.getDiagram();
 		Shape shape = facade.initializeShape(cmmnElement);
 		if (operation.getLocation() != null) {

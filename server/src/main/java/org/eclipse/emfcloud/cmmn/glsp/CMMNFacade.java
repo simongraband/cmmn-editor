@@ -16,6 +16,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emfcloud.cmmn.enotation.Diagram;
@@ -39,7 +40,7 @@ public class CMMNFacade {
 
 	private final Resource semanticResource;
 	private final Resource notationResource;
-	private final MetamodelPackage cmmnPackage;
+	private final EPackage ePackage;
 
 	private boolean diagramIsNewlyCreated = false;
 
@@ -50,9 +51,9 @@ public class CMMNFacade {
 		this.semanticResource = semanticResource;
 		this.notationResource = notationResource;
 		this.modelIndex = modelIndex;
-		this.cmmnPackage = semanticResource.getContents().stream().filter(MetamodelPackage.class::isInstance)
-				.map(MetamodelPackage.class::cast).findFirst().orElseThrow();
-		EcoreUtil.resolveAll(cmmnPackage);
+		this.ePackage = semanticResource.getContents().stream().filter(EPackage.class::isInstance)
+				.map(EPackage.class::cast).findFirst().orElseThrow();
+		EcoreUtil.resolveAll(ePackage);
 	}
 
 	public Resource getSemanticResource() {
@@ -63,8 +64,8 @@ public class CMMNFacade {
 		return notationResource;
 	}
 
-	public MetamodelPackage getCMMNPackage() {
-		return this.cmmnPackage;
+	public EPackage getEPackage() {
+		return this.ePackage;
 	}
 
 	public Diagram getDiagram() {
@@ -84,7 +85,7 @@ public class CMMNFacade {
 	}
 
 	public Diagram initialize(Diagram diagram, GModelRoot gRoot) {
-		Preconditions.checkArgument(diagram.getSemanticElement().getResolvedElement() == cmmnPackage);
+		Preconditions.checkArgument(diagram.getSemanticElement().getResolvedElement() == ePackage);
 		gRoot.getChildren().forEach(child -> {
 			modelIndex.getNotation(child).ifPresentOrElse(n -> updateNotationElement(n, child),
 					() -> initializeNotationElement(child).ifPresent(diagram.getElements()::add));
@@ -117,7 +118,7 @@ public class CMMNFacade {
 
 	private Diagram createDiagram() {
 		Diagram diagram = EnotationFactory.eINSTANCE.createDiagram();
-		diagram.setSemanticElement(createProxy(cmmnPackage));
+		diagram.setSemanticElement(createProxy(ePackage));
 		notationResource.getContents().add(diagram);
 		diagramIsNewlyCreated = true;
 		return diagram;
@@ -221,7 +222,7 @@ public class CMMNFacade {
 		if (eObject instanceof Diagram) {
 			Diagram diagram = (Diagram) eObject;
 
-			return resolved(diagram.getSemanticElement()).getResolvedElement() == cmmnPackage;
+			return resolved(diagram.getSemanticElement()).getResolvedElement() == ePackage;
 
 		}
 		return false;
