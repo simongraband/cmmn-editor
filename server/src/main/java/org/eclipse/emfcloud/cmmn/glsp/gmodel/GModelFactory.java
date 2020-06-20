@@ -10,6 +10,8 @@
  ********************************************************************************/
 package org.eclipse.emfcloud.cmmn.glsp.gmodel;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EClassifier;
@@ -18,7 +20,9 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
 import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
 import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
+import org.eclipse.glsp.api.action.kind.SetMarkersAction;
 import org.eclipse.glsp.api.jsonrpc.GLSPServerException;
+import org.eclipse.glsp.api.markers.Marker;
 import org.eclipse.glsp.graph.GGraph;
 import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.GModelRoot;

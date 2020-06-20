@@ -1,5 +1,6 @@
 package org.eclipse.emfcloud.cmmn.glsp.operationhandler;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
@@ -22,6 +23,8 @@ import org.eclipse.emfcloud.cmmn.metamodel.MetamodelFactory;
 import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
 import org.eclipse.emfcloud.cmmn.metamodel.Stage;
 import org.eclipse.emfcloud.cmmn.metamodel.Task;
+import org.eclipse.glsp.api.action.kind.SetMarkersAction;
+import org.eclipse.glsp.api.markers.Marker;
 import org.eclipse.glsp.api.model.GraphicalModelState;
 import org.eclipse.glsp.api.operation.Operation;
 import org.eclipse.glsp.api.operation.kind.CreateNodeOperation;
@@ -56,6 +59,10 @@ public class CreateNodeOperationHandler extends BasicOperationHandler<CreateNode
 		setName(cmmnElement, modelState);
 		//TODO
 		cmmnPackage.getEClassifiers().add(cmmnElement);
+		List<Marker> markers = new ArrayList<Marker>();
+		Marker marker = new Marker("Error", "Error", ""+cmmnElement.getClassifierID(), "Error");
+		markers.add(marker);
+		new SetMarkersAction(markers);
 		//cmmnPackage.getCMMNElement().add(cmmnElement);
 		//ePackage.getEClassifiers().add(cmmnElement);
 		Diagram diagram = facade.getDiagram();

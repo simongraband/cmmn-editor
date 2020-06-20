@@ -10,7 +10,9 @@
  ********************************************************************************/
 package org.eclipse.emfcloud.cmmn.glsp.gmodel;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EClass;
@@ -26,6 +28,7 @@ import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
 import org.eclipse.emfcloud.cmmn.metamodel.Case;
 import org.eclipse.emfcloud.cmmn.metamodel.Stage;
 import org.eclipse.emfcloud.cmmn.metamodel.Task;
+import org.eclipse.glsp.api.action.kind.SetMarkersAction;
 import org.eclipse.glsp.graph.GCompartment;
 import org.eclipse.glsp.graph.GNode;
 import org.eclipse.glsp.graph.builder.impl.GCompartmentBuilder;
@@ -34,6 +37,7 @@ import org.eclipse.glsp.graph.builder.impl.GLayoutOptions;
 import org.eclipse.glsp.graph.builder.impl.GNodeBuilder;
 import org.eclipse.glsp.graph.util.GConstants;
 import org.eclipse.glsp.graph.util.GraphUtil;
+import org.eclipse.glsp.api.markers.Marker;
 
 public class ClassifierNodeFactory extends AbstractGModelFactory<EClassifier, GNode> {
 

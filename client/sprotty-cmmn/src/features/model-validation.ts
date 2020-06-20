@@ -28,7 +28,7 @@ export class EditLabelUIModelValidation extends EditLabelUI {
 
     protected validateLabelIfContentChange(event: KeyboardEvent, value: string) {
         if (value.length >= 10) {
-            window.alert("Too long");
+            window.alert("Name is too long. Should be 10 characters or less");
         }
         super.validateLabelIfContentChange(event, value);
     }
