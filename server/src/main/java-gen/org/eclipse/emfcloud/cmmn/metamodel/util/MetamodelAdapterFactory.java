@@ -2,22 +2,14 @@
  */
 package org.eclipse.emfcloud.cmmn.metamodel.util;
 
+import org.eclipse.emfcloud.cmmn.metamodel.*;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
-import org.eclipse.emfcloud.cmmn.metamodel.Case;
-import org.eclipse.emfcloud.cmmn.metamodel.CaseFile;
-import org.eclipse.emfcloud.cmmn.metamodel.Decorator;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
-import org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition;
-import org.eclipse.emfcloud.cmmn.metamodel.Sentry;
-import org.eclipse.emfcloud.cmmn.metamodel.TimerEventListener;
-import org.eclipse.emfcloud.cmmn.metamodel.TimerExpression;
-import org.eclipse.emfcloud.cmmn.metamodel.UserEventListener;
 
-import org.eclipse.emfcloud.cmmn.metamodel.*;
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,6 +66,9 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected MetamodelSwitch modelSwitch =
 		new MetamodelSwitch() {
+			public Object caseCMMNDiagram(CMMNDiagram object) {
+				return createCMMNDiagramAdapter();
+			}
 			public Object caseCMMNElement(CMMNElement object) {
 				return createCMMNElementAdapter();
 			}
@@ -130,6 +125,20 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 		return (Adapter)modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link metamodel.CMMNDiagram <em>CMMN Diagram</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see metamodel.CMMNDiagram
+	 * @generated
+	 */
+	public Adapter createCMMNDiagramAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link metamodel.CMMNElement <em>CMMN Element</em>}'.

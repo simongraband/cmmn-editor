@@ -2,30 +2,16 @@
  */
 package org.eclipse.emfcloud.cmmn.metamodel.impl;
 
+import org.eclipse.emfcloud.cmmn.metamodel.*;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
-import org.eclipse.emfcloud.cmmn.metamodel.Case;
-import org.eclipse.emfcloud.cmmn.metamodel.CaseFile;
-import org.eclipse.emfcloud.cmmn.metamodel.Decorator;
-import org.eclipse.emfcloud.cmmn.metamodel.EventListener;
-import org.eclipse.emfcloud.cmmn.metamodel.Expression;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelFactory;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
-import org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition;
-import org.eclipse.emfcloud.cmmn.metamodel.Sentry;
-import org.eclipse.emfcloud.cmmn.metamodel.SentryType;
-import org.eclipse.emfcloud.cmmn.metamodel.Stage;
-import org.eclipse.emfcloud.cmmn.metamodel.Task;
-import org.eclipse.emfcloud.cmmn.metamodel.TaskRole;
-import org.eclipse.emfcloud.cmmn.metamodel.TaskType;
-import org.eclipse.emfcloud.cmmn.metamodel.TimerEventListener;
-import org.eclipse.emfcloud.cmmn.metamodel.TimerExpression;
-import org.eclipse.emfcloud.cmmn.metamodel.UserEventListener;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,6 +56,7 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	 */
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case MetamodelPackage.CMMN_DIAGRAM: return createCMMNDiagram();
 			case MetamodelPackage.CMMN_ELEMENT: return createCMMNElement();
 			case MetamodelPackage.CASE_FILE: return createCaseFile();
 			case MetamodelPackage.CASE: return createCase();
@@ -122,6 +109,16 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CMMNDiagram createCMMNDiagram() {
+		CMMNDiagramImpl cmmnDiagram = new CMMNDiagramImpl();
+		return cmmnDiagram;
 	}
 
 	/**

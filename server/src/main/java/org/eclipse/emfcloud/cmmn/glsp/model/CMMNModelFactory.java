@@ -38,7 +38,7 @@ public class CMMNModelFactory implements ModelFactory {
 		}
 		Diagram diagram = cmmnFacade.getDiagram();
 
-		GModelRoot gmodelRoot = context.getGModelFactory().create(cmmnFacade.getEPackage());
+		GModelRoot gmodelRoot = context.getGModelFactory().create(cmmnFacade.getCMMNDiagram());
 		cmmnFacade.initialize(diagram, gmodelRoot);
 		modelState.setRoot(gmodelRoot);
 		return gmodelRoot;

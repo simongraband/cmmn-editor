@@ -22,6 +22,15 @@ public interface MetamodelFactory extends EFactory {
 	MetamodelFactory eINSTANCE = org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>CMMN Diagram</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>CMMN Diagram</em>'.
+	 * @generated
+	 */
+	CMMNDiagram createCMMNDiagram();
+
+	/**
 	 * Returns a new object of class '<em>CMMN Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

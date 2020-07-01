@@ -16,7 +16,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emfcloud.cmmn.enotation.Diagram;
@@ -25,7 +24,7 @@ import org.eclipse.emfcloud.cmmn.enotation.EnotationFactory;
 import org.eclipse.emfcloud.cmmn.enotation.NotationElement;
 import org.eclipse.emfcloud.cmmn.enotation.SemanticProxy;
 import org.eclipse.emfcloud.cmmn.enotation.Shape;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
+import org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram;
 import org.eclipse.glsp.graph.GEdge;
 import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.GModelRoot;
@@ -40,7 +39,7 @@ public class CMMNFacade {
 
 	private final Resource semanticResource;
 	private final Resource notationResource;
-	private final EPackage ePackage;
+	private final CMMNDiagram cmmnDiagram;
 
 	private boolean diagramIsNewlyCreated = false;
 
@@ -51,9 +50,9 @@ public class CMMNFacade {
 		this.semanticResource = semanticResource;
 		this.notationResource = notationResource;
 		this.modelIndex = modelIndex;
-		this.ePackage = semanticResource.getContents().stream().filter(EPackage.class::isInstance)
-				.map(EPackage.class::cast).findFirst().orElseThrow();
-		EcoreUtil.resolveAll(ePackage);
+		this.cmmnDiagram = semanticResource.getContents().stream().filter(CMMNDiagram.class::isInstance)
+				.map(CMMNDiagram.class::cast).findFirst().orElseThrow();
+		EcoreUtil.resolveAll(cmmnDiagram);
 	}
 
 	public Resource getSemanticResource() {
@@ -64,8 +63,8 @@ public class CMMNFacade {
 		return notationResource;
 	}
 
-	public EPackage getEPackage() {
-		return this.ePackage;
+	public CMMNDiagram getCMMNDiagram() {
+		return this.cmmnDiagram;
 	}
 
 	public Diagram getDiagram() {
@@ -85,7 +84,7 @@ public class CMMNFacade {
 	}
 
 	public Diagram initialize(Diagram diagram, GModelRoot gRoot) {
-		Preconditions.checkArgument(diagram.getSemanticElement().getResolvedElement() == ePackage);
+		Preconditions.checkArgument(diagram.getSemanticElement().getResolvedElement() == cmmnDiagram);
 		gRoot.getChildren().forEach(child -> {
 			modelIndex.getNotation(child).ifPresentOrElse(n -> updateNotationElement(n, child),
 					() -> initializeNotationElement(child).ifPresent(diagram.getElements()::add));
@@ -118,7 +117,7 @@ public class CMMNFacade {
 
 	private Diagram createDiagram() {
 		Diagram diagram = EnotationFactory.eINSTANCE.createDiagram();
-		diagram.setSemanticElement(createProxy(ePackage));
+		diagram.setSemanticElement(createProxy(cmmnDiagram));
 		notationResource.getContents().add(diagram);
 		diagramIsNewlyCreated = true;
 		return diagram;
@@ -214,15 +213,15 @@ public class CMMNFacade {
 	}
 
 	private Optional<Diagram> findDiagram() {
-		return notationResource.getContents().stream().filter(eObject -> isDiagramForEPackage(eObject))
+		return notationResource.getContents().stream().filter(eObject -> isDiagramForCMMNDiagram(eObject))
 				.map(Diagram.class::cast).findFirst();
 	}
 
-	private boolean isDiagramForEPackage(EObject eObject) {
+	private boolean isDiagramForCMMNDiagram(EObject eObject) {
 		if (eObject instanceof Diagram) {
 			Diagram diagram = (Diagram) eObject;
 
-			return resolved(diagram.getSemanticElement()).getResolvedElement() == ePackage;
+			return resolved(diagram.getSemanticElement()).getResolvedElement() == cmmnDiagram;
 
 		}
 		return false;

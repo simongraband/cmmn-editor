@@ -4,20 +4,10 @@ package org.eclipse.emfcloud.cmmn.metamodel.util;
 
 import java.util.List;
 
+import org.eclipse.emfcloud.cmmn.metamodel.*;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
-import org.eclipse.emfcloud.cmmn.metamodel.Case;
-import org.eclipse.emfcloud.cmmn.metamodel.CaseFile;
-import org.eclipse.emfcloud.cmmn.metamodel.Decorator;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
-import org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition;
-import org.eclipse.emfcloud.cmmn.metamodel.Sentry;
-import org.eclipse.emfcloud.cmmn.metamodel.TimerEventListener;
-import org.eclipse.emfcloud.cmmn.metamodel.TimerExpression;
-import org.eclipse.emfcloud.cmmn.metamodel.UserEventListener;
-
-import org.eclipse.emfcloud.cmmn.metamodel.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,6 +83,13 @@ public class MetamodelSwitch {
 	 */
 	protected Object doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case MetamodelPackage.CMMN_DIAGRAM: {
+				CMMNDiagram cmmnDiagram = (CMMNDiagram)theEObject;
+				Object result = caseCMMNDiagram(cmmnDiagram);
+				if (result == null) result = caseCMMNElement(cmmnDiagram);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case MetamodelPackage.CMMN_ELEMENT: {
 				CMMNElement cmmnElement = (CMMNElement)theEObject;
 				Object result = caseCMMNElement(cmmnElement);
@@ -191,6 +188,21 @@ public class MetamodelSwitch {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>CMMN Diagram</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>CMMN Diagram</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseCMMNDiagram(CMMNDiagram object) {
+		return null;
 	}
 
 	/**

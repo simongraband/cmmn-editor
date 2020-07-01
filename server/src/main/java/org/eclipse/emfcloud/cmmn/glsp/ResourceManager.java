@@ -55,7 +55,6 @@ public class ResourceManager {
 	}
 
 	protected ResourceSet setupResourceSet() {
-		//TODO
 		editingDomain = new AdapterFactoryEditingDomain(new MetamodelAdapterFactory(), new BasicCommandStack());
 		ResourceSet resourceSet = editingDomain.getResourceSet();
 		resourceSet.getPackageRegistry().put(MetamodelPackage.eINSTANCE.getNsURI(), MetamodelPackage.eINSTANCE);

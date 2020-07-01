@@ -17,6 +17,9 @@
       <genEnumLiterals ecoreEnumLiteral="MetaModel.ecore#//SentryType/Entry"/>
       <genEnumLiterals ecoreEnumLiteral="MetaModel.ecore#//SentryType/Exit"/>
     </genEnums>
+    <genClasses ecoreClass="MetaModel.ecore#//CMMNDiagram">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MetaModel.ecore#//CMMNDiagram/cmmnElements"/>
+    </genClasses>
     <genClasses ecoreClass="MetaModel.ecore#//CMMNElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MetaModel.ecore#//CMMNElement/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MetaModel.ecore#//CMMNElement/name"/>

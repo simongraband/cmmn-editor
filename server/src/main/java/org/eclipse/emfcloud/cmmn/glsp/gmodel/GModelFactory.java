@@ -10,12 +10,15 @@
  ********************************************************************************/
 package org.eclipse.emfcloud.cmmn.glsp.gmodel;
 
+import java.util.Collection;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
+import org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram;
 import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
+import org.eclipse.emfcloud.cmmn.metamodel.Case;
 import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
 import org.eclipse.glsp.api.jsonrpc.GLSPServerException;
 import org.eclipse.glsp.graph.GGraph;
@@ -41,9 +44,9 @@ public class GModelFactory extends AbstractGModelFactory<EObject, GModelElement>
 		GModelElement result = null;
 		if (semanticElement instanceof CMMNElement) {
 			result = classifierNodeFactory.create((CMMNElement) semanticElement);
-		} else if (semanticElement instanceof MetamodelPackage) {
-			result = create((MetamodelPackage) semanticElement);
-		} 
+		} else if (semanticElement instanceof CMMNDiagram) {
+			result = create((CMMNDiagram) semanticElement);
+		}
 		if (result == null) {
 			throw createFailed(semanticElement);
 		}
@@ -51,18 +54,19 @@ public class GModelFactory extends AbstractGModelFactory<EObject, GModelElement>
 	}
 
 	public GGraph create() {
-		return create(modelState.getEditorContext().getCMMNFacade().getEPackage());
+		return create(modelState.getEditorContext().getCMMNFacade().getCMMNDiagram());
 	}
 
-	public GGraph create(EPackage ePackage) {
+	public GGraph create(CMMNDiagram cmmnDiagram) {
 		GGraph graph = getOrCreateRoot();
-		graph.setId(toId(ePackage));
-		//TODO is this right?
-		graph.getChildren().addAll(ePackage.getEClassifiers().stream()//
+		graph.setId(toId(cmmnDiagram));
+		// TODO is this right?
+		/*graph.getChildren().addAll((EObject) cmmnDiagram.getCmmnElements().stream()//
 				.map(this::create)//
-				.collect(Collectors.toList()));
+				.collect(Collectors.toList()));*/
 		return graph;
 	}
+
 
 	public static GLSPServerException createFailed(EObject semanticElement) {
 		return new GLSPServerException("Error during model initialization!", new Throwable(

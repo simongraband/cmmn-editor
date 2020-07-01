@@ -64,7 +64,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getCMMNElement()
 	 * @generated
 	 */
-	int CMMN_ELEMENT = 0;
+	int CMMN_ELEMENT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -103,6 +103,61 @@ public interface MetamodelPackage extends EPackage {
 	int CMMN_ELEMENT_FEATURE_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link metamodel.impl.CMMNDiagramImpl <em>CMMN Diagram</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see metamodel.impl.CMMNDiagramImpl
+	 * @see metamodel.impl.MetamodelPackageImpl#getCMMNDiagram()
+	 * @generated
+	 */
+	int CMMN_DIAGRAM = 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CMMN_DIAGRAM__ID = CMMN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CMMN_DIAGRAM__NAME = CMMN_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CMMN_DIAGRAM__DESCRIPTION = CMMN_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Cmmn Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CMMN_DIAGRAM__CMMN_ELEMENTS = CMMN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>CMMN Diagram</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CMMN_DIAGRAM_FEATURE_COUNT = CMMN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link metamodel.impl.CaseFileImpl <em>Case File</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,7 +165,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getCaseFile()
 	 * @generated
 	 */
-	int CASE_FILE = 1;
+	int CASE_FILE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -156,7 +211,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getCase()
 	 * @generated
 	 */
-	int CASE = 2;
+	int CASE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -220,7 +275,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getPlanItemDefinition()
 	 * @generated
 	 */
-	int PLAN_ITEM_DEFINITION = 9;
+	int PLAN_ITEM_DEFINITION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -275,7 +330,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getStage()
 	 * @generated
 	 */
-	int STAGE = 3;
+	int STAGE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -339,7 +394,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getTask()
 	 * @generated
 	 */
-	int TASK = 4;
+	int TASK = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -421,7 +476,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getEventListener()
 	 * @generated
 	 */
-	int EVENT_LISTENER = 5;
+	int EVENT_LISTENER = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -476,7 +531,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getDecorator()
 	 * @generated
 	 */
-	int DECORATOR = 6;
+	int DECORATOR = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -540,7 +595,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getSentry()
 	 * @generated
 	 */
-	int SENTRY = 7;
+	int SENTRY = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -622,7 +677,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getExpression()
 	 * @generated
 	 */
-	int EXPRESSION = 8;
+	int EXPRESSION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -686,7 +741,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getTimerEventListener()
 	 * @generated
 	 */
-	int TIMER_EVENT_LISTENER = 10;
+	int TIMER_EVENT_LISTENER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -750,7 +805,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getUserEventListener()
 	 * @generated
 	 */
-	int USER_EVENT_LISTENER = 11;
+	int USER_EVENT_LISTENER = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -805,7 +860,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getTimerExpression()
 	 * @generated
 	 */
-	int TIMER_EXPRESSION = 12;
+	int TIMER_EXPRESSION = 13;
 
 	/**
 	 * The number of structural features of the '<em>Timer Expression</em>' class.
@@ -824,7 +879,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getTaskRole()
 	 * @generated
 	 */
-	int TASK_ROLE = 13;
+	int TASK_ROLE = 14;
 
 	/**
 	 * The meta object id for the '{@link metamodel.TaskType <em>Task Type</em>}' enum.
@@ -834,7 +889,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getTaskType()
 	 * @generated
 	 */
-	int TASK_TYPE = 14;
+	int TASK_TYPE = 15;
 
 	/**
 	 * The meta object id for the '{@link metamodel.SentryType <em>Sentry Type</em>}' enum.
@@ -844,7 +899,29 @@ public interface MetamodelPackage extends EPackage {
 	 * @see metamodel.impl.MetamodelPackageImpl#getSentryType()
 	 * @generated
 	 */
-	int SENTRY_TYPE = 15;
+	int SENTRY_TYPE = 16;
+
+
+	/**
+	 * Returns the meta object for class '{@link metamodel.CMMNDiagram <em>CMMN Diagram</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>CMMN Diagram</em>'.
+	 * @see metamodel.CMMNDiagram
+	 * @generated
+	 */
+	EClass getCMMNDiagram();
+
+	/**
+	 * Returns the meta object for the reference list '{@link metamodel.CMMNDiagram#getCmmnElements <em>Cmmn Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Cmmn Elements</em>'.
+	 * @see metamodel.CMMNDiagram#getCmmnElements()
+	 * @see #getCMMNDiagram()
+	 * @generated
+	 */
+	EReference getCMMNDiagram_CmmnElements();
 
 	/**
 	 * Returns the meta object for class '{@link metamodel.CMMNElement <em>CMMN Element</em>}'.
@@ -1237,6 +1314,24 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link metamodel.impl.CMMNDiagramImpl <em>CMMN Diagram</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see metamodel.impl.CMMNDiagramImpl
+		 * @see metamodel.impl.MetamodelPackageImpl#getCMMNDiagram()
+		 * @generated
+		 */
+		EClass CMMN_DIAGRAM = eINSTANCE.getCMMNDiagram();
+
+		/**
+		 * The meta object literal for the '<em><b>Cmmn Elements</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CMMN_DIAGRAM__CMMN_ELEMENTS = eINSTANCE.getCMMNDiagram_CmmnElements();
+
 		/**
 		 * The meta object literal for the '{@link metamodel.impl.CMMNElementImpl <em>CMMN Element</em>}' class.
 		 * <!-- begin-user-doc -->

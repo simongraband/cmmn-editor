@@ -12,6 +12,7 @@ import org.eclipse.emfcloud.cmmn.glsp.CMMNFacade;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNEditorContext;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
 import org.eclipse.emfcloud.cmmn.glsp.util.CMMNConfig.Types;
+import org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram;
 import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
 import org.eclipse.emfcloud.cmmn.metamodel.Case;
 import org.eclipse.emfcloud.cmmn.metamodel.MetamodelFactory;
@@ -44,13 +45,11 @@ public class CreateNodeOperationHandler extends BasicOperationHandler<CreateNode
 		String elementTypeId = operation.getElementTypeId();
 		CMMNEditorContext context = CMMNModelState.getEditorContext(modelState);
 		CMMNFacade facade = context.getCMMNFacade();
-		EPackage ePackage = facade.getEPackage();
+		CMMNDiagram cmmnDiagram = facade.getCMMNDiagram();
 		CMMNElement cmmnElement = createNode(elementTypeId);
 
 		setName(cmmnElement, modelState);
-		//TODO
-		//cmmnPackage.getCMMNElement().add(cmmnElement);
-		ePackage.getEClassifiers().add((EClassifier) cmmnElement);
+		cmmnDiagram.getCmmnElements().add((CMMNElement) cmmnElement);
 		Diagram diagram = facade.getDiagram();
 		Shape shape = facade.initializeShape(cmmnElement);
 		if (operation.getLocation() != null) {
