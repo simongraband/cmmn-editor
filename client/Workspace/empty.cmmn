@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cmmn:MetamodelPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cmmn="https://org/eclipse/cmmnmetamodel" name="testpackage" nsURI="testpackage" nsPrefix="testpackage"/>
+<cmmn:CMMNDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cmmn="https://org/eclipse/cmmnmetamodel" name="testpackage"/>
