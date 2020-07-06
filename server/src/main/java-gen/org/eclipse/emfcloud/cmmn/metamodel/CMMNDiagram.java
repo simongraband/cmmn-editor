@@ -31,6 +31,6 @@ public interface CMMNDiagram extends CMMNElement {
 	 * @model type="metamodel.CMMNElement" required="true"
 	 * @generated
 	 */
-	EList getCmmnElements();
+	EList<CMMNElement> getCmmnElements();
 
 } // CMMNDiagram

@@ -54,6 +54,6 @@ public interface Case extends CMMNElement {
 	 * @model type="metamodel.Stage" containment="true" required="true"
 	 * @generated
 	 */
-	EList getStages();
+	EList<Stage> getStages();
 
 } // Case

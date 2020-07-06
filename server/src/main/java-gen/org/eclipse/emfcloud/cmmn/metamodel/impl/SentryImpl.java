@@ -2,15 +2,18 @@
  */
 package org.eclipse.emfcloud.cmmn.metamodel.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emfcloud.cmmn.metamodel.Expression;
 import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
 import org.eclipse.emfcloud.cmmn.metamodel.Sentry;
 import org.eclipse.emfcloud.cmmn.metamodel.SentryType;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ import org.eclipse.emfcloud.cmmn.metamodel.SentryType;
  *   <li>{@link metamodel.impl.SentryImpl#getIfPart <em>If Part</em>}</li>
  *   <li>{@link metamodel.impl.SentryImpl#getSentryType <em>Sentry Type</em>}</li>
  *   <li>{@link metamodel.impl.SentryImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link metamodel.impl.SentryImpl#getAnchorId <em>Anchor Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -98,6 +102,26 @@ public class SentryImpl extends CMMNElementImpl implements Sentry {
 	 * @ordered
 	 */
 	protected Expression expression;
+
+	/**
+	 * The default value of the '{@link #getAnchorId() <em>Anchor Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnchorId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ANCHOR_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAnchorId() <em>Anchor Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnchorId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String anchorId = ANCHOR_ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -228,6 +252,27 @@ public class SentryImpl extends CMMNElementImpl implements Sentry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getAnchorId() {
+		return anchorId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAnchorId(String newAnchorId) {
+		String oldAnchorId = anchorId;
+		anchorId = newAnchorId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.SENTRY__ANCHOR_ID, oldAnchorId, anchorId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case MetamodelPackage.SENTRY__EXPRESSION:
@@ -251,6 +296,8 @@ public class SentryImpl extends CMMNElementImpl implements Sentry {
 				return getSentryType();
 			case MetamodelPackage.SENTRY__EXPRESSION:
 				return getExpression();
+			case MetamodelPackage.SENTRY__ANCHOR_ID:
+				return getAnchorId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -273,6 +320,9 @@ public class SentryImpl extends CMMNElementImpl implements Sentry {
 				return;
 			case MetamodelPackage.SENTRY__EXPRESSION:
 				setExpression((Expression)newValue);
+				return;
+			case MetamodelPackage.SENTRY__ANCHOR_ID:
+				setAnchorId((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -297,6 +347,9 @@ public class SentryImpl extends CMMNElementImpl implements Sentry {
 			case MetamodelPackage.SENTRY__EXPRESSION:
 				setExpression((Expression)null);
 				return;
+			case MetamodelPackage.SENTRY__ANCHOR_ID:
+				setAnchorId(ANCHOR_ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -316,6 +369,8 @@ public class SentryImpl extends CMMNElementImpl implements Sentry {
 				return sentryType != SENTRY_TYPE_EDEFAULT;
 			case MetamodelPackage.SENTRY__EXPRESSION:
 				return expression != null;
+			case MetamodelPackage.SENTRY__ANCHOR_ID:
+				return ANCHOR_ID_EDEFAULT == null ? anchorId != null : !ANCHOR_ID_EDEFAULT.equals(anchorId);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -335,6 +390,8 @@ public class SentryImpl extends CMMNElementImpl implements Sentry {
 		result.append(ifPart);
 		result.append(", SentryType: ");
 		result.append(sentryType);
+		result.append(", anchorId: ");
+		result.append(anchorId);
 		result.append(')');
 		return result.toString();
 	}

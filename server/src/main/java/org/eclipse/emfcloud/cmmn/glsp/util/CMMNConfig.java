@@ -37,6 +37,7 @@ public final class CMMNConfig {
 		public static final String CASE = "cmmn-case";
 		public static final String STAGE = "cmmn-stage";
 		public static final String TASK = "cmmn-task";
+		public static final String SENTRY = "cmmn-sentry";
 		public static final String FOREIGN_PACKAGE = "foreign-package";;
 		public static final String CMMN_EDGE = "cmmn-edge";
 		public static final String ITALIC = "italic";

@@ -2,9 +2,10 @@
  */
 package org.eclipse.emfcloud.cmmn.metamodel.impl;
 
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emfcloud.cmmn.metamodel.CaseFile;
 import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
+
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

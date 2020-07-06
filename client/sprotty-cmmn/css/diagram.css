@@ -40,7 +40,8 @@ svg {
 }
 
 .cmmn-stage {
-    fill: transparent;
+    fill: lightskyblue;
+    fill-opacity: 0.2;
     stroke: var(--sprotty-border);
     stroke-width: 1;
     font-weight: bold;
@@ -48,7 +49,7 @@ svg {
 }
 
 .cmmn-task {
-    fill: lightblue;
+    fill: lightskyblue;
     stroke: var(--sprotty-border);
     stroke-width: 1;
     font-weight: bold;
@@ -183,7 +184,7 @@ svg {
     margin-bottom: 2px;
 }
 
-.cmmn-edge>.triangle.inheritance {
+.cmmn-edge>.fill {
     fill: white;
 }
 

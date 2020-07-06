@@ -30,7 +30,7 @@ public interface MetamodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNAME = "cmmn";
+	String eNAME = "metamodel";
 
 	/**
 	 * The package namespace URI.
@@ -46,7 +46,7 @@ public interface MetamodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "cmmn";
+	String eNS_PREFIX = "org.eclipse.cmmnmetamodel";
 
 	/**
 	 * The singleton instance of the package.
@@ -661,13 +661,22 @@ public interface MetamodelPackage extends EPackage {
 	int SENTRY__EXPRESSION = CMMN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Anchor Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTRY__ANCHOR_ID = CMMN_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Sentry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENTRY_FEATURE_COUNT = CMMN_ELEMENT_FEATURE_COUNT + 4;
+	int SENTRY_FEATURE_COUNT = CMMN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link metamodel.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -1169,6 +1178,17 @@ public interface MetamodelPackage extends EPackage {
 	EReference getSentry_Expression();
 
 	/**
+	 * Returns the meta object for the attribute '{@link metamodel.Sentry#getAnchorId <em>Anchor Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Anchor Id</em>'.
+	 * @see metamodel.Sentry#getAnchorId()
+	 * @see #getSentry()
+	 * @generated
+	 */
+	EAttribute getSentry_AnchorId();
+
+	/**
 	 * Returns the meta object for class '{@link metamodel.Expression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1531,6 +1551,14 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SENTRY__EXPRESSION = eINSTANCE.getSentry_Expression();
+
+		/**
+		 * The meta object literal for the '<em><b>Anchor Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SENTRY__ANCHOR_ID = eINSTANCE.getSentry_AnchorId();
 
 		/**
 		 * The meta object literal for the '{@link metamodel.impl.ExpressionImpl <em>Expression</em>}' class.

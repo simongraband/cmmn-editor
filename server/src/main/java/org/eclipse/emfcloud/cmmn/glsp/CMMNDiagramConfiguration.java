@@ -47,8 +47,8 @@ public class CMMNDiagramConfiguration implements DiagramConfiguration {
 		List<ShapeTypeHint> hints = new ArrayList<>();
 		hints.add(new ShapeTypeHint(DefaultTypes.GRAPH, false, false, false, false,
 				List.of(Types.CASE)));
-		hints.add(new ShapeTypeHint(Types.CASE, true, true, true, false, List.of(Types.STAGE, Types.EVENTLISTENER)));
-		hints.add(new ShapeTypeHint(Types.STAGE, true, true, true, false, List.of(Types.TASK, Types.EVENTLISTENER)));
+		hints.add(new ShapeTypeHint(Types.CASE, true, true, true, true, List.of(Types.STAGE, Types.EVENTLISTENER)));
+		hints.add(new ShapeTypeHint(Types.STAGE, true, true, true, true, List.of(Types.TASK, Types.EVENTLISTENER)));
 		hints.add(new ShapeTypeHint(Types.TASK, true, true, true, true));
 		hints.add(new ShapeTypeHint(Types.EVENTLISTENER, true, true, true, true));
 		return hints;

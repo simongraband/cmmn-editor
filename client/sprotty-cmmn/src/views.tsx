@@ -43,7 +43,6 @@ export class TaskNodeView extends RectangularNodeView {
       {context.renderChildren(node)}
       {(node.children[1] && node.children[1].children.length > 0) ?
         <path class-sprotty-edge={true} d={rhombStr}></path> : ''}
-    }
     </g>;
   }
 }
@@ -62,13 +61,12 @@ export class StageNodeView extends RectangularNodeView {
       </defs>
 
 
-      <rect class-selected={node.selected} class-mouseover={node.hoverFeedback}
+      <rect class-sprotty-node={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
         x={0} y={0} rx={0} ry={0}
         width={Math.max(450, node.bounds.width)} height={Math.max(200, node.bounds.height)} />
       {context.renderChildren(node)}
       {(node.children[1] && node.children[1].children.length > 0) ?
         <path class-sprotty-edge={true} d={rhombStr}></path> : ''}
-    }
     </g>;
   }
 }
@@ -94,7 +92,6 @@ export class CaseNodeView extends RectangularNodeView {
       {context.renderChildren(node)}
       {(node.children[1] && node.children[1].children.length > 0) ?
         <path class-sprotty-edge={true} d={rhombStr}></path> : ''}
-    }
     </g>;
   }
 }
@@ -102,11 +99,11 @@ export class CaseNodeView extends RectangularNodeView {
 @injectable()
 export class ArrowEdgeView extends PolylineEdgeView {
   protected renderAdditionals(edge: SEdge, segments: Point[], context: RenderingContext): VNode[] {
-    const p1 = segments[segments.length - 2];
+    //const p1 = segments[segments.length - 2];
     const p2 = segments[segments.length - 1];
     return [
-      <path class-sprotty-edge={true} d="M 10,-4 L 0,0 L 10,4"
-        transform={`rotate(${angle(p2, p1)} ${p2.x} ${p2.y}) translate(${p2.x} ${p2.y})`} />,
+      <path class-sprotty-edge={true} class-fill={true} d="M 0,-14 L 8,0 L 0,14 L -8,0 Z"
+        transform={`translate(${p2.x} ${p2.y})`} />,
     ];
   }
 }

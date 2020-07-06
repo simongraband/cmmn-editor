@@ -31,6 +31,6 @@ public interface PlanItemDefinition extends CMMNElement {
 	 * @model type="metamodel.Sentry" containment="true"
 	 * @generated
 	 */
-	EList getSentry();
+	EList<Sentry> getSentry();
 
 } // PlanItemDefinition

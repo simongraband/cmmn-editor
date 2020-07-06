@@ -447,6 +447,15 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSentry_AnchorId() {
+		return (EAttribute)sentryEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getExpression() {
 		return expressionEClass;
 	}
@@ -611,6 +620,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		createEAttribute(sentryEClass, SENTRY__IF_PART);
 		createEAttribute(sentryEClass, SENTRY__SENTRY_TYPE);
 		createEReference(sentryEClass, SENTRY__EXPRESSION);
+		createEAttribute(sentryEClass, SENTRY__ANCHOR_ID);
 
 		expressionEClass = createEClass(EXPRESSION);
 		createEAttribute(expressionEClass, EXPRESSION__LANGUAGE);
@@ -703,6 +713,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEAttribute(getSentry_IfPart(), ecorePackage.getEString(), "ifPart", null, 0, 1, Sentry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSentry_SentryType(), this.getSentryType(), "SentryType", null, 0, 1, Sentry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSentry_Expression(), this.getExpression(), null, "expression", null, 0, 1, Sentry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSentry_AnchorId(), ecorePackage.getEString(), "anchorId", null, 0, 1, Sentry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getExpression_Language(), ecorePackage.getEString(), "language", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

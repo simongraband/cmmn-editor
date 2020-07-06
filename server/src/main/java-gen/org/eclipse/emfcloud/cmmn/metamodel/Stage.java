@@ -31,6 +31,6 @@ public interface Stage extends PlanItemDefinition {
 	 * @model type="metamodel.Task" containment="true" required="true"
 	 * @generated
 	 */
-	EList getTasks();
+	EList<Task> getTasks();
 
 } // Stage
