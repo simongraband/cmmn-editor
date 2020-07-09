@@ -138,7 +138,6 @@ public class CMMNFacade {
 		shape.setSemanticElement(createProxy(semanticElement));
 		if (shapeElement != null) {
 			updateShape(shape, shapeElement);
-
 		}
 		modelIndex.indexNotation(shape);
 		return shape;

@@ -47,17 +47,17 @@ public class CreateNodeChildOperationHandler extends BasicOperationHandler<Creat
 				CMMNElement.class), "No valid container with id " + operation.getContainerId() + " found");
         String elementTypeId = operation.getElementTypeId();
         
-		if (elementTypeId.equals(Types.STAGE) && container instanceof Case) {
+		if (elementTypeId.equals(Types.STAGE) /*&& container instanceof Case*/) {
             Stage stage = MetamodelFactory.eINSTANCE.createStage();
             setName(stage, modelState);
 			modelState.getIndex().add(stage);
-            ((Case) container).getStages().add(stage);
+            //((Case) container).getStages().add(stage);
             drawShape(stage, modelState, operation);
-		} else if (elementTypeId.contentEquals(Types.TASK) && container instanceof Stage) {
+		} else if (elementTypeId.contentEquals(Types.TASK) /*&& container instanceof Stage*/) {
             Task task = MetamodelFactory.eINSTANCE.createTask();
             setName(task, modelState);
 			modelState.getIndex().add(task);
-            ((Stage) container).getTasks().add(task);
+            //((Stage) container).getTasks().add(task);
             drawShape(task, modelState, operation);
         }
     }

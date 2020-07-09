@@ -11,8 +11,11 @@
 package org.eclipse.emfcloud.cmmn.glsp;
 
 import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNOperationActionHandler;
+import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNSaveModelActionHandler;
+import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNUndoRedoActionHandler;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelFactory;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelStateProvider;
+import org.eclipse.emfcloud.cmmn.glsp.operationhandler.CMMNDeleteOperationHandler;
 import org.eclipse.emfcloud.cmmn.glsp.operationhandler.ChangeBoundsOperationHandler;
 import org.eclipse.emfcloud.cmmn.glsp.operationhandler.CreateNodeChildOperationHandler;
 import org.eclipse.emfcloud.cmmn.glsp.operationhandler.CreateNodeOperationHandler;
@@ -30,6 +33,8 @@ import org.eclipse.glsp.api.model.ModelStateProvider;
 import org.eclipse.glsp.api.provider.ToolPaletteItemProvider;
 import org.eclipse.glsp.api.registry.OperationHandlerRegistry;
 import org.eclipse.glsp.server.actionhandler.OperationActionHandler;
+import org.eclipse.glsp.server.actionhandler.SaveModelActionHandler;
+import org.eclipse.glsp.server.actionhandler.UndoRedoActionHandler;
 import org.eclipse.glsp.server.di.DefaultGLSPModule;
 import org.eclipse.glsp.server.di.MultiBindConfig;
 import org.eclipse.glsp.server.operationhandler.LayoutOperationHandler;
@@ -40,6 +45,8 @@ public class CMMNGLSPModule extends DefaultGLSPModule {
 	protected void configureActionHandlers(MultiBindConfig<ActionHandler> bindings) {
 		super.configureActionHandlers(bindings);
 		bindings.rebind(OperationActionHandler.class, CMMNOperationActionHandler.class);
+		bindings.rebind(SaveModelActionHandler.class, CMMNSaveModelActionHandler.class);
+		bindings.rebind(UndoRedoActionHandler.class, CMMNUndoRedoActionHandler.class);
 	}
 	
 	@Override
@@ -73,6 +80,7 @@ public class CMMNGLSPModule extends DefaultGLSPModule {
 		bindings.add(CreateNodeOperationHandler.class);
 		bindings.add(CreateNodeChildOperationHandler.class);
 		bindings.add(CreateSentryOperationHandler.class);
+		bindings.add(CMMNDeleteOperationHandler.class);
 		bindings.add(ChangeBoundsOperationHandler.class);
 	}
 
