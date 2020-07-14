@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.AbstractEnumerator;
  * A representation of the literals of the enumeration '<em><b>Task Role</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see metamodel.MetamodelPackage#getTaskRole()
+ * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getTaskRole()
  * @model
  * @generated
  */

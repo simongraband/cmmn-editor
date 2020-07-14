@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link metamodel.CMMNElement#getId <em>Id</em>}</li>
- *   <li>{@link metamodel.CMMNElement#getName <em>Name</em>}</li>
- *   <li>{@link metamodel.CMMNElement#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.CMMNElement#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.CMMNElement#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.CMMNElement#getDescription <em>Description</em>}</li>
  * </ul>
  *
- * @see metamodel.MetamodelPackage#getCMMNElement()
+ * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getCMMNElement()
  * @model
  * @generated
  */
@@ -29,14 +29,14 @@ public interface CMMNElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
-	 * @see metamodel.MetamodelPackage#getCMMNElement_Id()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getCMMNElement_Id()
 	 * @model
 	 * @generated
 	 */
 	String getId();
 
 	/**
-	 * Sets the value of the '{@link metamodel.CMMNElement#getId <em>Id</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emfcloud.cmmn.metamodel.CMMNElement#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Id</em>' attribute.
@@ -51,14 +51,14 @@ public interface CMMNElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see metamodel.MetamodelPackage#getCMMNElement_Name()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getCMMNElement_Name()
 	 * @model
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link metamodel.CMMNElement#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emfcloud.cmmn.metamodel.CMMNElement#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -73,14 +73,14 @@ public interface CMMNElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see metamodel.MetamodelPackage#getCMMNElement_Description()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getCMMNElement_Description()
 	 * @model
 	 * @generated
 	 */
 	String getDescription();
 
 	/**
-	 * Sets the value of the '{@link metamodel.CMMNElement#getDescription <em>Description</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emfcloud.cmmn.metamodel.CMMNElement#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Description</em>' attribute.

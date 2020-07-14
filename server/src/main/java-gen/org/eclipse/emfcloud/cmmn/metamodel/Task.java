@@ -13,36 +13,36 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link metamodel.Task#getTaskType <em>Task Type</em>}</li>
- *   <li>{@link metamodel.Task#getTaskRole <em>Task Role</em>}</li>
- *   <li>{@link metamodel.Task#getDecorators <em>Decorators</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.Task#getTaskType <em>Task Type</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.Task#getTaskRole <em>Task Role</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.Task#getDecorators <em>Decorators</em>}</li>
  * </ul>
  *
- * @see metamodel.MetamodelPackage#getTask()
+ * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getTask()
  * @model
  * @generated
  */
 public interface Task extends PlanItemDefinition {
 	/**
 	 * Returns the value of the '<em><b>Task Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link metamodel.TaskType}.
+	 * The literals are from the enumeration {@link org.eclipse.emfcloud.cmmn.metamodel.TaskType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Task Type</em>' attribute.
-	 * @see metamodel.TaskType
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.TaskType
 	 * @see #setTaskType(TaskType)
-	 * @see metamodel.MetamodelPackage#getTask_TaskType()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getTask_TaskType()
 	 * @model
 	 * @generated
 	 */
 	TaskType getTaskType();
 
 	/**
-	 * Sets the value of the '{@link metamodel.Task#getTaskType <em>Task Type</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emfcloud.cmmn.metamodel.Task#getTaskType <em>Task Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Task Type</em>' attribute.
-	 * @see metamodel.TaskType
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.TaskType
 	 * @see #getTaskType()
 	 * @generated
 	 */
@@ -50,24 +50,24 @@ public interface Task extends PlanItemDefinition {
 
 	/**
 	 * Returns the value of the '<em><b>Task Role</b></em>' attribute.
-	 * The literals are from the enumeration {@link metamodel.TaskRole}.
+	 * The literals are from the enumeration {@link org.eclipse.emfcloud.cmmn.metamodel.TaskRole}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Task Role</em>' attribute.
-	 * @see metamodel.TaskRole
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.TaskRole
 	 * @see #setTaskRole(TaskRole)
-	 * @see metamodel.MetamodelPackage#getTask_TaskRole()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getTask_TaskRole()
 	 * @model
 	 * @generated
 	 */
 	TaskRole getTaskRole();
 
 	/**
-	 * Sets the value of the '{@link metamodel.Task#getTaskRole <em>Task Role</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emfcloud.cmmn.metamodel.Task#getTaskRole <em>Task Role</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Task Role</em>' attribute.
-	 * @see metamodel.TaskRole
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.TaskRole
 	 * @see #getTaskRole()
 	 * @generated
 	 */
@@ -75,14 +75,14 @@ public interface Task extends PlanItemDefinition {
 
 	/**
 	 * Returns the value of the '<em><b>Decorators</b></em>' containment reference list.
-	 * The list contents are of type {@link metamodel.Decorator}.
+	 * The list contents are of type {@link org.eclipse.emfcloud.cmmn.metamodel.Decorator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Decorators</em>' containment reference list.
-	 * @see metamodel.MetamodelPackage#getTask_Decorators()
-	 * @model type="metamodel.Decorator" containment="true"
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getTask_Decorators()
+	 * @model type="org.eclipse.emfcloud.cmmn.metamodel.Decorator" containment="true"
 	 * @generated
 	 */
-	EList getDecorators();
+	EList<Decorator> getDecorators();
 
 } // Task

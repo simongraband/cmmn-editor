@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see metamodel.MetamodelFactory
+ * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelFactory
  * @model kind="package"
  * @generated
  */
@@ -46,7 +46,7 @@ public interface MetamodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "org.eclipse.cmmnmetamodel";
+	String eNS_PREFIX = "org.eclipse.emfcloud.cmmn.metamodel";
 
 	/**
 	 * The singleton instance of the package.
@@ -57,11 +57,11 @@ public interface MetamodelPackage extends EPackage {
 	MetamodelPackage eINSTANCE = org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.CMMNElementImpl <em>CMMN Element</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.CMMNElementImpl <em>CMMN Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.CMMNElementImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getCMMNElement()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.CMMNElementImpl
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getCMMNElement()
 	 * @generated
 	 */
 	int CMMN_ELEMENT = 1;
@@ -103,11 +103,11 @@ public interface MetamodelPackage extends EPackage {
 	int CMMN_ELEMENT_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.CMMNDiagramImpl <em>CMMN Diagram</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.CMMNDiagramImpl <em>CMMN Diagram</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.CMMNDiagramImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getCMMNDiagram()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.CMMNDiagramImpl
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getCMMNDiagram()
 	 * @generated
 	 */
 	int CMMN_DIAGRAM = 0;
@@ -140,7 +140,7 @@ public interface MetamodelPackage extends EPackage {
 	int CMMN_DIAGRAM__DESCRIPTION = CMMN_ELEMENT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Cmmn Elements</b></em>' reference list.
+	 * The feature id for the '<em><b>Cmmn Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -158,11 +158,11 @@ public interface MetamodelPackage extends EPackage {
 	int CMMN_DIAGRAM_FEATURE_COUNT = CMMN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.CaseFileImpl <em>Case File</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.CaseFileImpl <em>Case File</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.CaseFileImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getCaseFile()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.CaseFileImpl
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getCaseFile()
 	 * @generated
 	 */
 	int CASE_FILE = 2;
@@ -204,11 +204,11 @@ public interface MetamodelPackage extends EPackage {
 	int CASE_FILE_FEATURE_COUNT = CMMN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.CaseImpl <em>Case</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.CaseImpl <em>Case</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.CaseImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getCase()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.CaseImpl
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getCase()
 	 * @generated
 	 */
 	int CASE = 3;
@@ -268,11 +268,11 @@ public interface MetamodelPackage extends EPackage {
 	int CASE_FEATURE_COUNT = CMMN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.PlanItemDefinitionImpl <em>Plan Item Definition</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.PlanItemDefinitionImpl <em>Plan Item Definition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.PlanItemDefinitionImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getPlanItemDefinition()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.PlanItemDefinitionImpl
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getPlanItemDefinition()
 	 * @generated
 	 */
 	int PLAN_ITEM_DEFINITION = 10;
@@ -323,11 +323,11 @@ public interface MetamodelPackage extends EPackage {
 	int PLAN_ITEM_DEFINITION_FEATURE_COUNT = CMMN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.StageImpl <em>Stage</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.StageImpl <em>Stage</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.StageImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getStage()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.StageImpl
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getStage()
 	 * @generated
 	 */
 	int STAGE = 4;
@@ -387,11 +387,11 @@ public interface MetamodelPackage extends EPackage {
 	int STAGE_FEATURE_COUNT = PLAN_ITEM_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.TaskImpl <em>Task</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.TaskImpl <em>Task</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.TaskImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getTask()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.TaskImpl
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getTask()
 	 * @generated
 	 */
 	int TASK = 5;
@@ -469,11 +469,11 @@ public interface MetamodelPackage extends EPackage {
 	int TASK_FEATURE_COUNT = PLAN_ITEM_DEFINITION_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.EventListenerImpl <em>Event Listener</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.EventListenerImpl <em>Event Listener</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.EventListenerImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getEventListener()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.EventListenerImpl
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getEventListener()
 	 * @generated
 	 */
 	int EVENT_LISTENER = 6;
@@ -524,11 +524,11 @@ public interface MetamodelPackage extends EPackage {
 	int EVENT_LISTENER_FEATURE_COUNT = PLAN_ITEM_DEFINITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.DecoratorImpl <em>Decorator</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.DecoratorImpl <em>Decorator</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.DecoratorImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getDecorator()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.DecoratorImpl
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getDecorator()
 	 * @generated
 	 */
 	int DECORATOR = 7;
@@ -588,11 +588,11 @@ public interface MetamodelPackage extends EPackage {
 	int DECORATOR_FEATURE_COUNT = CMMN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.SentryImpl <em>Sentry</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.SentryImpl <em>Sentry</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.SentryImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getSentry()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.SentryImpl
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getSentry()
 	 * @generated
 	 */
 	int SENTRY = 8;
@@ -679,11 +679,11 @@ public interface MetamodelPackage extends EPackage {
 	int SENTRY_FEATURE_COUNT = CMMN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.ExpressionImpl <em>Expression</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.ExpressionImpl <em>Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.ExpressionImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getExpression()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.ExpressionImpl
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getExpression()
 	 * @generated
 	 */
 	int EXPRESSION = 9;
@@ -743,11 +743,11 @@ public interface MetamodelPackage extends EPackage {
 	int EXPRESSION_FEATURE_COUNT = CMMN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.TimerEventListenerImpl <em>Timer Event Listener</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.TimerEventListenerImpl <em>Timer Event Listener</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.TimerEventListenerImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getTimerEventListener()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.TimerEventListenerImpl
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getTimerEventListener()
 	 * @generated
 	 */
 	int TIMER_EVENT_LISTENER = 11;
@@ -807,11 +807,11 @@ public interface MetamodelPackage extends EPackage {
 	int TIMER_EVENT_LISTENER_FEATURE_COUNT = EVENT_LISTENER_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.UserEventListenerImpl <em>User Event Listener</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.UserEventListenerImpl <em>User Event Listener</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.UserEventListenerImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getUserEventListener()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.UserEventListenerImpl
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getUserEventListener()
 	 * @generated
 	 */
 	int USER_EVENT_LISTENER = 12;
@@ -862,11 +862,11 @@ public interface MetamodelPackage extends EPackage {
 	int USER_EVENT_LISTENER_FEATURE_COUNT = EVENT_LISTENER_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.TimerExpressionImpl <em>Timer Expression</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.TimerExpressionImpl <em>Timer Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.TimerExpressionImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getTimerExpression()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.TimerExpressionImpl
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getTimerExpression()
 	 * @generated
 	 */
 	int TIMER_EXPRESSION = 13;
@@ -881,433 +881,433 @@ public interface MetamodelPackage extends EPackage {
 	int TIMER_EXPRESSION_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link metamodel.TaskRole <em>Task Role</em>}' enum.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.TaskRole <em>Task Role</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.TaskRole
-	 * @see metamodel.impl.MetamodelPackageImpl#getTaskRole()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.TaskRole
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getTaskRole()
 	 * @generated
 	 */
 	int TASK_ROLE = 14;
 
 	/**
-	 * The meta object id for the '{@link metamodel.TaskType <em>Task Type</em>}' enum.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.TaskType <em>Task Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.TaskType
-	 * @see metamodel.impl.MetamodelPackageImpl#getTaskType()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.TaskType
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getTaskType()
 	 * @generated
 	 */
 	int TASK_TYPE = 15;
 
 	/**
-	 * The meta object id for the '{@link metamodel.SentryType <em>Sentry Type</em>}' enum.
+	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.SentryType <em>Sentry Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.SentryType
-	 * @see metamodel.impl.MetamodelPackageImpl#getSentryType()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.SentryType
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getSentryType()
 	 * @generated
 	 */
 	int SENTRY_TYPE = 16;
 
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.CMMNDiagram <em>CMMN Diagram</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram <em>CMMN Diagram</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>CMMN Diagram</em>'.
-	 * @see metamodel.CMMNDiagram
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram
 	 * @generated
 	 */
 	EClass getCMMNDiagram();
 
 	/**
-	 * Returns the meta object for the reference list '{@link metamodel.CMMNDiagram#getCmmnElements <em>Cmmn Elements</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram#getCmmnElements <em>Cmmn Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Cmmn Elements</em>'.
-	 * @see metamodel.CMMNDiagram#getCmmnElements()
+	 * @return the meta object for the containment reference list '<em>Cmmn Elements</em>'.
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram#getCmmnElements()
 	 * @see #getCMMNDiagram()
 	 * @generated
 	 */
 	EReference getCMMNDiagram_CmmnElements();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.CMMNElement <em>CMMN Element</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emfcloud.cmmn.metamodel.CMMNElement <em>CMMN Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>CMMN Element</em>'.
-	 * @see metamodel.CMMNElement
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.CMMNElement
 	 * @generated
 	 */
 	EClass getCMMNElement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link metamodel.CMMNElement#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emfcloud.cmmn.metamodel.CMMNElement#getId <em>Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see metamodel.CMMNElement#getId()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.CMMNElement#getId()
 	 * @see #getCMMNElement()
 	 * @generated
 	 */
 	EAttribute getCMMNElement_Id();
 
 	/**
-	 * Returns the meta object for the attribute '{@link metamodel.CMMNElement#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emfcloud.cmmn.metamodel.CMMNElement#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see metamodel.CMMNElement#getName()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.CMMNElement#getName()
 	 * @see #getCMMNElement()
 	 * @generated
 	 */
 	EAttribute getCMMNElement_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link metamodel.CMMNElement#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emfcloud.cmmn.metamodel.CMMNElement#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see metamodel.CMMNElement#getDescription()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.CMMNElement#getDescription()
 	 * @see #getCMMNElement()
 	 * @generated
 	 */
 	EAttribute getCMMNElement_Description();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.CaseFile <em>Case File</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emfcloud.cmmn.metamodel.CaseFile <em>Case File</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Case File</em>'.
-	 * @see metamodel.CaseFile
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.CaseFile
 	 * @generated
 	 */
 	EClass getCaseFile();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.Case <em>Case</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emfcloud.cmmn.metamodel.Case <em>Case</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Case</em>'.
-	 * @see metamodel.Case
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Case
 	 * @generated
 	 */
 	EClass getCase();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link metamodel.Case#getCasefile <em>Casefile</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.emfcloud.cmmn.metamodel.Case#getCasefile <em>Casefile</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Casefile</em>'.
-	 * @see metamodel.Case#getCasefile()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Case#getCasefile()
 	 * @see #getCase()
 	 * @generated
 	 */
 	EReference getCase_Casefile();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link metamodel.Case#getStages <em>Stages</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emfcloud.cmmn.metamodel.Case#getStages <em>Stages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Stages</em>'.
-	 * @see metamodel.Case#getStages()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Case#getStages()
 	 * @see #getCase()
 	 * @generated
 	 */
 	EReference getCase_Stages();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.Stage <em>Stage</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emfcloud.cmmn.metamodel.Stage <em>Stage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Stage</em>'.
-	 * @see metamodel.Stage
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Stage
 	 * @generated
 	 */
 	EClass getStage();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link metamodel.Stage#getTasks <em>Tasks</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emfcloud.cmmn.metamodel.Stage#getTasks <em>Tasks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Tasks</em>'.
-	 * @see metamodel.Stage#getTasks()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Stage#getTasks()
 	 * @see #getStage()
 	 * @generated
 	 */
 	EReference getStage_Tasks();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.Task <em>Task</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emfcloud.cmmn.metamodel.Task <em>Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Task</em>'.
-	 * @see metamodel.Task
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Task
 	 * @generated
 	 */
 	EClass getTask();
 
 	/**
-	 * Returns the meta object for the attribute '{@link metamodel.Task#getTaskType <em>Task Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emfcloud.cmmn.metamodel.Task#getTaskType <em>Task Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Task Type</em>'.
-	 * @see metamodel.Task#getTaskType()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Task#getTaskType()
 	 * @see #getTask()
 	 * @generated
 	 */
 	EAttribute getTask_TaskType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link metamodel.Task#getTaskRole <em>Task Role</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emfcloud.cmmn.metamodel.Task#getTaskRole <em>Task Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Task Role</em>'.
-	 * @see metamodel.Task#getTaskRole()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Task#getTaskRole()
 	 * @see #getTask()
 	 * @generated
 	 */
 	EAttribute getTask_TaskRole();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link metamodel.Task#getDecorators <em>Decorators</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emfcloud.cmmn.metamodel.Task#getDecorators <em>Decorators</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Decorators</em>'.
-	 * @see metamodel.Task#getDecorators()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Task#getDecorators()
 	 * @see #getTask()
 	 * @generated
 	 */
 	EReference getTask_Decorators();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.EventListener <em>Event Listener</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emfcloud.cmmn.metamodel.EventListener <em>Event Listener</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Event Listener</em>'.
-	 * @see metamodel.EventListener
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.EventListener
 	 * @generated
 	 */
 	EClass getEventListener();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.Decorator <em>Decorator</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emfcloud.cmmn.metamodel.Decorator <em>Decorator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Decorator</em>'.
-	 * @see metamodel.Decorator
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Decorator
 	 * @generated
 	 */
 	EClass getDecorator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link metamodel.Decorator#getDataType <em>Data Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emfcloud.cmmn.metamodel.Decorator#getDataType <em>Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Data Type</em>'.
-	 * @see metamodel.Decorator#getDataType()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Decorator#getDataType()
 	 * @see #getDecorator()
 	 * @generated
 	 */
 	EAttribute getDecorator_DataType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link metamodel.Decorator#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emfcloud.cmmn.metamodel.Decorator#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see metamodel.Decorator#getValue()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Decorator#getValue()
 	 * @see #getDecorator()
 	 * @generated
 	 */
 	EAttribute getDecorator_Value();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.Sentry <em>Sentry</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry <em>Sentry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Sentry</em>'.
-	 * @see metamodel.Sentry
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Sentry
 	 * @generated
 	 */
 	EClass getSentry();
 
 	/**
-	 * Returns the meta object for the attribute '{@link metamodel.Sentry#getOnPartId <em>On Part Id</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry#getOnPartId <em>On Part Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>On Part Id</em>'.
-	 * @see metamodel.Sentry#getOnPartId()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Sentry#getOnPartId()
 	 * @see #getSentry()
 	 * @generated
 	 */
 	EAttribute getSentry_OnPartId();
 
 	/**
-	 * Returns the meta object for the attribute '{@link metamodel.Sentry#getIfPart <em>If Part</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry#getIfPart <em>If Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>If Part</em>'.
-	 * @see metamodel.Sentry#getIfPart()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Sentry#getIfPart()
 	 * @see #getSentry()
 	 * @generated
 	 */
 	EAttribute getSentry_IfPart();
 
 	/**
-	 * Returns the meta object for the attribute '{@link metamodel.Sentry#getSentryType <em>Sentry Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry#getSentryType <em>Sentry Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Sentry Type</em>'.
-	 * @see metamodel.Sentry#getSentryType()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Sentry#getSentryType()
 	 * @see #getSentry()
 	 * @generated
 	 */
 	EAttribute getSentry_SentryType();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link metamodel.Sentry#getExpression <em>Expression</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry#getExpression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Expression</em>'.
-	 * @see metamodel.Sentry#getExpression()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Sentry#getExpression()
 	 * @see #getSentry()
 	 * @generated
 	 */
 	EReference getSentry_Expression();
 
 	/**
-	 * Returns the meta object for the attribute '{@link metamodel.Sentry#getAnchorId <em>Anchor Id</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry#getAnchorId <em>Anchor Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Anchor Id</em>'.
-	 * @see metamodel.Sentry#getAnchorId()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Sentry#getAnchorId()
 	 * @see #getSentry()
 	 * @generated
 	 */
 	EAttribute getSentry_AnchorId();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.Expression <em>Expression</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emfcloud.cmmn.metamodel.Expression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Expression</em>'.
-	 * @see metamodel.Expression
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Expression
 	 * @generated
 	 */
 	EClass getExpression();
 
 	/**
-	 * Returns the meta object for the attribute '{@link metamodel.Expression#getLanguage <em>Language</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emfcloud.cmmn.metamodel.Expression#getLanguage <em>Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Language</em>'.
-	 * @see metamodel.Expression#getLanguage()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Expression#getLanguage()
 	 * @see #getExpression()
 	 * @generated
 	 */
 	EAttribute getExpression_Language();
 
 	/**
-	 * Returns the meta object for the attribute '{@link metamodel.Expression#getBody <em>Body</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emfcloud.cmmn.metamodel.Expression#getBody <em>Body</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Body</em>'.
-	 * @see metamodel.Expression#getBody()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Expression#getBody()
 	 * @see #getExpression()
 	 * @generated
 	 */
 	EAttribute getExpression_Body();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.PlanItemDefinition <em>Plan Item Definition</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition <em>Plan Item Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Plan Item Definition</em>'.
-	 * @see metamodel.PlanItemDefinition
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition
 	 * @generated
 	 */
 	EClass getPlanItemDefinition();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link metamodel.PlanItemDefinition#getSentry <em>Sentry</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition#getSentry <em>Sentry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Sentry</em>'.
-	 * @see metamodel.PlanItemDefinition#getSentry()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition#getSentry()
 	 * @see #getPlanItemDefinition()
 	 * @generated
 	 */
 	EReference getPlanItemDefinition_Sentry();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.TimerEventListener <em>Timer Event Listener</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emfcloud.cmmn.metamodel.TimerEventListener <em>Timer Event Listener</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Timer Event Listener</em>'.
-	 * @see metamodel.TimerEventListener
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.TimerEventListener
 	 * @generated
 	 */
 	EClass getTimerEventListener();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link metamodel.TimerEventListener#getExpression <em>Expression</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emfcloud.cmmn.metamodel.TimerEventListener#getExpression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Expression</em>'.
-	 * @see metamodel.TimerEventListener#getExpression()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.TimerEventListener#getExpression()
 	 * @see #getTimerEventListener()
 	 * @generated
 	 */
 	EReference getTimerEventListener_Expression();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.UserEventListener <em>User Event Listener</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emfcloud.cmmn.metamodel.UserEventListener <em>User Event Listener</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>User Event Listener</em>'.
-	 * @see metamodel.UserEventListener
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.UserEventListener
 	 * @generated
 	 */
 	EClass getUserEventListener();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.TimerExpression <em>Timer Expression</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emfcloud.cmmn.metamodel.TimerExpression <em>Timer Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Timer Expression</em>'.
-	 * @see metamodel.TimerExpression
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.TimerExpression
 	 * @generated
 	 */
 	EClass getTimerExpression();
 
 	/**
-	 * Returns the meta object for enum '{@link metamodel.TaskRole <em>Task Role</em>}'.
+	 * Returns the meta object for enum '{@link org.eclipse.emfcloud.cmmn.metamodel.TaskRole <em>Task Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Task Role</em>'.
-	 * @see metamodel.TaskRole
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.TaskRole
 	 * @generated
 	 */
 	EEnum getTaskRole();
 
 	/**
-	 * Returns the meta object for enum '{@link metamodel.TaskType <em>Task Type</em>}'.
+	 * Returns the meta object for enum '{@link org.eclipse.emfcloud.cmmn.metamodel.TaskType <em>Task Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Task Type</em>'.
-	 * @see metamodel.TaskType
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.TaskType
 	 * @generated
 	 */
 	EEnum getTaskType();
 
 	/**
-	 * Returns the meta object for enum '{@link metamodel.SentryType <em>Sentry Type</em>}'.
+	 * Returns the meta object for enum '{@link org.eclipse.emfcloud.cmmn.metamodel.SentryType <em>Sentry Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Sentry Type</em>'.
-	 * @see metamodel.SentryType
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.SentryType
 	 * @generated
 	 */
 	EEnum getSentryType();
@@ -1335,17 +1335,17 @@ public interface MetamodelPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.CMMNDiagramImpl <em>CMMN Diagram</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.CMMNDiagramImpl <em>CMMN Diagram</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.CMMNDiagramImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getCMMNDiagram()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.CMMNDiagramImpl
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getCMMNDiagram()
 		 * @generated
 		 */
 		EClass CMMN_DIAGRAM = eINSTANCE.getCMMNDiagram();
 
 		/**
-		 * The meta object literal for the '<em><b>Cmmn Elements</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Cmmn Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1353,11 +1353,11 @@ public interface MetamodelPackage extends EPackage {
 		EReference CMMN_DIAGRAM__CMMN_ELEMENTS = eINSTANCE.getCMMNDiagram_CmmnElements();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.CMMNElementImpl <em>CMMN Element</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.CMMNElementImpl <em>CMMN Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.CMMNElementImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getCMMNElement()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.CMMNElementImpl
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getCMMNElement()
 		 * @generated
 		 */
 		EClass CMMN_ELEMENT = eINSTANCE.getCMMNElement();
@@ -1387,21 +1387,21 @@ public interface MetamodelPackage extends EPackage {
 		EAttribute CMMN_ELEMENT__DESCRIPTION = eINSTANCE.getCMMNElement_Description();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.CaseFileImpl <em>Case File</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.CaseFileImpl <em>Case File</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.CaseFileImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getCaseFile()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.CaseFileImpl
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getCaseFile()
 		 * @generated
 		 */
 		EClass CASE_FILE = eINSTANCE.getCaseFile();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.CaseImpl <em>Case</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.CaseImpl <em>Case</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.CaseImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getCase()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.CaseImpl
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getCase()
 		 * @generated
 		 */
 		EClass CASE = eINSTANCE.getCase();
@@ -1423,11 +1423,11 @@ public interface MetamodelPackage extends EPackage {
 		EReference CASE__STAGES = eINSTANCE.getCase_Stages();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.StageImpl <em>Stage</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.StageImpl <em>Stage</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.StageImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getStage()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.StageImpl
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getStage()
 		 * @generated
 		 */
 		EClass STAGE = eINSTANCE.getStage();
@@ -1441,11 +1441,11 @@ public interface MetamodelPackage extends EPackage {
 		EReference STAGE__TASKS = eINSTANCE.getStage_Tasks();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.TaskImpl <em>Task</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.TaskImpl <em>Task</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.TaskImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getTask()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.TaskImpl
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getTask()
 		 * @generated
 		 */
 		EClass TASK = eINSTANCE.getTask();
@@ -1475,21 +1475,21 @@ public interface MetamodelPackage extends EPackage {
 		EReference TASK__DECORATORS = eINSTANCE.getTask_Decorators();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.EventListenerImpl <em>Event Listener</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.EventListenerImpl <em>Event Listener</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.EventListenerImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getEventListener()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.EventListenerImpl
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getEventListener()
 		 * @generated
 		 */
 		EClass EVENT_LISTENER = eINSTANCE.getEventListener();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.DecoratorImpl <em>Decorator</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.DecoratorImpl <em>Decorator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.DecoratorImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getDecorator()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.DecoratorImpl
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getDecorator()
 		 * @generated
 		 */
 		EClass DECORATOR = eINSTANCE.getDecorator();
@@ -1511,11 +1511,11 @@ public interface MetamodelPackage extends EPackage {
 		EAttribute DECORATOR__VALUE = eINSTANCE.getDecorator_Value();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.SentryImpl <em>Sentry</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.SentryImpl <em>Sentry</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.SentryImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getSentry()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.SentryImpl
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getSentry()
 		 * @generated
 		 */
 		EClass SENTRY = eINSTANCE.getSentry();
@@ -1561,11 +1561,11 @@ public interface MetamodelPackage extends EPackage {
 		EAttribute SENTRY__ANCHOR_ID = eINSTANCE.getSentry_AnchorId();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.ExpressionImpl <em>Expression</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.ExpressionImpl <em>Expression</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.ExpressionImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getExpression()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.ExpressionImpl
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getExpression()
 		 * @generated
 		 */
 		EClass EXPRESSION = eINSTANCE.getExpression();
@@ -1587,11 +1587,11 @@ public interface MetamodelPackage extends EPackage {
 		EAttribute EXPRESSION__BODY = eINSTANCE.getExpression_Body();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.PlanItemDefinitionImpl <em>Plan Item Definition</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.PlanItemDefinitionImpl <em>Plan Item Definition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.PlanItemDefinitionImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getPlanItemDefinition()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.PlanItemDefinitionImpl
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getPlanItemDefinition()
 		 * @generated
 		 */
 		EClass PLAN_ITEM_DEFINITION = eINSTANCE.getPlanItemDefinition();
@@ -1605,11 +1605,11 @@ public interface MetamodelPackage extends EPackage {
 		EReference PLAN_ITEM_DEFINITION__SENTRY = eINSTANCE.getPlanItemDefinition_Sentry();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.TimerEventListenerImpl <em>Timer Event Listener</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.TimerEventListenerImpl <em>Timer Event Listener</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.TimerEventListenerImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getTimerEventListener()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.TimerEventListenerImpl
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getTimerEventListener()
 		 * @generated
 		 */
 		EClass TIMER_EVENT_LISTENER = eINSTANCE.getTimerEventListener();
@@ -1623,51 +1623,51 @@ public interface MetamodelPackage extends EPackage {
 		EReference TIMER_EVENT_LISTENER__EXPRESSION = eINSTANCE.getTimerEventListener_Expression();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.UserEventListenerImpl <em>User Event Listener</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.UserEventListenerImpl <em>User Event Listener</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.UserEventListenerImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getUserEventListener()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.UserEventListenerImpl
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getUserEventListener()
 		 * @generated
 		 */
 		EClass USER_EVENT_LISTENER = eINSTANCE.getUserEventListener();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.TimerExpressionImpl <em>Timer Expression</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.TimerExpressionImpl <em>Timer Expression</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.TimerExpressionImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getTimerExpression()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.TimerExpressionImpl
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getTimerExpression()
 		 * @generated
 		 */
 		EClass TIMER_EXPRESSION = eINSTANCE.getTimerExpression();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.TaskRole <em>Task Role</em>}' enum.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.TaskRole <em>Task Role</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.TaskRole
-		 * @see metamodel.impl.MetamodelPackageImpl#getTaskRole()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.TaskRole
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getTaskRole()
 		 * @generated
 		 */
 		EEnum TASK_ROLE = eINSTANCE.getTaskRole();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.TaskType <em>Task Type</em>}' enum.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.TaskType <em>Task Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.TaskType
-		 * @see metamodel.impl.MetamodelPackageImpl#getTaskType()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.TaskType
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getTaskType()
 		 * @generated
 		 */
 		EEnum TASK_TYPE = eINSTANCE.getTaskType();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.SentryType <em>Sentry Type</em>}' enum.
+		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.SentryType <em>Sentry Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.SentryType
-		 * @see metamodel.impl.MetamodelPackageImpl#getSentryType()
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.SentryType
+		 * @see org.eclipse.emfcloud.cmmn.metamodel.impl.MetamodelPackageImpl#getSentryType()
 		 * @generated
 		 */
 		EEnum SENTRY_TYPE = eINSTANCE.getSentryType();

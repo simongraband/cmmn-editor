@@ -45,12 +45,12 @@ public class CMMNDiagramConfiguration implements DiagramConfiguration {
 	@Override
 	public List<ShapeTypeHint> getNodeTypeHints() {
 		List<ShapeTypeHint> hints = new ArrayList<>();
-		hints.add(new ShapeTypeHint(DefaultTypes.GRAPH, false, false, false, false,
+		hints.add(new ShapeTypeHint(DefaultTypes.GRAPH, false, false, false, true,
 				List.of(Types.CASE)));
 		hints.add(new ShapeTypeHint(Types.CASE, true, true, true, false, List.of(Types.STAGE, Types.EVENTLISTENER)));
 		hints.add(new ShapeTypeHint(Types.STAGE, true, true, true, true, List.of(Types.TASK, Types.EVENTLISTENER)));
-		hints.add(new ShapeTypeHint(Types.TASK, true, true, true, true));
-		hints.add(new ShapeTypeHint(Types.EVENTLISTENER, true, true, true, true));
+		hints.add(new ShapeTypeHint(Types.TASK, true, true, false, true));
+		hints.add(new ShapeTypeHint(Types.EVENTLISTENER, true, true, false, true));
 		return hints;
 	}
 

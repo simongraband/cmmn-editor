@@ -14,6 +14,7 @@ import org.eclipse.emfcloud.cmmn.glsp.util.CMMNConfig.Types;
 import org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram;
 import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
 import org.eclipse.emfcloud.cmmn.metamodel.Case;
+import org.eclipse.emfcloud.cmmn.metamodel.EventListener;
 import org.eclipse.emfcloud.cmmn.metamodel.MetamodelFactory;
 import org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition;
 import org.eclipse.emfcloud.cmmn.metamodel.Stage;
@@ -29,7 +30,7 @@ import com.google.common.collect.Lists;
 
 public class CreateNodeChildOperationHandler extends BasicOperationHandler<CreateNodeOperation> {
 
-	private List<String> handledElementTypeIds = Lists.newArrayList(Types.STAGE, Types.TASK);
+	private List<String> handledElementTypeIds = Lists.newArrayList(Types.STAGE, Types.TASK, Types.EVENTLISTENER);
 
 	@Override
 	public boolean handles(Operation execAction) {
@@ -59,7 +60,12 @@ public class CreateNodeChildOperationHandler extends BasicOperationHandler<Creat
 			modelState.getIndex().add(task);
             //((Stage) container).getTasks().add(task);
             drawShape(task, modelState, operation);
-        }
+        } else if (elementTypeId.contentEquals(Types.EVENTLISTENER)){
+			EventListener eventListener = MetamodelFactory.eINSTANCE.createEventListener();
+			setName(eventListener, modelState);
+			//set Container
+			drawShape(eventListener, modelState, operation);
+		}
     }
     
     protected void drawShape(CMMNElement cmmnElement, GraphicalModelState modelState, CreateNodeOperation operation){
@@ -81,6 +87,8 @@ public class CreateNodeChildOperationHandler extends BasicOperationHandler<Creat
 			nameProvider = i -> "NewStage" + i;
 		} else if (element instanceof Task) {
 			nameProvider = i -> "NewTask" + i;
+		} else if (element instanceof EventListener) {
+			nameProvider = i -> "NewEventListener" + i;
 		}
 		int nodeCounter = modelState.getIndex().getCounter(GraphPackage.Literals.GNODE, nameProvider);
 		element.setName(nameProvider.apply(nodeCounter));

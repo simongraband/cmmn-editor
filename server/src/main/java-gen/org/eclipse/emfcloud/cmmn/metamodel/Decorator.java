@@ -2,7 +2,6 @@
  */
 package org.eclipse.emfcloud.cmmn.metamodel;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,11 +12,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link metamodel.Decorator#getDataType <em>Data Type</em>}</li>
- *   <li>{@link metamodel.Decorator#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.Decorator#getDataType <em>Data Type</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.Decorator#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see metamodel.MetamodelPackage#getDecorator()
+ * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getDecorator()
  * @model
  * @generated
  */
@@ -28,14 +27,14 @@ public interface Decorator extends CMMNElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Data Type</em>' attribute.
 	 * @see #setDataType(Class)
-	 * @see metamodel.MetamodelPackage#getDecorator_DataType()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getDecorator_DataType()
 	 * @model
 	 * @generated
 	 */
 	Class getDataType();
 
 	/**
-	 * Sets the value of the '{@link metamodel.Decorator#getDataType <em>Data Type</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emfcloud.cmmn.metamodel.Decorator#getDataType <em>Data Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Data Type</em>' attribute.
@@ -50,14 +49,14 @@ public interface Decorator extends CMMNElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(Class)
-	 * @see metamodel.MetamodelPackage#getDecorator_Value()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getDecorator_Value()
 	 * @model
 	 * @generated
 	 */
 	Class getValue();
 
 	/**
-	 * Sets the value of the '{@link metamodel.Decorator#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emfcloud.cmmn.metamodel.Decorator#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.

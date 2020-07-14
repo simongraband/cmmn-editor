@@ -15,12 +15,12 @@ import org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram;
 import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
 import org.eclipse.emfcloud.cmmn.metamodel.Case;
 import org.eclipse.emfcloud.cmmn.metamodel.MetamodelFactory;
-import org.eclipse.emfcloud.cmmn.metamodel.Stage;
-import org.eclipse.emfcloud.cmmn.metamodel.Task;
 import org.eclipse.glsp.api.model.GraphicalModelState;
 import org.eclipse.glsp.api.operation.Operation;
 import org.eclipse.glsp.api.operation.kind.CreateNodeOperation;
+import org.eclipse.glsp.graph.GDimension;
 import org.eclipse.glsp.graph.GraphPackage;
+import org.eclipse.glsp.graph.impl.GDimensionImpl;
 import org.eclipse.glsp.server.operationhandler.BasicOperationHandler;
 
 public class CreateNodeOperationHandler extends BasicOperationHandler<CreateNodeOperation> {
@@ -58,26 +58,13 @@ public class CreateNodeOperationHandler extends BasicOperationHandler<CreateNode
 		Function<Integer, String> nameProvider = i -> "Unknown" + i;
 		if (element instanceof Case) {
 			nameProvider = i -> "NewCase" + i;
-		} else if (element instanceof Stage) {
-			nameProvider = i -> "NewStage" + i;
-		} else if (element instanceof Task) {
-			nameProvider = i -> "NewTask" + i;
 		}
 		int nodeCounter = modelState.getIndex().getCounter(GraphPackage.Literals.GNODE, nameProvider);
 		element.setName(nameProvider.apply(nodeCounter));
 	}
 
 	private CMMNElement createNode(String elementTypeId) {
-		if (elementTypeId.equals((Types.CASE))) {
-			Case cmmnCase = MetamodelFactory.eINSTANCE.createCase();
-			return cmmnCase;
-		} else if (elementTypeId.equals(Types.STAGE)) {
-			Stage stage = MetamodelFactory.eINSTANCE.createStage();
-			return stage;
-		} else {
-			Task task = MetamodelFactory.eINSTANCE.createTask();
-			return task;
-		}
+		return MetamodelFactory.eINSTANCE.createCase();
 	}
 
 	@Override

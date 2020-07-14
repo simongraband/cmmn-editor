@@ -2,11 +2,6 @@
  */
 package org.eclipse.emfcloud.cmmn.metamodel.impl;
 
-import org.eclipse.emfcloud.cmmn.metamodel.Expression;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
-import org.eclipse.emfcloud.cmmn.metamodel.Sentry;
-import org.eclipse.emfcloud.cmmn.metamodel.SentryType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +9,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emfcloud.cmmn.metamodel.Expression;
+import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
+import org.eclipse.emfcloud.cmmn.metamodel.Sentry;
+import org.eclipse.emfcloud.cmmn.metamodel.SentryType;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,11 +23,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link metamodel.impl.SentryImpl#getOnPartId <em>On Part Id</em>}</li>
- *   <li>{@link metamodel.impl.SentryImpl#getIfPart <em>If Part</em>}</li>
- *   <li>{@link metamodel.impl.SentryImpl#getSentryType <em>Sentry Type</em>}</li>
- *   <li>{@link metamodel.impl.SentryImpl#getExpression <em>Expression</em>}</li>
- *   <li>{@link metamodel.impl.SentryImpl#getAnchorId <em>Anchor Id</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.SentryImpl#getOnPartId <em>On Part Id</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.SentryImpl#getIfPart <em>If Part</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.SentryImpl#getSentryType <em>Sentry Type</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.SentryImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.SentryImpl#getAnchorId <em>Anchor Id</em>}</li>
  * </ul>
  *
  * @generated

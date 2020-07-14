@@ -2,15 +2,15 @@
  */
 package org.eclipse.emfcloud.cmmn.metamodel.impl;
 
-import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
+import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,9 +20,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link metamodel.impl.CMMNElementImpl#getId <em>Id</em>}</li>
- *   <li>{@link metamodel.impl.CMMNElementImpl#getName <em>Name</em>}</li>
- *   <li>{@link metamodel.impl.CMMNElementImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.CMMNElementImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.CMMNElementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.CMMNElementImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated

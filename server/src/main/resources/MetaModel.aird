@@ -2,6 +2,7 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
   <viewpoint:DAnalysis uid="_ihnwYKGbEeqe4cFpOxkMbA" selectedViews="_iusjEKGbEeqe4cFpOxkMbA _ivMSUKGbEeqe4cFpOxkMbA _ivOukKGbEeqe4cFpOxkMbA _ivYfkKGbEeqe4cFpOxkMbA" version="14.3.0.201909031200">
     <semanticResources>MetaModel.ecore</semanticResources>
+    <semanticResources>MetaModel.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_iusjEKGbEeqe4cFpOxkMbA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_jvuiQKGbEeqe4cFpOxkMbA" name="metamodel class diagram" repPath="#_juFjgKGbEeqe4cFpOxkMbA" changeId="43559e18-ebd4-4239-8f91-5d9779e440df">
@@ -12,7 +13,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="MetaModel.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ipuqoKcZEeqZXNcobTwXKg" name="metamodel class diagram" repPath="#_ipc90KcZEeqZXNcobTwXKg" changeId="8bb80b0c-98ff-4faf-98d5-15e0f92d6f17">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ipuqoKcZEeqZXNcobTwXKg" name="metamodel class diagram" repPath="#_ipc90KcZEeqZXNcobTwXKg" changeId="10de8185-d905-4db4-a6f3-5d8b4298ca25">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="MetaModel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1362,6 +1363,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_kGfjkacZEeqZXNcobTwXKg" fontName="Sawasdee" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_kGfjkqcZEeqZXNcobTwXKg"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_MEKWgL0TEeqrG7_rkFwigA" type="3010" element="_MDj5kr0TEeqrG7_rkFwigA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_MEKWgb0TEeqrG7_rkFwigA" fontName="Sawasdee" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_MEKWgr0TEeqrG7_rkFwigA"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_kGXAsqcZEeqZXNcobTwXKg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_kGXAs6cZEeqZXNcobTwXKg"/>
           </children>
@@ -1926,6 +1931,14 @@
         <target xmi:type="ecore:EAttribute" href="MetaModel.ecore#//Sentry/SentryType"/>
         <semanticElements xmi:type="ecore:EAttribute" href="MetaModel.ecore#//Sentry/SentryType"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_kF2DUqcZEeqZXNcobTwXKg" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_MDj5kr0TEeqrG7_rkFwigA" name="anchorId : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="MetaModel.ecore#//Sentry/anchorId"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="MetaModel.ecore#//Sentry/anchorId"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_MDlHsL0TEeqrG7_rkFwigA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>

@@ -2,8 +2,6 @@
  */
 package org.eclipse.emfcloud.cmmn.metamodel.impl;
 
-import org.eclipse.emfcloud.cmmn.metamodel.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -12,6 +10,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import org.eclipse.emfcloud.cmmn.metamodel.*;
 
 /**
  * <!-- begin-user-doc -->

@@ -9,7 +9,7 @@ package org.eclipse.emfcloud.cmmn.metamodel;
  * <!-- end-user-doc -->
  *
  *
- * @see metamodel.MetamodelPackage#getCaseFile()
+ * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getCaseFile()
  * @model
  * @generated
  */

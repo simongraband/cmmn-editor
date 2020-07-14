@@ -13,22 +13,22 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link metamodel.PlanItemDefinition#getSentry <em>Sentry</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition#getSentry <em>Sentry</em>}</li>
  * </ul>
  *
- * @see metamodel.MetamodelPackage#getPlanItemDefinition()
+ * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getPlanItemDefinition()
  * @model
  * @generated
  */
 public interface PlanItemDefinition extends CMMNElement {
 	/**
 	 * Returns the value of the '<em><b>Sentry</b></em>' containment reference list.
-	 * The list contents are of type {@link metamodel.Sentry}.
+	 * The list contents are of type {@link org.eclipse.emfcloud.cmmn.metamodel.Sentry}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sentry</em>' containment reference list.
-	 * @see metamodel.MetamodelPackage#getPlanItemDefinition_Sentry()
-	 * @model type="metamodel.Sentry" containment="true"
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getPlanItemDefinition_Sentry()
+	 * @model type="org.eclipse.emfcloud.cmmn.metamodel.Sentry" containment="true"
 	 * @generated
 	 */
 	EList<Sentry> getSentry();

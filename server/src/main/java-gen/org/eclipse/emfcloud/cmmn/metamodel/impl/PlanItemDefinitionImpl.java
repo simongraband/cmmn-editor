@@ -4,10 +4,6 @@ package org.eclipse.emfcloud.cmmn.metamodel.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
-import org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition;
-import org.eclipse.emfcloud.cmmn.metamodel.Sentry;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -18,6 +14,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
+import org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition;
+import org.eclipse.emfcloud.cmmn.metamodel.Sentry;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Plan Item Definition</b></em>'.
@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link metamodel.impl.PlanItemDefinitionImpl#getSentry <em>Sentry</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.PlanItemDefinitionImpl#getSentry <em>Sentry</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,7 +65,7 @@ public class PlanItemDefinitionImpl extends CMMNElementImpl implements PlanItemD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Sentry> getSentry() {
+	public EList getSentry() {
 		if (sentry == null) {
 			sentry = new EObjectContainmentEList(Sentry.class, this, MetamodelPackage.PLAN_ITEM_DEFINITION__SENTRY);
 		}

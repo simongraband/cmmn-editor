@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see metamodel.MetamodelPackage#getTimerExpression()
+ * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getTimerExpression()
  * @model
  * @generated
  */

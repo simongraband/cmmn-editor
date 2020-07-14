@@ -4,15 +4,19 @@ package org.eclipse.emfcloud.cmmn.metamodel.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram;
-import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram;
+import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
+import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,21 +26,21 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link metamodel.impl.CMMNDiagramImpl#getCmmnElements <em>Cmmn Elements</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.CMMNDiagramImpl#getCmmnElements <em>Cmmn Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CMMNDiagramImpl extends CMMNElementImpl implements CMMNDiagram {
 	/**
-	 * The cached value of the '{@link #getCmmnElements() <em>Cmmn Elements</em>}' reference list.
+	 * The cached value of the '{@link #getCmmnElements() <em>Cmmn Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCmmnElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList cmmnElements;
+	protected EList<CMMNElement> cmmnElements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,11 +65,24 @@ public class CMMNDiagramImpl extends CMMNElementImpl implements CMMNDiagram {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getCmmnElements() {
+	public EList<CMMNElement> getCmmnElements() {
 		if (cmmnElements == null) {
-			cmmnElements = new EObjectResolvingEList(CMMNElement.class, this, MetamodelPackage.CMMN_DIAGRAM__CMMN_ELEMENTS);
+			cmmnElements = new EObjectContainmentEList(CMMNElement.class, this, MetamodelPackage.CMMN_DIAGRAM__CMMN_ELEMENTS);
 		}
 		return cmmnElements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MetamodelPackage.CMMN_DIAGRAM__CMMN_ELEMENTS:
+				return ((InternalEList)getCmmnElements()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

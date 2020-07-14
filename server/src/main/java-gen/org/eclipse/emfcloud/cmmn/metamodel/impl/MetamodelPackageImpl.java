@@ -2,6 +2,14 @@
  */
 package org.eclipse.emfcloud.cmmn.metamodel.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram;
 import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
 import org.eclipse.emfcloud.cmmn.metamodel.Case;
@@ -21,14 +29,6 @@ import org.eclipse.emfcloud.cmmn.metamodel.TaskType;
 import org.eclipse.emfcloud.cmmn.metamodel.TimerEventListener;
 import org.eclipse.emfcloud.cmmn.metamodel.TimerExpression;
 import org.eclipse.emfcloud.cmmn.metamodel.UserEventListener;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -167,7 +167,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see metamodel.MetamodelPackage#eNS_URI
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
@@ -681,7 +681,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(cmmnDiagramEClass, CMMNDiagram.class, "CMMNDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCMMNDiagram_CmmnElements(), this.getCMMNElement(), null, "cmmnElements", null, 1, -1, CMMNDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCMMNDiagram_CmmnElements(), this.getCMMNElement(), null, "cmmnElements", null, 1, -1, CMMNDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cmmnElementEClass, CMMNElement.class, "CMMNElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCMMNElement_Id(), ecorePackage.getEString(), "id", null, 0, 1, CMMNElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

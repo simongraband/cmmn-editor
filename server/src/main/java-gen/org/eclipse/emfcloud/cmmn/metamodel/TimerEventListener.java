@@ -13,22 +13,22 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link metamodel.TimerEventListener#getExpression <em>Expression</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.TimerEventListener#getExpression <em>Expression</em>}</li>
  * </ul>
  *
- * @see metamodel.MetamodelPackage#getTimerEventListener()
+ * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getTimerEventListener()
  * @model
  * @generated
  */
 public interface TimerEventListener extends EventListener {
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' containment reference list.
-	 * The list contents are of type {@link metamodel.TimerExpression}.
+	 * The list contents are of type {@link org.eclipse.emfcloud.cmmn.metamodel.TimerExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Expression</em>' containment reference list.
-	 * @see metamodel.MetamodelPackage#getTimerEventListener_Expression()
-	 * @model type="metamodel.TimerExpression" containment="true"
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getTimerEventListener_Expression()
+	 * @model type="org.eclipse.emfcloud.cmmn.metamodel.TimerExpression" containment="true"
 	 * @generated
 	 */
 	EList getExpression();

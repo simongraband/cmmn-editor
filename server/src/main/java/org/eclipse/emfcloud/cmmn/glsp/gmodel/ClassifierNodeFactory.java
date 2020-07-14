@@ -20,6 +20,7 @@ import org.eclipse.emfcloud.cmmn.glsp.util.CMMNConfig.CSS;
 import org.eclipse.emfcloud.cmmn.glsp.util.CMMNConfig.Types;
 import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
 import org.eclipse.emfcloud.cmmn.metamodel.Case;
+import org.eclipse.emfcloud.cmmn.metamodel.EventListener;
 import org.eclipse.emfcloud.cmmn.metamodel.Stage;
 import org.eclipse.emfcloud.cmmn.metamodel.Task;
 import org.eclipse.glsp.graph.GCompartment;
@@ -48,6 +49,8 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 			return create((Stage) element);
 		} else if (element instanceof Task) {
 			return create((Task) element);
+		} else if (element instanceof EventListener){
+			return create((EventListener) element);
 		}
 		return null;
 	}
@@ -93,7 +96,26 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 
 		applyShapeData(cmmnTask, b);
 		return b.build();
+	}
 
+	// TODO refactor Task
+	public GNode create(EventListener cmmnTask) {
+		GNodeBuilder b = new GNodeBuilder(Types.TASK) //
+				.id(toId(cmmnTask)) //
+				.layout(GConstants.Layout.VBOX) //
+				.layoutOptions(new GLayoutOptions().resizeContainer(true)) //
+				.addCssClass(CSS.TASK) //
+				.add(buildHeader(cmmnTask))//
+				.add(new GCompartmentBuilder(Types.COMP) //
+						.id(toId(cmmnTask) + "_childCompartment")//
+						.layout(GConstants.Layout.VBOX) //
+						.layoutOptions(new GLayoutOptions() //
+								.hAlign(GConstants.HAlign.CENTER) //
+								.resizeContainer(true)) //
+						.build());
+
+		applyShapeData(cmmnTask, b);
+		return b.build();
 	}
 
 	private void applyShapeData(CMMNElement element, GNodeBuilder builder) {

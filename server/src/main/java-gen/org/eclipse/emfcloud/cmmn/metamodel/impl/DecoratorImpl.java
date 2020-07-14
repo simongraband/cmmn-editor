@@ -2,15 +2,14 @@
  */
 package org.eclipse.emfcloud.cmmn.metamodel.impl;
 
-import org.eclipse.emfcloud.cmmn.metamodel.Decorator;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emfcloud.cmmn.metamodel.Decorator;
+import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,8 +19,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link metamodel.impl.DecoratorImpl#getDataType <em>Data Type</em>}</li>
- *   <li>{@link metamodel.impl.DecoratorImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.DecoratorImpl#getDataType <em>Data Type</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.DecoratorImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated

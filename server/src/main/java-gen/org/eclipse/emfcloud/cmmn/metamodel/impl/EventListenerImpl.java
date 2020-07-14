@@ -2,10 +2,10 @@
  */
 package org.eclipse.emfcloud.cmmn.metamodel.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emfcloud.cmmn.metamodel.EventListener;
 import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

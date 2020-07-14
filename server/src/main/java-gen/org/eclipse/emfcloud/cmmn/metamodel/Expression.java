@@ -12,11 +12,11 @@ package org.eclipse.emfcloud.cmmn.metamodel;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link metamodel.Expression#getLanguage <em>Language</em>}</li>
- *   <li>{@link metamodel.Expression#getBody <em>Body</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.Expression#getLanguage <em>Language</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.Expression#getBody <em>Body</em>}</li>
  * </ul>
  *
- * @see metamodel.MetamodelPackage#getExpression()
+ * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getExpression()
  * @model
  * @generated
  */
@@ -27,14 +27,14 @@ public interface Expression extends CMMNElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Language</em>' attribute.
 	 * @see #setLanguage(String)
-	 * @see metamodel.MetamodelPackage#getExpression_Language()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getExpression_Language()
 	 * @model
 	 * @generated
 	 */
 	String getLanguage();
 
 	/**
-	 * Sets the value of the '{@link metamodel.Expression#getLanguage <em>Language</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emfcloud.cmmn.metamodel.Expression#getLanguage <em>Language</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Language</em>' attribute.
@@ -49,14 +49,14 @@ public interface Expression extends CMMNElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Body</em>' attribute.
 	 * @see #setBody(String)
-	 * @see metamodel.MetamodelPackage#getExpression_Body()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getExpression_Body()
 	 * @model
 	 * @generated
 	 */
 	String getBody();
 
 	/**
-	 * Sets the value of the '{@link metamodel.Expression#getBody <em>Body</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emfcloud.cmmn.metamodel.Expression#getBody <em>Body</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Body</em>' attribute.

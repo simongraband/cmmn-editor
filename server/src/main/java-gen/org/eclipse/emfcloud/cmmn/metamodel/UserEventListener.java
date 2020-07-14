@@ -9,7 +9,7 @@ package org.eclipse.emfcloud.cmmn.metamodel;
  * <!-- end-user-doc -->
  *
  *
- * @see metamodel.MetamodelPackage#getUserEventListener()
+ * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getUserEventListener()
  * @model
  * @generated
  */

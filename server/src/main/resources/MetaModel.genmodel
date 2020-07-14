@@ -4,7 +4,8 @@
     modelName="MetaModel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" copyrightFields="false" importOrganizing="true">
   <foreignModel>MetaModel.ecore</foreignModel>
-  <genPackages prefix="Metamodel" disposableProviderFactory="true" ecorePackage="MetaModel.ecore#/">
+  <genPackages prefix="Metamodel" basePackage="org.eclipse.emfcloud.cmmn" disposableProviderFactory="true"
+      ecorePackage="MetaModel.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="MetaModel.ecore#//TaskRole">
       <genEnumLiterals ecoreEnumLiteral="MetaModel.ecore#//TaskRole/Human"/>
       <genEnumLiterals ecoreEnumLiteral="MetaModel.ecore#//TaskRole/Process"/>
@@ -48,6 +49,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MetaModel.ecore#//Sentry/ifPart"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MetaModel.ecore#//Sentry/SentryType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MetaModel.ecore#//Sentry/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MetaModel.ecore#//Sentry/anchorId"/>
     </genClasses>
     <genClasses ecoreClass="MetaModel.ecore#//Expression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MetaModel.ecore#//Expression/language"/>

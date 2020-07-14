@@ -2,14 +2,14 @@
  */
 package org.eclipse.emfcloud.cmmn.metamodel.impl;
 
-import org.eclipse.emfcloud.cmmn.metamodel.Expression;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emfcloud.cmmn.metamodel.Expression;
+import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link metamodel.impl.ExpressionImpl#getLanguage <em>Language</em>}</li>
- *   <li>{@link metamodel.impl.ExpressionImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.ExpressionImpl#getLanguage <em>Language</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.ExpressionImpl#getBody <em>Body</em>}</li>
  * </ul>
  *
  * @generated

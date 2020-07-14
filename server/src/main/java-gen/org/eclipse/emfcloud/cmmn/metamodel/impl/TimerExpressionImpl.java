@@ -2,12 +2,12 @@
  */
 package org.eclipse.emfcloud.cmmn.metamodel.impl;
 
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
-import org.eclipse.emfcloud.cmmn.metamodel.TimerExpression;
-
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
+import org.eclipse.emfcloud.cmmn.metamodel.TimerExpression;
 
 /**
  * <!-- begin-user-doc -->

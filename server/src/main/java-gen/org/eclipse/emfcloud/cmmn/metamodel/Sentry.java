@@ -12,14 +12,14 @@ package org.eclipse.emfcloud.cmmn.metamodel;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link metamodel.Sentry#getOnPartId <em>On Part Id</em>}</li>
- *   <li>{@link metamodel.Sentry#getIfPart <em>If Part</em>}</li>
- *   <li>{@link metamodel.Sentry#getSentryType <em>Sentry Type</em>}</li>
- *   <li>{@link metamodel.Sentry#getExpression <em>Expression</em>}</li>
- *   <li>{@link metamodel.Sentry#getAnchorId <em>Anchor Id</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry#getOnPartId <em>On Part Id</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry#getIfPart <em>If Part</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry#getSentryType <em>Sentry Type</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry#getExpression <em>Expression</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry#getAnchorId <em>Anchor Id</em>}</li>
  * </ul>
  *
- * @see metamodel.MetamodelPackage#getSentry()
+ * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getSentry()
  * @model
  * @generated
  */
@@ -30,14 +30,14 @@ public interface Sentry extends CMMNElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>On Part Id</em>' attribute.
 	 * @see #setOnPartId(String)
-	 * @see metamodel.MetamodelPackage#getSentry_OnPartId()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getSentry_OnPartId()
 	 * @model
 	 * @generated
 	 */
 	String getOnPartId();
 
 	/**
-	 * Sets the value of the '{@link metamodel.Sentry#getOnPartId <em>On Part Id</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry#getOnPartId <em>On Part Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>On Part Id</em>' attribute.
@@ -52,14 +52,14 @@ public interface Sentry extends CMMNElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>If Part</em>' attribute.
 	 * @see #setIfPart(String)
-	 * @see metamodel.MetamodelPackage#getSentry_IfPart()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getSentry_IfPart()
 	 * @model
 	 * @generated
 	 */
 	String getIfPart();
 
 	/**
-	 * Sets the value of the '{@link metamodel.Sentry#getIfPart <em>If Part</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry#getIfPart <em>If Part</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>If Part</em>' attribute.
@@ -70,24 +70,24 @@ public interface Sentry extends CMMNElement {
 
 	/**
 	 * Returns the value of the '<em><b>Sentry Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link metamodel.SentryType}.
+	 * The literals are from the enumeration {@link org.eclipse.emfcloud.cmmn.metamodel.SentryType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sentry Type</em>' attribute.
-	 * @see metamodel.SentryType
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.SentryType
 	 * @see #setSentryType(SentryType)
-	 * @see metamodel.MetamodelPackage#getSentry_SentryType()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getSentry_SentryType()
 	 * @model
 	 * @generated
 	 */
 	SentryType getSentryType();
 
 	/**
-	 * Sets the value of the '{@link metamodel.Sentry#getSentryType <em>Sentry Type</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry#getSentryType <em>Sentry Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Sentry Type</em>' attribute.
-	 * @see metamodel.SentryType
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.SentryType
 	 * @see #getSentryType()
 	 * @generated
 	 */
@@ -99,14 +99,14 @@ public interface Sentry extends CMMNElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Expression</em>' containment reference.
 	 * @see #setExpression(Expression)
-	 * @see metamodel.MetamodelPackage#getSentry_Expression()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getSentry_Expression()
 	 * @model containment="true"
 	 * @generated
 	 */
 	Expression getExpression();
 
 	/**
-	 * Sets the value of the '{@link metamodel.Sentry#getExpression <em>Expression</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry#getExpression <em>Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Expression</em>' containment reference.
@@ -121,14 +121,14 @@ public interface Sentry extends CMMNElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Anchor Id</em>' attribute.
 	 * @see #setAnchorId(String)
-	 * @see metamodel.MetamodelPackage#getSentry_AnchorId()
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getSentry_AnchorId()
 	 * @model
 	 * @generated
 	 */
 	String getAnchorId();
 
 	/**
-	 * Sets the value of the '{@link metamodel.Sentry#getAnchorId <em>Anchor Id</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry#getAnchorId <em>Anchor Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Anchor Id</em>' attribute.

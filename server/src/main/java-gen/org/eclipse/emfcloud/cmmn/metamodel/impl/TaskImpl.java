@@ -4,12 +4,6 @@ package org.eclipse.emfcloud.cmmn.metamodel.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emfcloud.cmmn.metamodel.Decorator;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
-import org.eclipse.emfcloud.cmmn.metamodel.Task;
-import org.eclipse.emfcloud.cmmn.metamodel.TaskRole;
-import org.eclipse.emfcloud.cmmn.metamodel.TaskType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,6 +17,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipse.emfcloud.cmmn.metamodel.Decorator;
+import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
+import org.eclipse.emfcloud.cmmn.metamodel.Task;
+import org.eclipse.emfcloud.cmmn.metamodel.TaskRole;
+import org.eclipse.emfcloud.cmmn.metamodel.TaskType;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Task</b></em>'.
@@ -31,9 +31,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link metamodel.impl.TaskImpl#getTaskType <em>Task Type</em>}</li>
- *   <li>{@link metamodel.impl.TaskImpl#getTaskRole <em>Task Role</em>}</li>
- *   <li>{@link metamodel.impl.TaskImpl#getDecorators <em>Decorators</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.TaskImpl#getTaskType <em>Task Type</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.TaskImpl#getTaskRole <em>Task Role</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.TaskImpl#getDecorators <em>Decorators</em>}</li>
  * </ul>
  *
  * @generated

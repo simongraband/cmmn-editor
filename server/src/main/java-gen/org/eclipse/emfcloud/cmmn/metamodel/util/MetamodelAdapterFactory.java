@@ -2,8 +2,6 @@
  */
 package org.eclipse.emfcloud.cmmn.metamodel.util;
 
-import org.eclipse.emfcloud.cmmn.metamodel.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -11,12 +9,14 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.emfcloud.cmmn.metamodel.*;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see metamodel.MetamodelPackage
+ * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage
  * @generated
  */
 public class MetamodelAdapterFactory extends AdapterFactoryImpl {
@@ -127,13 +127,13 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.CMMNDiagram <em>CMMN Diagram</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram <em>CMMN Diagram</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.CMMNDiagram
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram
 	 * @generated
 	 */
 	public Adapter createCMMNDiagramAdapter() {
@@ -141,13 +141,13 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.CMMNElement <em>CMMN Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emfcloud.cmmn.metamodel.CMMNElement <em>CMMN Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.CMMNElement
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.CMMNElement
 	 * @generated
 	 */
 	public Adapter createCMMNElementAdapter() {
@@ -155,13 +155,13 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.CaseFile <em>Case File</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emfcloud.cmmn.metamodel.CaseFile <em>Case File</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.CaseFile
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.CaseFile
 	 * @generated
 	 */
 	public Adapter createCaseFileAdapter() {
@@ -169,13 +169,13 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.Case <em>Case</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emfcloud.cmmn.metamodel.Case <em>Case</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.Case
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Case
 	 * @generated
 	 */
 	public Adapter createCaseAdapter() {
@@ -183,13 +183,13 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.Stage <em>Stage</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emfcloud.cmmn.metamodel.Stage <em>Stage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.Stage
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Stage
 	 * @generated
 	 */
 	public Adapter createStageAdapter() {
@@ -197,13 +197,13 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.Task <em>Task</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emfcloud.cmmn.metamodel.Task <em>Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.Task
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Task
 	 * @generated
 	 */
 	public Adapter createTaskAdapter() {
@@ -211,13 +211,13 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.EventListener <em>Event Listener</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emfcloud.cmmn.metamodel.EventListener <em>Event Listener</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.EventListener
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.EventListener
 	 * @generated
 	 */
 	public Adapter createEventListenerAdapter() {
@@ -225,13 +225,13 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.Decorator <em>Decorator</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emfcloud.cmmn.metamodel.Decorator <em>Decorator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.Decorator
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Decorator
 	 * @generated
 	 */
 	public Adapter createDecoratorAdapter() {
@@ -239,13 +239,13 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.Sentry <em>Sentry</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emfcloud.cmmn.metamodel.Sentry <em>Sentry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.Sentry
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Sentry
 	 * @generated
 	 */
 	public Adapter createSentryAdapter() {
@@ -253,13 +253,13 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.Expression <em>Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emfcloud.cmmn.metamodel.Expression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.Expression
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Expression
 	 * @generated
 	 */
 	public Adapter createExpressionAdapter() {
@@ -267,13 +267,13 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.PlanItemDefinition <em>Plan Item Definition</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition <em>Plan Item Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.PlanItemDefinition
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition
 	 * @generated
 	 */
 	public Adapter createPlanItemDefinitionAdapter() {
@@ -281,13 +281,13 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.TimerEventListener <em>Timer Event Listener</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emfcloud.cmmn.metamodel.TimerEventListener <em>Timer Event Listener</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.TimerEventListener
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.TimerEventListener
 	 * @generated
 	 */
 	public Adapter createTimerEventListenerAdapter() {
@@ -295,13 +295,13 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.UserEventListener <em>User Event Listener</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emfcloud.cmmn.metamodel.UserEventListener <em>User Event Listener</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.UserEventListener
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.UserEventListener
 	 * @generated
 	 */
 	public Adapter createUserEventListenerAdapter() {
@@ -309,13 +309,13 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.TimerExpression <em>Timer Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emfcloud.cmmn.metamodel.TimerExpression <em>Timer Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.TimerExpression
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.TimerExpression
 	 * @generated
 	 */
 	public Adapter createTimerExpressionAdapter() {
