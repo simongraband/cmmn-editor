@@ -30,6 +30,7 @@
     <genClasses ecoreClass="MetaModel.ecore#//Case">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MetaModel.ecore#//Case/casefile"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MetaModel.ecore#//Case/stages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MetaModel.ecore#//Case/tasks"/>
     </genClasses>
     <genClasses ecoreClass="MetaModel.ecore#//Stage">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MetaModel.ecore#//Stage/tasks"/>

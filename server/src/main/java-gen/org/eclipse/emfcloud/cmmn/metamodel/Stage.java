@@ -31,6 +31,6 @@ public interface Stage extends PlanItemDefinition {
 	 * @model type="org.eclipse.emfcloud.cmmn.metamodel.Task" containment="true" required="true"
 	 * @generated
 	 */
-	EList<Task> getTasks();
+	EList getTasks();
 
 } // Stage

@@ -8,7 +8,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  ********************************************************************************/
-import { EnableToolPaletteAction } from "@eclipse-glsp/client";
+import { EnableToolPaletteAction, RequestTypeHintsAction } from "@eclipse-glsp/client";
 import {
     GLSPDiagramManager,
     GLSPDiagramWidget,
@@ -82,6 +82,7 @@ export class CMMNDiagramWidget extends GLSPDiagramWidget {
             needsClientLayout: `${this.viewerOptions.needsClientLayout}`,
             ...this.options
         }));
+        this.actionDispatcher.dispatch(new RequestTypeHintsAction("cmmndiagram"));
         this.actionDispatcher.dispatch(new EnableToolPaletteAction());
     }
 }

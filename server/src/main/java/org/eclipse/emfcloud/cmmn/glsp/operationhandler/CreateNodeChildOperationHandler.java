@@ -1,5 +1,6 @@
 package org.eclipse.emfcloud.cmmn.glsp.operationhandler;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
@@ -16,11 +17,11 @@ import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
 import org.eclipse.emfcloud.cmmn.metamodel.Case;
 import org.eclipse.emfcloud.cmmn.metamodel.EventListener;
 import org.eclipse.emfcloud.cmmn.metamodel.MetamodelFactory;
-import org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition;
 import org.eclipse.emfcloud.cmmn.metamodel.Stage;
 import org.eclipse.emfcloud.cmmn.metamodel.Task;
+import org.eclipse.glsp.api.action.kind.SetMarkersAction;
+import org.eclipse.glsp.api.markers.Marker;
 import org.eclipse.glsp.api.model.GraphicalModelState;
-import org.eclipse.glsp.api.model.ModelState;
 import org.eclipse.glsp.api.operation.Operation;
 import org.eclipse.glsp.api.operation.kind.CreateNodeOperation;
 import org.eclipse.glsp.graph.GraphPackage;
@@ -44,35 +45,37 @@ public class CreateNodeChildOperationHandler extends BasicOperationHandler<Creat
 	@Override
 	public void executeOperation(CreateNodeOperation operation, GraphicalModelState graphicalModelState) {
 		CMMNModelState modelState = CMMNModelState.getModelState(graphicalModelState);
-		CMMNElement container = getOrThrow(modelState.getIndex().getSemantic(operation.getContainerId(),
-				CMMNElement.class), "No valid container with id " + operation.getContainerId() + " found");
-        String elementTypeId = operation.getElementTypeId();
-        
-		if (elementTypeId.equals(Types.STAGE) /*&& container instanceof Case*/) {
-            Stage stage = MetamodelFactory.eINSTANCE.createStage();
-            setName(stage, modelState);
+		CMMNElement container = getOrThrow(
+				modelState.getIndex().getSemantic(operation.getContainerId(), CMMNElement.class),
+				"No valid container with id " + operation.getContainerId() + " found");
+		String elementTypeId = operation.getElementTypeId();
+
+		if (elementTypeId.equals(Types.STAGE) && container instanceof Case) {
+			Stage stage = MetamodelFactory.eINSTANCE.createStage();
+			setName(stage, modelState);
 			modelState.getIndex().add(stage);
-            //((Case) container).getStages().add(stage);
-            drawShape(stage, modelState, operation);
-		} else if (elementTypeId.contentEquals(Types.TASK) /*&& container instanceof Stage*/) {
-            Task task = MetamodelFactory.eINSTANCE.createTask();
-            setName(task, modelState);
+			((Case) container).getStages().add(stage);
+			drawShape(stage, modelState, operation);
+		} else if (elementTypeId.contentEquals(Types.TASK) && (container instanceof Stage || container instanceof Case)) {
+			Task task = MetamodelFactory.eINSTANCE.createTask();
+			setName(task, modelState);
 			modelState.getIndex().add(task);
-            //((Stage) container).getTasks().add(task);
-            drawShape(task, modelState, operation);
-        } else if (elementTypeId.contentEquals(Types.EVENTLISTENER)){
+			if(container instanceof Stage) ((Stage) container).getTasks().add(task);
+			if(container instanceof Case) ((Case) container).getTasks().add(task);
+			drawShape(task, modelState, operation);
+		} else if (elementTypeId.contentEquals(Types.EVENTLISTENER)) {
 			EventListener eventListener = MetamodelFactory.eINSTANCE.createEventListener();
 			setName(eventListener, modelState);
-			//set Container
+			// set Container
 			drawShape(eventListener, modelState, operation);
 		}
-    }
-    
-    protected void drawShape(CMMNElement cmmnElement, GraphicalModelState modelState, CreateNodeOperation operation){
-        CMMNEditorContext context = CMMNModelState.getEditorContext(modelState);
+	}
+
+	protected void drawShape(CMMNElement cmmnElement, GraphicalModelState modelState, CreateNodeOperation operation) {
+		CMMNEditorContext context = CMMNModelState.getEditorContext(modelState);
 		CMMNFacade facade = context.getCMMNFacade();
 		CMMNDiagram cmmnDiagram = facade.getCMMNDiagram();
-        cmmnDiagram.getCmmnElements().add(cmmnElement);
+		cmmnDiagram.getCmmnElements().add(cmmnElement);
 		Diagram diagram = facade.getDiagram();
 		Shape shape = facade.initializeShape(cmmnElement);
 		if (operation.getLocation() != null) {

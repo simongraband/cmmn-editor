@@ -40,7 +40,7 @@ public class CMMNDiagramImpl extends CMMNElementImpl implements CMMNDiagram {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CMMNElement> cmmnElements;
+	protected EList cmmnElements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -65,7 +65,7 @@ public class CMMNDiagramImpl extends CMMNElementImpl implements CMMNDiagram {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CMMNElement> getCmmnElements() {
+	public EList getCmmnElements() {
 		if (cmmnElements == null) {
 			cmmnElements = new EObjectContainmentEList(CMMNElement.class, this, MetamodelPackage.CMMN_DIAGRAM__CMMN_ELEMENTS);
 		}

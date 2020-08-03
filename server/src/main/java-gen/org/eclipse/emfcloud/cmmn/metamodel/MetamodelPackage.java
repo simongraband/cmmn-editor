@@ -259,13 +259,22 @@ public interface MetamodelPackage extends EPackage {
 	int CASE__STAGES = CMMN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASE__TASKS = CMMN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Case</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CASE_FEATURE_COUNT = CMMN_ELEMENT_FEATURE_COUNT + 2;
+	int CASE_FEATURE_COUNT = CMMN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.PlanItemDefinitionImpl <em>Plan Item Definition</em>}' class.
@@ -1018,6 +1027,17 @@ public interface MetamodelPackage extends EPackage {
 	EReference getCase_Stages();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emfcloud.cmmn.metamodel.Case#getTasks <em>Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tasks</em>'.
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.Case#getTasks()
+	 * @see #getCase()
+	 * @generated
+	 */
+	EReference getCase_Tasks();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emfcloud.cmmn.metamodel.Stage <em>Stage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1421,6 +1441,14 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CASE__STAGES = eINSTANCE.getCase_Stages();
+
+		/**
+		 * The meta object literal for the '<em><b>Tasks</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CASE__TASKS = eINSTANCE.getCase_Tasks();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emfcloud.cmmn.metamodel.impl.StageImpl <em>Stage</em>}' class.

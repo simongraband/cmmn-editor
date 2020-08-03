@@ -90,17 +90,17 @@ public class GModelFactory extends AbstractGModelFactory<EObject, GModelElement>
 		return graph;
 	}
 
-	private List<GModelElement> createEdges(PlanItemDefinition nodes) {
+	private List<GModelElement> createEdges(PlanItemDefinition node) {
 		List<GModelElement> children = new ArrayList<>();
 		// create sentry edges
-		nodes.getSentry().stream().map(this::create).filter(Objects::nonNull).forEach(children::add);
+		node.getSentry().stream().map(this::create).filter(Objects::nonNull).forEach(children::add);
 		
 		return children;
 	}
 
 	public GEdge create(Sentry sentry) {
-		String source = sentry.getOnPartId();
-		String target = sentry.getAnchorId();
+		String target = sentry.getOnPartId();
+		String source = sentry.getAnchorId();
 		String id = toId(sentry);
 
 		GEdgeBuilder builder = new GEdgeBuilder().id(id) //
@@ -119,31 +119,6 @@ public class GModelFactory extends AbstractGModelFactory<EObject, GModelElement>
 			}
 		});
 		return builder.build();
-	}
-
-	private String createMultiplicity(EReference eReference) {
-		return String.format("[%s..%s]", eReference.getLowerBound(),
-				eReference.getUpperBound() == -1 ? "*" : eReference.getUpperBound());
-	}
-
-	private GLabel createEdgeMultiplicityLabel(String value, String id, double position) {
-		return createEdgeLabel(value, position, id, Types.LABEL_EDGE_MULTIPLICITY, GConstants.EdgeSide.BOTTOM);
-	}
-
-	private GLabel createEdgeNameLabel(String name, String id, double position) {
-		return createEdgeLabel(name, position, id, Types.LABEL_EDGE_NAME, GConstants.EdgeSide.TOP);
-	}
-
-	private GLabel createEdgeLabel(String name, double position, String id, String type, String side) {
-		return new GLabelBuilder(type) //
-				.edgePlacement(new GEdgePlacementBuilder()//
-						.side(side)//
-						.position(position)//
-						.offset(2d) //
-						.rotate(false) //
-						.build())//
-				.id(id) //
-				.text(name).build();
 	}
 
 	public static GLSPServerException createFailed(EObject semanticElement) {

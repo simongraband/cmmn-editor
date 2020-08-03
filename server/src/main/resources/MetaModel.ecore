@@ -56,6 +56,12 @@
         upperBound="-1"
         eType="#//Stage"
         containment="true"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="tasks"
+        upperBound="-1"
+        eType="#//Task"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"

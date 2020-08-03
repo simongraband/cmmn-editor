@@ -40,7 +40,7 @@ public class PlanItemDefinitionImpl extends CMMNElementImpl implements PlanItemD
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Sentry> sentry;
+	protected EList sentry;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -21,6 +21,7 @@ import org.eclipse.emfcloud.cmmn.metamodel.Case;
 import org.eclipse.emfcloud.cmmn.metamodel.CaseFile;
 import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
 import org.eclipse.emfcloud.cmmn.metamodel.Stage;
+import org.eclipse.emfcloud.cmmn.metamodel.Task;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +33,7 @@ import org.eclipse.emfcloud.cmmn.metamodel.Stage;
  * <ul>
  *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.CaseImpl#getCasefile <em>Casefile</em>}</li>
  *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.CaseImpl#getStages <em>Stages</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.impl.CaseImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,6 +58,16 @@ public class CaseImpl extends CMMNElementImpl implements Case {
 	 * @ordered
 	 */
 	protected EList stages;
+
+	/**
+	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTasks()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList tasks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -135,12 +147,26 @@ public class CaseImpl extends CMMNElementImpl implements Case {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList getTasks() {
+		if (tasks == null) {
+			tasks = new EObjectContainmentEList(Task.class, this, MetamodelPackage.CASE__TASKS);
+		}
+		return tasks;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case MetamodelPackage.CASE__CASEFILE:
 				return basicSetCasefile(null, msgs);
 			case MetamodelPackage.CASE__STAGES:
 				return ((InternalEList)getStages()).basicRemove(otherEnd, msgs);
+			case MetamodelPackage.CASE__TASKS:
+				return ((InternalEList)getTasks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -156,6 +182,8 @@ public class CaseImpl extends CMMNElementImpl implements Case {
 				return getCasefile();
 			case MetamodelPackage.CASE__STAGES:
 				return getStages();
+			case MetamodelPackage.CASE__TASKS:
+				return getTasks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -174,6 +202,10 @@ public class CaseImpl extends CMMNElementImpl implements Case {
 				getStages().clear();
 				getStages().addAll((Collection)newValue);
 				return;
+			case MetamodelPackage.CASE__TASKS:
+				getTasks().clear();
+				getTasks().addAll((Collection)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -191,6 +223,9 @@ public class CaseImpl extends CMMNElementImpl implements Case {
 			case MetamodelPackage.CASE__STAGES:
 				getStages().clear();
 				return;
+			case MetamodelPackage.CASE__TASKS:
+				getTasks().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -206,6 +241,8 @@ public class CaseImpl extends CMMNElementImpl implements Case {
 				return casefile != null;
 			case MetamodelPackage.CASE__STAGES:
 				return stages != null && !stages.isEmpty();
+			case MetamodelPackage.CASE__TASKS:
+				return tasks != null && !tasks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

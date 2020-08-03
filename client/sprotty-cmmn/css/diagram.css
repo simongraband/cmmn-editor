@@ -34,6 +34,7 @@ svg {
 .cmmn-case {
     fill: transparent;
     stroke: var(--sprotty-border);
+    pointer-events: visiblePainted;
     stroke-width: 1;
     font-weight: bold;
     filter: url(#dropShadow);

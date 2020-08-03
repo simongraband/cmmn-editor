@@ -83,6 +83,6 @@ public interface Task extends PlanItemDefinition {
 	 * @model type="org.eclipse.emfcloud.cmmn.metamodel.Decorator" containment="true"
 	 * @generated
 	 */
-	EList<Decorator> getDecorators();
+	EList getDecorators();
 
 } // Task

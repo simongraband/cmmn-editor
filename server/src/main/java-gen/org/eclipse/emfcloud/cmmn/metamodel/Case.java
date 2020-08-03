@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.Case#getCasefile <em>Casefile</em>}</li>
  *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.Case#getStages <em>Stages</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.cmmn.metamodel.Case#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
  * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getCase()
@@ -55,5 +56,17 @@ public interface Case extends CMMNElement {
 	 * @generated
 	 */
 	EList<Stage> getStages();
+
+	/**
+	 * Returns the value of the '<em><b>Tasks</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.emfcloud.cmmn.metamodel.Task}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tasks</em>' containment reference list.
+	 * @see org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage#getCase_Tasks()
+	 * @model type="org.eclipse.emfcloud.cmmn.metamodel.Task" containment="true"
+	 * @generated
+	 */
+	EList<Task> getTasks();
 
 } // Case

@@ -20,6 +20,7 @@ import org.eclipse.emfcloud.cmmn.glsp.operationhandler.ChangeBoundsOperationHand
 import org.eclipse.emfcloud.cmmn.glsp.operationhandler.CreateNodeChildOperationHandler;
 import org.eclipse.emfcloud.cmmn.glsp.operationhandler.CreateNodeOperationHandler;
 import org.eclipse.emfcloud.cmmn.glsp.operationhandler.CreateSentryOperationHandler;
+import org.eclipse.emfcloud.cmmn.glsp.operationhandler.LabelEditOperationHandler;
 import org.eclipse.emfcloud.cmmn.glsp.palette.CMMNToolPaletteItemProvider;
 import org.eclipse.emfcloud.cmmn.glsp.registry.CMMNDIOperationHandlerRegistry;
 import org.eclipse.glsp.api.action.Action;
@@ -82,6 +83,7 @@ public class CMMNGLSPModule extends DefaultGLSPModule {
 		bindings.add(CreateSentryOperationHandler.class);
 		bindings.add(CMMNDeleteOperationHandler.class);
 		bindings.add(ChangeBoundsOperationHandler.class);
+		bindings.add(LabelEditOperationHandler.class);
 	}
 
 	@Override
