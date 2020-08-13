@@ -27,6 +27,7 @@ import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
 import org.eclipse.emfcloud.cmmn.metamodel.MetamodelFactory;
 import org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition;
 import org.eclipse.emfcloud.cmmn.metamodel.Sentry;
+import org.eclipse.emfcloud.cmmn.metamodel.SentryType;
 import org.eclipse.glsp.api.model.GraphicalModelState;
 import org.eclipse.glsp.api.operation.Operation;
 import org.eclipse.glsp.api.operation.kind.CreateEdgeOperation;
@@ -36,7 +37,7 @@ import org.eclipse.glsp.server.operationhandler.BasicOperationHandler;
 import com.google.common.collect.Lists;
 
 public class CreateSentryOperationHandler extends BasicOperationHandler<CreateEdgeOperation> {
-	private List<String> handledElementTypeIds = Lists.newArrayList(Types.SENTRY);
+	private List<String> handledElementTypeIds = Lists.newArrayList(Types.SENTRY_ENTRY, Types.SENTRY_EXIT);
 
 	@Override
 	public boolean handles(Operation operation) {
@@ -74,7 +75,9 @@ public class CreateSentryOperationHandler extends BasicOperationHandler<CreateEd
 		Sentry sentry = MetamodelFactory.eINSTANCE.createSentry();
 		sentry.setOnPartId(source.getId());
 		sentry.setAnchorId(target.getId());
-		sentry.setName(target.getName().toLowerCase() + "s");
+		if(elementTypeId==Types.SENTRY_ENTRY) sentry.setSentryType(SentryType.ENTRY_LITERAL);
+		else sentry.setSentryType(SentryType.EXIT_LITERAL);
+		//sentry.setName(target.getName().toLowerCase() + "s");
 		target.getSentry().add(sentry);
 		return sentry;
 

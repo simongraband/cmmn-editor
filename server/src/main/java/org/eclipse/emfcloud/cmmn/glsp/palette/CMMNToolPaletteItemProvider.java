@@ -23,26 +23,28 @@ public class CMMNToolPaletteItemProvider implements ToolPaletteItemProvider {
 	private PaletteItem nodes() {
 		PaletteItem createCase = node(Types.CASE, "Case");
 		PaletteItem createStage = node(Types.STAGE, "Stage");
-		PaletteItem createTask = node(Types.TASK, "Task");
+		PaletteItem createHumanTask = node(Types.TASK, "Human Task");
+		PaletteItem createProcessTask = node(Types.TASK, "Process Task");
+		PaletteItem createEventListener = node(Types.EVENTLISTENER, "EventListener");
 
-		List<PaletteItem> nodes = Lists.newArrayList(createCase, createStage, createTask);
+		List<PaletteItem> nodes = Lists.newArrayList(createCase, createStage, createHumanTask, createProcessTask, createEventListener);
 		return PaletteItem.createPaletteGroup("cmmn.classifier", "Nodes", nodes);
 	}
 
 	private PaletteItem edges() {
-		PaletteItem createSentry = edge(Types.SENTRY, "Sentry");
+		PaletteItem createEntrySentry = edge(Types.SENTRY_ENTRY, "Sentry with Entry Criterion");
+		PaletteItem createExitSentry = edge(Types.SENTRY_EXIT, "Sentry with Exit Criterion");
 
-		List<PaletteItem> edges = Lists.newArrayList(createSentry);
+		List<PaletteItem> edges = Lists.newArrayList(createEntrySentry, createExitSentry);
 		return PaletteItem.createPaletteGroup("cmmn.edges", "Edges", edges);
 	}
 
 	private PaletteItem other() {
-		PaletteItem createEventListener = node(Types.EVENTLISTENER, "EventListener");
 		PaletteItem createDecorator = node(Types.DECORATOR, "Decorator");
 
-		List<PaletteItem> other = Lists.newArrayList(createEventListener, createDecorator);
+		List<PaletteItem> other = Lists.newArrayList(createDecorator);
 		
-		return PaletteItem.createPaletteGroup("cmmn.other", "Other", other);
+		return PaletteItem.createPaletteGroup("cmmn.other", "Decorators", other);
 	}
 
 	private PaletteItem node(String elementTypeId, String label) {

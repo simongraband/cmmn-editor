@@ -41,7 +41,6 @@ import {
     openModule,
     paletteModule,
     PolylineEdgeView,
-    RectangularNodeView,
     requestResponseModule,
     routingModule,
     saveModule,
@@ -51,7 +50,6 @@ import {
     SGraphView,
     SLabel,
     SLabelView,
-    SNode,
     SRoutingHandle,
     SRoutingHandleView,
     toolFeedbackModule,
@@ -74,13 +72,17 @@ import { LabelSelectionFeedback } from "./feedback";
 import {
     ArrowEdge,
     LabeledNode,
-    SEditableLabel
+    SEditableLabel,
+    IconEventListener
 } from "./model";
 import {
-    ArrowEdgeView,
+    EntryEdgeView,
+    ExitEdgeView,
     StageNodeView,
     TaskNodeView,
-    CaseNodeView
+    CaseNodeView,
+    IconView,
+    EventListenerNodeView
 } from "./views";
 import { EditLabelUIModelValidation } from "./features/model-validation";
 
@@ -99,7 +101,7 @@ export default (containerId: string) => {
         configureModelElement(context, 'label:name', SEditableLabel, SLabelView);
         configureModelElement(context, 'label:edge-name', SEditableLabel, SLabelView);
         configureModelElement(context, 'label:edge-multiplicity', SEditableLabel, SLabelView);
-        configureModelElement(context, 'node:event-listener', SNode, RectangularNodeView);
+        configureModelElement(context, 'node:event-listener', IconEventListener, EventListenerNodeView);
         configureModelElement(context, 'label:text', SLabel, SLabelView);
         configureModelElement(context, 'comp:comp', SCompartment, SCompartmentView);
         configureModelElement(context, 'comp:header', SCompartment, SCompartmentView);
@@ -108,8 +110,10 @@ export default (containerId: string) => {
         configureModelElement(context, 'html', HtmlRoot, HtmlRootView);
         configureModelElement(context, 'routing-point', SRoutingHandle, SRoutingHandleView);
         configureModelElement(context, 'volatile-routing-point', SRoutingHandle, SRoutingHandleView);
-        configureModelElement(context, 'edge:sentry', ArrowEdge, ArrowEdgeView);
+        configureModelElement(context, 'edge:sentry-entry', ArrowEdge, EntryEdgeView);
+        configureModelElement(context, 'edge:sentry-exit', ArrowEdge, ExitEdgeView);
         configureModelElement(context, 'edge', SEdge, PolylineEdgeView);
+        configureModelElement(context, 'icon:eventlistener', IconEventListener, IconView);
         configureViewerOptions(context, {
             needsClientLayout: false, //was true
             baseDiv: containerId

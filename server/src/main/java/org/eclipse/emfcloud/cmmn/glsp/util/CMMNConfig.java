@@ -26,7 +26,9 @@ public final class CMMNConfig {
 		public static final String STAGE = "node:stage";
 		public static final String TASK = "node:task";
 		public static final String EVENTLISTENER = "node:event-listener";
-		public static final String SENTRY = "edge:sentry";
+		public static final String SENTRY_ENTRY = "edge:sentry-entry";
+		public static final String SENTRY_EXIT = "edge:sentry-exit";
+
 
 		private Types() {
 		};
@@ -38,7 +40,7 @@ public final class CMMNConfig {
 		public static final String STAGE = "cmmn-stage";
 		public static final String TASK = "cmmn-task";
 		public static final String SENTRY = "cmmn-sentry";
-		public static final String FOREIGN_PACKAGE = "foreign-package";;
+		public static final String FOREIGN_PACKAGE = "foreign-package";
 		public static final String CMMN_EDGE = "cmmn-edge";
 		public static final String ITALIC = "italic";
 

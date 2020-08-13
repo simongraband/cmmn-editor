@@ -20,7 +20,8 @@ import {
   toDegrees,
 } from "sprotty/lib";
 
-import { LabeledNode} from "./model";
+import { LabeledNode, Icon} from "./model";
+import { IView } from "@eclipse-glsp/client";
 
 /** @jsx svg */
 const JSX = { createElement: snabbdom.svg };
@@ -97,35 +98,48 @@ export class CaseNodeView extends RectangularNodeView {
 }
 
 @injectable()
-export class EventListenerNodeView extends RectangularNodeView {
-  render(node: LabeledNode, context: RenderingContext): VNode {
-
-    const rhombStr = "M 0,38  L " + node.bounds.width + ",38";
-
-    return <g class-node={true}>
-      <defs>
-        <filter id="dropShadow">
-          <feDropShadow dx="0.5" dy="0.5" stdDeviation="0.4" />
-        </filter>
-      </defs>
-
-      <rect class-sprotty-node={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
-        x={0} y={0} rx={6} ry={6}
-        width={Math.max(0, node.bounds.width)} height={Math.max(0, node.bounds.height)} />
-      {context.renderChildren(node)}
-      {(node.children[1] && node.children[1].children.length > 0) ?
-        <path class-sprotty-edge={true} d={rhombStr}></path> : ''}
-    </g>;
-  }
+export class EventListenerNodeView implements IView {
+    render(element: Icon, context: RenderingContext): VNode {
+      const image = require("../images/" + element.iconImageName);
+  
+      return <g>
+        <image class-sprotty-icon={true} href={image} x={0} y={0} width={200} height={200}></image>
+        {context.renderChildren(element)}
+      </g>;
+    }
 }
 
 @injectable()
-export class ArrowEdgeView extends PolylineEdgeView {
+export class EntryEdgeView extends PolylineEdgeView {
   protected renderAdditionals(edge: SEdge, segments: Point[], context: RenderingContext): VNode[] {
     //const p1 = segments[segments.length - 2];
     const p2 = segments[segments.length - 1];
     return [
       <path class-sprotty-edge={true} class-fill={true} d="M 0,-14 L 8,0 L 0,14 L -8,0 Z"
+        transform={`translate(${p2.x} ${p2.y})`} />,
+    ];
+  }
+}
+
+@injectable()
+export class IconView implements IView {
+  render(element: Icon, context: RenderingContext): VNode {
+    const image = require("../images/" + element.iconImageName);
+
+    return <g>
+      <image class-sprotty-icon={true} href={image} x={0} y={0} width={200} height={200}></image>
+      {context.renderChildren(element)}
+    </g>;
+  }
+}
+
+@injectable()
+export class ExitEdgeView extends PolylineEdgeView {
+  protected renderAdditionals(edge: SEdge, segments: Point[], context: RenderingContext): VNode[] {
+    //const p1 = segments[segments.length - 2];
+    const p2 = segments[segments.length - 1];
+    return [
+      <path class-sprotty-edge={true} class-exit={true} d="M 0,-14 L 8,0 L 0,14 L -8,0 Z"
         transform={`translate(${p2.x} ${p2.y})`} />,
     ];
   }

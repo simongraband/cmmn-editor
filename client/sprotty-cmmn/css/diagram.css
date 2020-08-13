@@ -189,15 +189,7 @@ svg {
     fill: white;
 }
 
-.cmmn-edge.aggregation .cmmn-edge.composition {
-    stroke: var(--sprotty-edge);
-}
-
-.cmmn-edge>.diamond.aggregation {
-    fill: var(--sprotty-background);
-}
-
-.cmmn-edge>.diamond.composition {
+.cmmn-edge>.exit {
     fill: var(--sprotty-edge);
 }
 

@@ -29,6 +29,7 @@ import org.eclipse.emfcloud.cmmn.metamodel.Case;
 import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
 import org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition;
 import org.eclipse.emfcloud.cmmn.metamodel.Sentry;
+import org.eclipse.emfcloud.cmmn.metamodel.SentryType;
 import org.eclipse.glsp.api.jsonrpc.GLSPServerException;
 import org.eclipse.glsp.graph.GPoint;
 import org.eclipse.glsp.graph.GEdge;
@@ -105,7 +106,8 @@ public class GModelFactory extends AbstractGModelFactory<EObject, GModelElement>
 
 		GEdgeBuilder builder = new GEdgeBuilder().id(id) //
 				.addCssClass(CSS.SENTRY) //
-				.sourceId(source) //7
+				//.addCssClass(isExit(sentry) ? CSS.EXIT : null)
+				.sourceId(source) //
 				.targetId(target) //
 				.routerKind(GConstants.RouterKind.MANHATTAN);
 
@@ -119,6 +121,11 @@ public class GModelFactory extends AbstractGModelFactory<EObject, GModelElement>
 			}
 		});
 		return builder.build();
+	}
+
+	public boolean isExit(Sentry sentry){
+		if(sentry.getSentryType() == SentryType.EXIT_LITERAL) return true;
+		return false;
 	}
 
 	public static GLSPServerException createFailed(EObject semanticElement) {

@@ -60,7 +60,9 @@ public class CreateNodeChildOperationHandler extends BasicOperationHandler<Creat
 			Task task = MetamodelFactory.eINSTANCE.createTask();
 			setName(task, modelState);
 			modelState.getIndex().add(task);
-			if(container instanceof Stage) ((Stage) container).getTasks().add(task);
+			if(container instanceof Stage){
+				((Stage) container).getTasks().add(task);
+			} 
 			if(container instanceof Case) ((Case) container).getTasks().add(task);
 			drawShape(task, modelState, operation);
 		} else if (elementTypeId.contentEquals(Types.EVENTLISTENER)) {
@@ -74,8 +76,8 @@ public class CreateNodeChildOperationHandler extends BasicOperationHandler<Creat
 	protected void drawShape(CMMNElement cmmnElement, GraphicalModelState modelState, CreateNodeOperation operation) {
 		CMMNEditorContext context = CMMNModelState.getEditorContext(modelState);
 		CMMNFacade facade = context.getCMMNFacade();
-		CMMNDiagram cmmnDiagram = facade.getCMMNDiagram();
-		cmmnDiagram.getCmmnElements().add(cmmnElement);
+		//CMMNDiagram cmmnDiagram = facade.getCMMNDiagram();
+		//cmmnDiagram.getCmmnElements().add(cmmnElement);
 		Diagram diagram = facade.getDiagram();
 		Shape shape = facade.initializeShape(cmmnElement);
 		if (operation.getLocation() != null) {

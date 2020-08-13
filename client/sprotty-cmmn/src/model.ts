@@ -24,6 +24,7 @@ import {
     withEditLabelFeature,
     SEdge
 } from "sprotty/lib";
+import { SShapeElement, boundsFeature, layoutContainerFeature, layoutableChildFeature, fadeFeature } from "@eclipse-glsp/client";
 
 
 export class LabeledNode extends RectangularNode implements WithEditableLabel, Nameable {
@@ -68,4 +69,16 @@ export class SLabelNode extends SLabel implements EditableLabel {
 
 export class ArrowEdge extends SEdge {
     public readonly targetAnchorCorrection = 0;
+}
+
+export class Icon extends SShapeElement {
+    iconImageName: string;
+
+    hasFeature(feature: symbol): boolean {
+        return feature === boundsFeature || feature === layoutContainerFeature || feature === layoutableChildFeature || feature === fadeFeature;
+    }
+}
+
+export class IconEventListener extends Icon {
+    iconImageName = "EventListener.svg";
 }

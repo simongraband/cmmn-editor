@@ -33,7 +33,7 @@ public class CMMNDiagramConfiguration implements DiagramConfiguration {
 
 	@Override
 	public List<EdgeTypeHint> getEdgeTypeHints() {
-		return Lists.newArrayList(createDefaultEdgeTypeHint(Types.SENTRY));
+		return Lists.newArrayList(createDefaultEdgeTypeHint(Types.SENTRY_ENTRY), createDefaultEdgeTypeHint(Types.SENTRY_EXIT));
 	}
 
 	@Override
@@ -71,7 +71,8 @@ public class CMMNDiagramConfiguration implements DiagramConfiguration {
 		mappings.put(Types.STAGE, GraphPackage.Literals.GNODE);
 		mappings.put(Types.TASK, GraphPackage.Literals.GNODE);
 		mappings.put(Types.EVENTLISTENER, GraphPackage.Literals.GNODE);
-		mappings.put(Types.SENTRY, GraphPackage.Literals.GEDGE);
+		mappings.put(Types.SENTRY_ENTRY, GraphPackage.Literals.GEDGE);
+		mappings.put(Types.SENTRY_EXIT, GraphPackage.Literals.GEDGE);
 		mappings.put(Types.DECORATOR, GraphPackage.Literals.GCOMPARTMENT);
 		return mappings;
 	}

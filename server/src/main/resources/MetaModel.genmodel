@@ -19,7 +19,7 @@
       <genEnumLiterals ecoreEnumLiteral="MetaModel.ecore#//SentryType/Exit"/>
     </genEnums>
     <genClasses ecoreClass="MetaModel.ecore#//CMMNDiagram">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MetaModel.ecore#//CMMNDiagram/cmmnElements"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference MetaModel.ecore#//CMMNDiagram/cmmnElements"/>
     </genClasses>
     <genClasses ecoreClass="MetaModel.ecore#//CMMNElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MetaModel.ecore#//CMMNElement/id"/>
@@ -42,7 +42,7 @@
     </genClasses>
     <genClasses ecoreClass="MetaModel.ecore#//EventListener"/>
     <genClasses ecoreClass="MetaModel.ecore#//Decorator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MetaModel.ecore#//Decorator/dataType"/>
+      <genTypeParameters ecoreTypeParameter="MetaModel.ecore#//Decorator/DecoratorType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MetaModel.ecore#//Decorator/value"/>
     </genClasses>
     <genClasses ecoreClass="MetaModel.ecore#//Sentry">
