@@ -19,8 +19,8 @@ import java.util.UUID;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emfcloud.cmmn.enotation.Diagram;
-import org.eclipse.emfcloud.cmmn.enotation.NotationElement;
+import org.eclipse.emfcloud.metamodel.enotation.Diagram;
+import org.eclipse.emfcloud.metamodel.enotation.NotationElement;
 import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.impl.GModelIndexImpl;
 

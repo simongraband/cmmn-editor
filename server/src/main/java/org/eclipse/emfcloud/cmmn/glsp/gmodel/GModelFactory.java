@@ -19,17 +19,17 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emfcloud.cmmn.enotation.Edge;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
 import org.eclipse.emfcloud.cmmn.glsp.util.CMMNConfig.CSS;
 import org.eclipse.emfcloud.cmmn.glsp.util.CMMNConfig.Types;
-import org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram;
-import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
-import org.eclipse.emfcloud.cmmn.metamodel.Case;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
-import org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition;
-import org.eclipse.emfcloud.cmmn.metamodel.Sentry;
-import org.eclipse.emfcloud.cmmn.metamodel.SentryType;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNDiagram;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNElement;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNPackage;
+import org.eclipse.emfcloud.metamodel.CMMN.Case;
+import org.eclipse.emfcloud.metamodel.CMMN.PlanItemDefinition;
+import org.eclipse.emfcloud.metamodel.CMMN.Sentry;
+import org.eclipse.emfcloud.metamodel.CMMN.SentryType;
+import org.eclipse.emfcloud.metamodel.enotation.Edge;
 import org.eclipse.glsp.api.jsonrpc.GLSPServerException;
 import org.eclipse.glsp.graph.GPoint;
 import org.eclipse.glsp.graph.GEdge;
@@ -124,7 +124,7 @@ public class GModelFactory extends AbstractGModelFactory<EObject, GModelElement>
 	}
 
 	public boolean isExit(Sentry sentry){
-		if(sentry.getSentryType() == SentryType.EXIT_LITERAL) return true;
+		if(sentry.getSentryType() == SentryType.EXIT) return true;
 		return false;
 	}
 

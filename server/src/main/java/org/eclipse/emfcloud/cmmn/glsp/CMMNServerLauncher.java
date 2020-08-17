@@ -14,7 +14,7 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.elk.alg.layered.options.LayeredMetaDataProvider;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNPackage;
 import org.eclipse.glsp.layout.ElkLayoutEngine;
 import org.eclipse.glsp.server.launch.DefaultGLSPServerLauncher;
 import org.eclipse.glsp.server.launch.GLSPServerLauncher;
@@ -28,7 +28,7 @@ public class CMMNServerLauncher {
 	public static void main(String[] args) {
 		int port = 5007;
 		
-		MetamodelPackage.eINSTANCE.eClass();
+		CMMNPackage.eINSTANCE.eClass();
 		ElkLayoutEngine.initialize(new LayeredMetaDataProvider());
 		BasicConfigurator.configure();
 		Logger.getRootLogger().setLevel(Level.DEBUG);

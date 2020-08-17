@@ -20,14 +20,14 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emfcloud.cmmn.metamodel.util.MetamodelAdapterFactory;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emfcloud.cmmn.enotation.EnotationPackage;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelPackage;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNPackage;
+import org.eclipse.emfcloud.metamodel.CMMN.util.CMMNAdapterFactory;
+import org.eclipse.emfcloud.metamodel.enotation.EnotationPackage;
 import org.eclipse.glsp.api.jsonrpc.GLSPServerException;
 import org.eclipse.glsp.api.utils.ClientOptions;
 
@@ -55,9 +55,9 @@ public class ResourceManager {
 	}
 
 	protected ResourceSet setupResourceSet() {
-		editingDomain = new AdapterFactoryEditingDomain(new MetamodelAdapterFactory(), new BasicCommandStack());
+		editingDomain = new AdapterFactoryEditingDomain(new CMMNAdapterFactory(), new BasicCommandStack());
 		ResourceSet resourceSet = editingDomain.getResourceSet();
-		resourceSet.getPackageRegistry().put(MetamodelPackage.eINSTANCE.getNsURI(), MetamodelPackage.eINSTANCE);
+		resourceSet.getPackageRegistry().put(CMMNPackage.eINSTANCE.getNsURI(), CMMNPackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(EnotationPackage.eINSTANCE.getNsURI(), EnotationPackage.eINSTANCE);
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
 		return resourceSet;
@@ -75,7 +75,7 @@ public class ResourceManager {
 		try {
 			Resource semanticResource = loadResource(convertToFile(getSemanticURI()));
 			Resource notationResource = loadResource(convertToFile(getNotationURI()));
-			cmmnFacade = new CMMNFacade(semanticResource, notationResource, modelIndex);
+			cmmnFacade = new CMMNFacade(semanticResource, notationResource/*, modelIndex*/);
 			return cmmnFacade;
 		} catch (IOException e) {
 			LOG.error(e);

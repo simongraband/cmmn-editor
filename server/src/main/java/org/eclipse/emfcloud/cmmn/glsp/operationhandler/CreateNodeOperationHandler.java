@@ -5,16 +5,16 @@ import java.util.function.Function;
 
 import com.google.common.collect.Lists;
 
-import org.eclipse.emfcloud.cmmn.enotation.Diagram;
-import org.eclipse.emfcloud.cmmn.enotation.Shape;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNEditorContext;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNFacade;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
 import org.eclipse.emfcloud.cmmn.glsp.util.CMMNConfig.Types;
-import org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram;
-import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
-import org.eclipse.emfcloud.cmmn.metamodel.Case;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelFactory;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNDiagram;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNElement;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNFactory;
+import org.eclipse.emfcloud.metamodel.CMMN.Case;
+import org.eclipse.emfcloud.metamodel.enotation.Diagram;
+import org.eclipse.emfcloud.metamodel.enotation.Shape;
 import org.eclipse.glsp.api.model.GraphicalModelState;
 import org.eclipse.glsp.api.operation.Operation;
 import org.eclipse.glsp.api.operation.kind.CreateNodeOperation;
@@ -64,7 +64,7 @@ public class CreateNodeOperationHandler extends BasicOperationHandler<CreateNode
 	}
 
 	private CMMNElement createNode(String elementTypeId) {
-		return MetamodelFactory.eINSTANCE.createCase();
+		return CMMNFactory.eINSTANCE.createCase();
 	}
 
 	@Override

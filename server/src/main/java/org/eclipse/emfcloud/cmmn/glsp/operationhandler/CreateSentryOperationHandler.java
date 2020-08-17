@@ -16,18 +16,18 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emfcloud.cmmn.enotation.Diagram;
-import org.eclipse.emfcloud.cmmn.enotation.NotationElement;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNEditorContext;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNFacade;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNModelIndex;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
 import org.eclipse.emfcloud.cmmn.glsp.util.CMMNConfig.Types;
-import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelFactory;
-import org.eclipse.emfcloud.cmmn.metamodel.PlanItemDefinition;
-import org.eclipse.emfcloud.cmmn.metamodel.Sentry;
-import org.eclipse.emfcloud.cmmn.metamodel.SentryType;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNElement;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNFactory;
+import org.eclipse.emfcloud.metamodel.CMMN.PlanItemDefinition;
+import org.eclipse.emfcloud.metamodel.CMMN.Sentry;
+import org.eclipse.emfcloud.metamodel.CMMN.SentryType;
+import org.eclipse.emfcloud.metamodel.enotation.Diagram;
+import org.eclipse.emfcloud.metamodel.enotation.NotationElement;
 import org.eclipse.glsp.api.model.GraphicalModelState;
 import org.eclipse.glsp.api.operation.Operation;
 import org.eclipse.glsp.api.operation.kind.CreateEdgeOperation;
@@ -72,11 +72,11 @@ public class CreateSentryOperationHandler extends BasicOperationHandler<CreateEd
 	}
 
 	private Sentry createSentry(PlanItemDefinition source, PlanItemDefinition target, String elementTypeId) {
-		Sentry sentry = MetamodelFactory.eINSTANCE.createSentry();
+		Sentry sentry = CMMNFactory.eINSTANCE.createSentry();
 		sentry.setOnPartId(source.getId());
 		sentry.setAnchorId(target.getId());
-		if(elementTypeId==Types.SENTRY_ENTRY) sentry.setSentryType(SentryType.ENTRY_LITERAL);
-		else sentry.setSentryType(SentryType.EXIT_LITERAL);
+		if(elementTypeId==Types.SENTRY_ENTRY) sentry.setSentryType(SentryType.ENTRY);
+		else sentry.setSentryType(SentryType.EXIT);
 		//sentry.setName(target.getName().toLowerCase() + "s");
 		target.getSentry().add(sentry);
 		return sentry;

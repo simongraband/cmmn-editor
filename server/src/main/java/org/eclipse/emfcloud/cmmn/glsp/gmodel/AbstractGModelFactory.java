@@ -15,7 +15,7 @@ import java.util.UUID;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
-import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNElement;
 import org.eclipse.glsp.graph.GModelElement;
 
 public abstract class AbstractGModelFactory<T extends EObject, E extends GModelElement> {

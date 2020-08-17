@@ -6,19 +6,19 @@ import java.util.function.Function;
 
 import static org.eclipse.glsp.api.jsonrpc.GLSPServerException.getOrThrow;
 
-import org.eclipse.emfcloud.cmmn.enotation.Diagram;
-import org.eclipse.emfcloud.cmmn.enotation.Shape;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNEditorContext;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNFacade;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
 import org.eclipse.emfcloud.cmmn.glsp.util.CMMNConfig.Types;
-import org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram;
-import org.eclipse.emfcloud.cmmn.metamodel.CMMNElement;
-import org.eclipse.emfcloud.cmmn.metamodel.Case;
-import org.eclipse.emfcloud.cmmn.metamodel.EventListener;
-import org.eclipse.emfcloud.cmmn.metamodel.MetamodelFactory;
-import org.eclipse.emfcloud.cmmn.metamodel.Stage;
-import org.eclipse.emfcloud.cmmn.metamodel.Task;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNDiagram;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNElement;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNFactory;
+import org.eclipse.emfcloud.metamodel.CMMN.Case;
+import org.eclipse.emfcloud.metamodel.CMMN.EventListener;
+import org.eclipse.emfcloud.metamodel.CMMN.Stage;
+import org.eclipse.emfcloud.metamodel.CMMN.Task;
+import org.eclipse.emfcloud.metamodel.enotation.Diagram;
+import org.eclipse.emfcloud.metamodel.enotation.Shape;
 import org.eclipse.glsp.api.action.kind.SetMarkersAction;
 import org.eclipse.glsp.api.markers.Marker;
 import org.eclipse.glsp.api.model.GraphicalModelState;
@@ -51,13 +51,13 @@ public class CreateNodeChildOperationHandler extends BasicOperationHandler<Creat
 		String elementTypeId = operation.getElementTypeId();
 
 		if (elementTypeId.equals(Types.STAGE) && container instanceof Case) {
-			Stage stage = MetamodelFactory.eINSTANCE.createStage();
+			Stage stage = CMMNFactory.eINSTANCE.createStage();
 			setName(stage, modelState);
 			modelState.getIndex().add(stage);
 			((Case) container).getStages().add(stage);
 			drawShape(stage, modelState, operation);
 		} else if (elementTypeId.contentEquals(Types.TASK) && (container instanceof Stage || container instanceof Case)) {
-			Task task = MetamodelFactory.eINSTANCE.createTask();
+			Task task = CMMNFactory.eINSTANCE.createTask();
 			setName(task, modelState);
 			modelState.getIndex().add(task);
 			if(container instanceof Stage){
@@ -66,7 +66,7 @@ public class CreateNodeChildOperationHandler extends BasicOperationHandler<Creat
 			if(container instanceof Case) ((Case) container).getTasks().add(task);
 			drawShape(task, modelState, operation);
 		} else if (elementTypeId.contentEquals(Types.EVENTLISTENER)) {
-			EventListener eventListener = MetamodelFactory.eINSTANCE.createEventListener();
+			EventListener eventListener = CMMNFactory.eINSTANCE.createEventListener();
 			setName(eventListener, modelState);
 			// set Container
 			drawShape(eventListener, modelState, operation);

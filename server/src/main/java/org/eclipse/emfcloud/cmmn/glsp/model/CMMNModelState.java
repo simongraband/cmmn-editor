@@ -18,9 +18,29 @@ import org.eclipse.emfcloud.cmmn.glsp.ResourceManager;
 import org.eclipse.glsp.api.model.GraphicalModelState;
 import org.eclipse.glsp.server.model.ModelStateImpl;
 
-public class CMMNModelState extends ModelStateImpl implements GraphicalModelState {
+public class CMMNModelState extends ModelStateImpl {
 
 	private CMMNEditorContext editorContext;
+	private CMMNModelServerAccess modelAccess;
+
+	public static CMMNModelServerAccess getModelAccess(GraphicalModelState state) {
+		if (!(state instanceof CMMNModelState)) {
+			throw new IllegalArgumentException("Argument must be a ModelServerAwareModelState");
+		}
+		return ((CMMNModelState) state).getModelAccess();
+	}
+
+	public void setModelAccess(CMMNModelServerAccess modelAccess) {
+		this.modelAccess = modelAccess;
+	}
+
+	public CMMNModelServerAccess getModelAccess() {
+		return modelAccess;
+	}
+
+
+	//Comment out for Model Server Changes
+
 
 	public static CMMNModelState getModelState(GraphicalModelState state) {
 		if (!(state instanceof CMMNModelState)) {

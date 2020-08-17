@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cmmn:CMMNDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cmmn="https://org/eclipse/cmmnmetamodel" name="testpackage"/>
+<org.eclipse.emfcloud.cmmn.metamodel:CMMNDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.emfcloud.cmmn.metamodel="https://org/eclipse/cmmnmetamodel" id="0" name="Diagram" description="A test Diagram for CMMN">
+  <cmmnElements xsi:type="org.eclipse.emfcloud.cmmn.metamodel:Case" id="1" name="Hospital">
+    <casefile id="2" name="Casefile"/>
+    <stages id="3" name="EmergencyRoom">
+      <tasks id="4" name="TransportPatient"/>
+    </stages>
+  </cmmnElements>
+</org.eclipse.emfcloud.cmmn.metamodel:CMMNDiagram>

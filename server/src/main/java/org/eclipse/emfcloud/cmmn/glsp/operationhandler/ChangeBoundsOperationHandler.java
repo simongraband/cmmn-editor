@@ -10,9 +10,9 @@
  ********************************************************************************/
 package org.eclipse.emfcloud.cmmn.glsp.operationhandler;
 
-import org.eclipse.emfcloud.cmmn.enotation.Shape;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNModelIndex;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
+import org.eclipse.emfcloud.metamodel.enotation.Shape;
 import org.eclipse.glsp.api.model.GraphicalModelState;
 import org.eclipse.glsp.api.operation.kind.ChangeBoundsOperation;
 import org.eclipse.glsp.api.types.ElementAndBounds;

@@ -18,13 +18,13 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emfcloud.cmmn.enotation.Diagram;
-import org.eclipse.emfcloud.cmmn.enotation.Edge;
-import org.eclipse.emfcloud.cmmn.enotation.EnotationFactory;
-import org.eclipse.emfcloud.cmmn.enotation.NotationElement;
-import org.eclipse.emfcloud.cmmn.enotation.SemanticProxy;
-import org.eclipse.emfcloud.cmmn.enotation.Shape;
-import org.eclipse.emfcloud.cmmn.metamodel.CMMNDiagram;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNDiagram;
+import org.eclipse.emfcloud.metamodel.enotation.Diagram;
+import org.eclipse.emfcloud.metamodel.enotation.Edge;
+import org.eclipse.emfcloud.metamodel.enotation.EnotationFactory;
+import org.eclipse.emfcloud.metamodel.enotation.NotationElement;
+import org.eclipse.emfcloud.metamodel.enotation.SemanticProxy;
+import org.eclipse.emfcloud.metamodel.enotation.Shape;
 import org.eclipse.glsp.graph.GEdge;
 import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.GModelRoot;
@@ -46,7 +46,7 @@ public class CMMNFacade {
 	private Diagram diagram;
 	private CMMNModelIndex modelIndex;
 
-	public CMMNFacade(Resource semanticResource, Resource notationResource, CMMNModelIndex modelIndex) {
+	public CMMNFacade(Resource semanticResource, Resource notationResource/*, CMMNModelIndex modelIndex*/) {
 		this.semanticResource = semanticResource;
 		this.notationResource = notationResource;
 		this.modelIndex = modelIndex;
@@ -124,9 +124,9 @@ public class CMMNFacade {
 	}
 
 	public Optional<Shape> initializeShape(GShapeElement shapeElement) {
-		return modelIndex.getSemantic(shapeElement)
-				.map(semanticElement -> initializeShape(semanticElement, shapeElement));
-
+		/*return modelIndex.getSemantic(shapeElement)
+				.map(semanticElement -> initializeShape(semanticElement, shapeElement));*/
+		return null;
 	}
 
 	public Shape initializeShape(EObject semanticElement) {
@@ -139,16 +139,18 @@ public class CMMNFacade {
 		if (shapeElement != null) {
 			updateShape(shape, shapeElement);
 		}
-		modelIndex.indexNotation(shape);
+		//modelIndex.indexNotation(shape);
 		return shape;
 	}
 
 	public Optional<Edge> initializeEdge(GEdge gEdge) {
-		return modelIndex.getSemantic(gEdge).map(semanticElement -> initializeEdge(semanticElement, gEdge));
+		//return modelIndex.getSemantic(gEdge).map(semanticElement -> initializeEdge(semanticElement, gEdge));
+		return null;
 	}
 
 	public Edge initializeEdge(EObject semanticElement) {
-		return initializeEdge(semanticElement, null);
+		//return initializeEdge(semanticElement, null);
+		return null;
 	}
 
 	public Edge initializeEdge(EObject semanticElement, GEdge gEdge) {
