@@ -1,4 +1,13 @@
-server/src/main/resources
+server/src/main/resources/bin/*
+server/src/main/resources/META-INF/*
+server/src/main/resources/src/*
+server/src/main/resources/.classpath
+server/src/main/resources/.gitignore
+server/src/main/resources/.project
+server/src/main/resources/build.properties
+server/src/main/resources/log4j.properties
+server/src/main/resources/plugin.properties
+server/src/main/resources/plugin.xml
 server/src/main/resources.editor/*
 server/src/main/resources.edit/*
 server/src/main/resources.tests/*

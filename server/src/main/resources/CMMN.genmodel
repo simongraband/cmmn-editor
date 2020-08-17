@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/resources/src" modelPluginID="resources" modelName="CMMN"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>CMMN.ecore</foreignModel>
+  <genPackages prefix="CMMN" basePackage="org.eclipse.emfcloud.metamodel" disposableProviderFactory="true"
+      ecorePackage="CMMN.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CMMN.ecore#//TaskRole">
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//TaskRole/Human"/>
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//TaskRole/Process"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CMMN.ecore#//TaskType">
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//TaskType/Task"/>
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//TaskType/DiscretionaryTask"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CMMN.ecore#//SentryType">
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//SentryType/Entry"/>
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//SentryType/Exit"/>
+    </genEnums>
+    <genClasses ecoreClass="CMMN.ecore#//CMMNDiagram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//CMMNDiagram/cmmnElements"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//CMMNElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//CMMNElement/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//CMMNElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//CMMNElement/description"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//CaseFile"/>
+    <genClasses ecoreClass="CMMN.ecore#//Case">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//Case/casefile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//Case/stages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//Case/tasks"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//Stage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//Stage/tasks"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//Task">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Task/taskType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Task/taskRole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//Task/decorators"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//EventListener"/>
+    <genClasses ecoreClass="CMMN.ecore#//Decorator">
+      <genTypeParameters ecoreTypeParameter="CMMN.ecore#//Decorator/DecoratorType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Decorator/value"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//Sentry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Sentry/onPartId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Sentry/ifPart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Sentry/SentryType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//Sentry/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Sentry/anchorId"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//Expression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Expression/language"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Expression/body"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//PlanItemDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//PlanItemDefinition/sentry"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//TimerEventListener">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//TimerEventListener/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//UserEventListener"/>
+    <genClasses ecoreClass="CMMN.ecore#//TimerExpression"/>
+  </genPackages>
+</genmodel:GenModel>
