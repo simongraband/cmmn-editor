@@ -23,9 +23,9 @@ import org.eclipse.emfcloud.modelserver.client.NotificationSubscriptionListener;
 import org.eclipse.emfcloud.modelserver.client.Response;
 import org.eclipse.emfcloud.modelserver.edit.CommandCodec;
 import org.eclipse.emfcloud.validation.EMFFacetConstraints;
-import org.eclipse.emfcloud.validation.GenericValidation;
-import org.eclipse.emfcloud.validation.ModelServerValidationResult;
 import org.eclipse.emfcloud.validation.ValidationFilter;
+import org.eclipse.emfcloud.validation.ValidationFramework;
+import org.eclipse.emfcloud.validation.ValidationResult;
 
 import com.google.common.base.Preconditions;
 
@@ -37,7 +37,7 @@ public class CMMNModelServerAccess {
 
 	private String sourceURI;
 	
-	private GenericValidation validationFramework;
+	private ValidationFramework validationFramework;
 
 	private ModelServerClient modelServerClient;
 	private NotificationSubscriptionListener<EObject> subscriptionListener;
@@ -47,12 +47,12 @@ public class CMMNModelServerAccess {
 			final CommandCodec commandCodec, CMMNValidationResultChangeListener changeListener) {
 		Preconditions.checkNotNull(modelServerClient);
 		this.sourceURI = sourceURI;
-		this.validationFramework = new GenericValidation(sourceURI, modelServerClient, changeListener);
+		this.validationFramework = new ValidationFramework(sourceURI, modelServerClient, changeListener);
 		this.modelServerClient = modelServerClient;
 		this.commandCodec = commandCodec;
 	}
 
-	public GenericValidation getValidationFramework() {
+	public ValidationFramework getValidationFramework() {
 		return validationFramework;
 	}
 
@@ -81,7 +81,7 @@ public class CMMNModelServerAccess {
 		return this.validationFramework.validate();
 	}
 	
-	public List<ModelServerValidationResult> getValidationResult() throws IOException, InterruptedException, ExecutionException {
+	public List<ValidationResult> getValidationResult() throws IOException, InterruptedException, ExecutionException {
 		return this.validationFramework.recentValidationResult;
 	}
 	

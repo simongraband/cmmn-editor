@@ -15,29 +15,21 @@
  ********************************************************************************/
 package org.eclipse.emfcloud.cmmn.glsp;
 
-import java.net.MalformedURLException;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emfcloud.validation.GenericValidation;
-import org.eclipse.emfcloud.validation.EMFFacetConstraints;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelServerAccess;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
 import org.eclipse.emfcloud.cmmn.glsp.util.CMMNConfig.Types;
 import org.eclipse.emfcloud.metamodel.CMMN.CMMNPackage;
 import org.eclipse.emfcloud.metamodel.CMMN.Case;
-import org.eclipse.emfcloud.metamodel.CMMN.CaseFile;
 import org.eclipse.emfcloud.metamodel.CMMN.EventListener;
 import org.eclipse.emfcloud.metamodel.CMMN.HTTPHookDecorator;
 import org.eclipse.emfcloud.metamodel.CMMN.Sentry;
 import org.eclipse.emfcloud.metamodel.CMMN.Stage;
 import org.eclipse.emfcloud.metamodel.CMMN.Task;
-import org.eclipse.emfcloud.modelserver.client.ModelServerClient;
+import org.eclipse.emfcloud.validation.EMFFacetConstraints;
 import org.eclipse.glsp.api.labeledit.LabelEditValidator;
 import org.eclipse.glsp.api.model.GraphicalModelState;
 import org.eclipse.glsp.api.types.ValidationStatus;

@@ -25,7 +25,6 @@ import org.eclipse.emfcloud.cmmn.glsp.CMMNEditorContext;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNFacade;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNModelIndex;
 import org.eclipse.emfcloud.cmmn.glsp.ResourceManager;
-import org.eclipse.emfcloud.validation.GenericValidation;
 import org.eclipse.glsp.api.model.GraphicalModelState;
 import org.eclipse.glsp.server.model.ModelStateImpl;
 

@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNModelIndex;
 import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNRequestMarkersActionHandler;
-import org.eclipse.emfcloud.validation.ModelServerValidationResult;
+import org.eclipse.emfcloud.validation.ValidationResult;
 import org.eclipse.emfcloud.validation.ValidationResultChangeListener;
 import org.eclipse.glsp.api.action.ActionDispatcher;
 import org.eclipse.glsp.api.action.kind.RequestMarkersAction;
@@ -31,7 +31,7 @@ public class CMMNValidationResultChangeListener extends ValidationResultChangeLi
 	private ActionDispatcher actionDispatcher;
 	
 	@Override
-	public void changed(List<ModelServerValidationResult> newResult) {
+	public void changed(List<ValidationResult> newResult) {
 		actionDispatcher.dispatch(modelState.getClientId(), new SetMarkersAction(createMarkers(newResult, modelState)));
 	}
 	
@@ -40,10 +40,10 @@ public class CMMNValidationResultChangeListener extends ValidationResultChangeLi
 		this.actionDispatcher = actionDispatcher;
 	}
 	
-	public List<Marker> createMarkers(List<ModelServerValidationResult> validationResult, CMMNModelState cmmnModelState){
+	public List<Marker> createMarkers(List<ValidationResult> validationResult, CMMNModelState cmmnModelState){
         CMMNModelIndex index = cmmnModelState.getIndex();
         List<Marker> markers = new ArrayList();
-        for(ModelServerValidationResult r: validationResult){
+        for(ValidationResult r: validationResult){
             Optional<GModelElement> gElement = index.getGModelElement(r.getIdentifier());
             BasicDiagnostic diagnostic = r.getDiagnostic();
             String message = diagnostic.getMessage();
