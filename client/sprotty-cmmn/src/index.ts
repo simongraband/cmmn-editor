@@ -14,5 +14,5 @@ import "reflect-metadata";
 import createCMMNDiagramContainer from "./di.config";
 
 export { createCMMNDiagramContainer };
-export * from './model';
-export * from './views';
+export * from "./model";
+export * from "./views";

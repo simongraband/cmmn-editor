@@ -1,0 +1,38 @@
+{
+  "name": "cmmn-server",
+  "keywords": [
+    "theia-extension"
+  ],
+  "author": {
+    "name": "EclipseSource"
+  },
+  "license": "(EPL-2.0 OR MIT)",
+  "version": "0.1.0",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "dependencies": {
+    "@eclipse-emfcloud/modelserver-theia": "next",
+    "@theia/core": "latest",
+    "@theia/process": "latest",
+    "@theia/workspace": "latest"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "rimraf": "^2.6.1",
+    "typescript": "~3.9.2"
+  },
+  "scripts": {
+    "prepare": "yarn run clean && yarn run build",
+    "clean": "rimraf lib",
+    "build": "tsc && yarn run lint",
+    "lint": "eslint -c ./.eslintrc.js --ext .ts ./src",
+    "watch": "tsc -w"
+  },
+  "theiaExtensions": [
+    {
+      "backend": "lib/node/backend-extension"
+    }
+  ]
+}

@@ -8,6 +8,10 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  ********************************************************************************/
+import {
+    ToggleValidationAction,
+    ReturnToggleValidationAction
+} from "../../../../sprotty-cmmn/lib/features/model-validation";
 import { ActionHandlerRegistry } from "@eclipse-glsp/client/lib";
 import { GLSPTheiaDiagramServer } from "@eclipse-glsp/theia-integration/lib/browser";
 import { injectable } from "inversify";
@@ -16,6 +20,8 @@ import { injectable } from "inversify";
 export class CMMNGLSPTheiaDiagramServer extends GLSPTheiaDiagramServer {
     initialize(registry: ActionHandlerRegistry): void {
         super.initialize(registry);
-    }
 
+        registry.register(ToggleValidationAction.KIND, this);
+        registry.register(ReturnToggleValidationAction.KIND, this);
+    }
 }

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/resources/src" editDirectory="/resources.edit/src"
+    editorDirectory="/resources.editor/src" modelPluginID="org.eclipse.emfcloud.cmmn.glsp"
+    modelName="CMMN" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>CMMN.ecore</foreignModel>
+  <genPackages prefix="CMMN" basePackage="org.eclipse.emfcloud.metamodel" disposableProviderFactory="true"
+      ecorePackage="CMMN.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CMMN.ecore#//TaskRole">
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//TaskRole/Human"/>
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//TaskRole/Process"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CMMN.ecore#//TaskType">
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//TaskType/Task"/>
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//TaskType/DiscretionaryTask"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CMMN.ecore#//SentryType">
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//SentryType/Entry"/>
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//SentryType/Exit"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CMMN.ecore#//HTTPRequest">
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//HTTPRequest/GET"/>
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//HTTPRequest/HEAD"/>
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//HTTPRequest/POST"/>
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//HTTPRequest/PUT"/>
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//HTTPRequest/DELETE"/>
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//HTTPRequest/CONNECT"/>
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//HTTPRequest/OPTIONS"/>
+      <genEnumLiterals ecoreEnumLiteral="CMMN.ecore#//HTTPRequest/TRACE"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="CMMN.ecore#//String100Chars"/>
+    <genDataTypes ecoreDataType="CMMN.ecore#//String256chars"/>
+    <genDataTypes ecoreDataType="CMMN.ecore#//URLFormat"/>
+    <genDataTypes ecoreDataType="CMMN.ecore#//IfCondition"/>
+    <genDataTypes ecoreDataType="CMMN.ecore#//StringHttpRequest"/>
+    <genClasses ecoreClass="CMMN.ecore#//CMMNDiagram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//CMMNDiagram/cmmnElements"/>
+      <genOperations ecoreOperation="CMMN.ecore#//CMMNDiagram/duplicateNames">
+        <genParameters ecoreParameter="CMMN.ecore#//CMMNDiagram/duplicateNames/chain"/>
+        <genParameters ecoreParameter="CMMN.ecore#//CMMNDiagram/duplicateNames/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//CMMNElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//CMMNElement/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//CMMNElement/description"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//CaseFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//CaseFile/name"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//Case">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//Case/casefile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//Case/stages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//Case/tasks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Case/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//Case/eventListeners"/>
+      <genOperations ecoreOperation="CMMN.ecore#//Case/duplicateStageNames">
+        <genParameters ecoreParameter="CMMN.ecore#//Case/duplicateStageNames/chain"/>
+        <genParameters ecoreParameter="CMMN.ecore#//Case/duplicateStageNames/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="CMMN.ecore#//Case/duplicateTaskNames">
+        <genParameters ecoreParameter="CMMN.ecore#//Case/duplicateTaskNames/chain"/>
+        <genParameters ecoreParameter="CMMN.ecore#//Case/duplicateTaskNames/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//Stage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//Stage/tasks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Stage/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//Stage/eventListeners"/>
+      <genOperations ecoreOperation="CMMN.ecore#//Stage/duplicateNames">
+        <genParameters ecoreParameter="CMMN.ecore#//Stage/duplicateNames/chain"/>
+        <genParameters ecoreParameter="CMMN.ecore#//Stage/duplicateNames/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//Task">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Task/taskType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Task/taskRole"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Task/name"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//EventListener">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//EventListener/name"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//Sentry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Sentry/ifPart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Sentry/SentryType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CMMN.ecore#//Sentry/onPart"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CMMN.ecore#//Sentry/anchor"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//PlanItemDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//PlanItemDefinition/outgoingSentrys"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CMMN.ecore#//PlanItemDefinition/decorators"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CMMN.ecore#//PlanItemDefinition/incomingSentrys"/>
+      <genOperations ecoreOperation="CMMN.ecore#//PlanItemDefinition/isUsed">
+        <genParameters ecoreParameter="CMMN.ecore#//PlanItemDefinition/isUsed/chain"/>
+        <genParameters ecoreParameter="CMMN.ecore#//PlanItemDefinition/isUsed/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="CMMN.ecore#//PlanItemDefinition/isNoCircle">
+        <genParameters ecoreParameter="CMMN.ecore#//PlanItemDefinition/isNoCircle/chain"/>
+        <genParameters ecoreParameter="CMMN.ecore#//PlanItemDefinition/isNoCircle/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//TimerEventListener">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//TimerEventListener/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//UserEventListener"/>
+    <genClasses ecoreClass="CMMN.ecore#//TimerExpression"/>
+    <genClasses ecoreClass="CMMN.ecore#//Decorator"/>
+    <genClasses ecoreClass="CMMN.ecore#//MandatoryDecorator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//MandatoryDecorator/value"/>
+    </genClasses>
+    <genClasses ecoreClass="CMMN.ecore#//HTTPHookDecorator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//HTTPHookDecorator/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//HTTPHookDecorator/request"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

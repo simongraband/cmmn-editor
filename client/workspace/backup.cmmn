@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.emfcloud.cmmn.metamodel:CMMNDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.emfcloud.cmmn.metamodel="https://org/eclipse/cmmnmetamodel">
+  <cmmnElements xsi:type="org.eclipse.emfcloud.cmmn.metamodel:Case" description="Online Payment" name="Online Payment/Paypal">
+    <casefile/>
+    <stages mandatory="true" name="Input Information">
+      <tasks mandatory="true" name="Enters card information"/>
+    </stages>
+    <stages description="Should throw Circle detected" name="Circle Stage">
+      <tasks id="2" name="Shopping">
+        <sentry ifPart="12 = ab" onPart="//@cmmnElements.0/@stages.1/@tasks.0" anchor="//@cmmnElements.0/@stages.1/@tasks.0"/>
+      </tasks>
+      <tasks id="3" name="Payment">
+        <sentry onPart="//@cmmnElements.0/@stages.1/@tasks.0" anchor="//@cmmnElements.0/@stages.1/@tasks.1"/>
+        <sentry onPart="//@cmmnElements.0/@stages.1/@tasks.1" anchor="//@cmmnElements.0/@stages.1/@tasks.2"/>
+      </tasks>
+      <tasks id="4" name="Return">
+        <sentry onPart="//@cmmnElements.0/@stages.1/@tasks.1" anchor="//@cmmnElements.0/@stages.1/@tasks.2"/>
+        <sentry onPart="//@cmmnElements.0/@stages.1/@tasks.2" anchor="//@cmmnElements.0/@stages.1/@tasks.0"/>
+      </tasks>
+    </stages>
+    <tasks/>
+  </cmmnElements>
+</org.eclipse.emfcloud.cmmn.metamodel:CMMNDiagram>

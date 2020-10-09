@@ -13,10 +13,21 @@ import { injectable } from "inversify";
 
 import { CMMNLanguage } from "../common/cmmn-language";
 
+export interface CMMNInitializeOptions {
+    timestamp: Date;
+}
+
 @injectable()
 export class CMMNGLSPClientContribution extends BaseGLSPClientContribution {
-    fileExtensions = [CMMNLanguage.FileExtension];
+
+    readonly fileExtensions = [CMMNLanguage.FileExtension];
     readonly id = CMMNLanguage.Id;
     readonly name = CMMNLanguage.Name;
 
+    protected async createInitializeOptions(): Promise<CMMNInitializeOptions> {
+
+        return {
+            timestamp: new Date()
+        };
+    }
 }

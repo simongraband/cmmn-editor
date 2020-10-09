@@ -8,28 +8,39 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  ********************************************************************************/
-import { GLSPActionDispatcher, TYPES } from "@eclipse-glsp/client/lib";
+import { generateRequestId, GLSPActionDispatcher, RequestAction, ResponseAction, TYPES } from "@eclipse-glsp/client/lib";
 import { inject, injectable } from "inversify";
 import { EditLabelUI} from "sprotty/lib";
 
 @injectable()
 export class EditLabelUIModelValidation extends EditLabelUI {
 
-    protected showAutocomplete: boolean = false;
+    protected showAutocomplete = false;
     protected outerDiv: HTMLElement;
     protected listContainer: HTMLElement;
     protected currentFocus: number;
-    protected types: string[] = [];
-
+    protected types = false;
 
     constructor(@inject(TYPES.IActionDispatcher) protected actionDispatcher: GLSPActionDispatcher) {
         super();
     }
 
     protected validateLabelIfContentChange(event: KeyboardEvent, value: string) {
-        if (value.length >= 10) {
-            window.alert("Too long");
-        }
         super.validateLabelIfContentChange(event, value);
     }
 } 
+
+export class ToggleValidationAction  implements RequestAction<ReturnToggleValidationAction> {
+    static readonly KIND = "toggleValidation";
+    kind = ToggleValidationAction.KIND;
+    constructor(public readonly requestId: string = generateRequestId()) { }
+}
+
+export class ReturnToggleValidationAction implements ResponseAction {
+    static readonly KIND = "returnToggleValidation";
+    kind = ReturnToggleValidationAction.KIND;
+    types: boolean;
+    constructor(public readonly actions: boolean, public readonly responseId: string = "") {
+        this.types = actions;
+    }
+}

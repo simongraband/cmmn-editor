@@ -53,8 +53,17 @@ svg {
     fill: lightskyblue;
     stroke: var(--sprotty-border);
     stroke-width: 1;
+    fill-opacity: 1;
     font-weight: bold;
     filter: url(#dropShadow);
+}
+
+.cmmn-icon {
+    fill: none;
+    stroke: none;
+    stroke-width: 0;
+    fill-opacity: none;
+    font-weight: bold;
 }
 
 .sprotty-node.selected {
@@ -124,13 +133,13 @@ svg {
     stroke-width: 0;
 }
 
-.cmmn-edge {
+.cmmn-sentry {
     fill: none;
     stroke: var(--sprotty-edge);
     stroke-width: 2px;
 }
 
-.cmmn-edge>.sprotty-label {
+.cmmn-sentry>.sprotty-label {
     stroke-width: 0;
     width: inherit;
     fill: var(--sprotty-edge);
@@ -144,26 +153,26 @@ svg {
     fill: none;
 }
 
-.cmmn-edge.mouseover:not(.selected) {
+.cmmn-sentry.mouseover:not(.selected) {
     stroke-width: 3px;
 }
 
-.cmmn-edge>.sprotty-routing-handle {
+.cmmn-sentry>.sprotty-routing-handle {
     r: 7px;
     fill: #884;
     stroke: none;
     z-index: 1000;
 }
 
-.cmmn-edge>.sprotty-routing-handle[data-kind='line'] {
+.cmmn-sentry>.sprotty-routing-handle[data-kind='line'] {
     opacity: 0.35;
 }
 
-.cmmn-edge>.sprotty-routing-handle.selected {
+.cmmn-sentry>.sprotty-routing-handle.selected {
     fill: #66a;
 }
 
-.cmmn-edge>.sprotty-routing-handle.mouseover {
+.cmmn-sentry>.sprotty-routing-handle.mouseover {
     stroke: #112;
     stroke-width: 1;
 }
@@ -185,19 +194,38 @@ svg {
     margin-bottom: 2px;
 }
 
-.cmmn-edge>.fill {
+.cmmn-sentry> {
     fill: white;
 }
 
-.cmmn-edge>.exit {
+.cmmn-sentry>.exit {
     fill: var(--sprotty-edge);
 }
 
-.cmmn-edge.selected {
+.cmmn-sentry>.entry {
+    fill: var(--sprotty-background);
+}
+
+.cmmn-sentry.selected {
     stroke: #844;
     stroke-width: 4px;
 }
 
 .italic {
     font-style: italic;
+}
+
+.sprotty-issue.sprotty-error {
+    stroke-width: 0;
+    fill-opacity: 1;
+}
+
+.sprotty-issue.sprotty-warning {
+    stroke-width: 0;
+    fill-opacity: 1;
+}
+
+.sprotty-issue.sprotty-info {
+    stroke-width: 0;
+    fill-opacity: 1;
 }

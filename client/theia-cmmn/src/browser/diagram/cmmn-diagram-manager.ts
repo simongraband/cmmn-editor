@@ -8,24 +8,19 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  ********************************************************************************/
-import { EnableToolPaletteAction, RequestTypeHintsAction } from "@eclipse-glsp/client";
 import {
     GLSPDiagramManager,
-    GLSPDiagramWidget,
     GLSPTheiaSprottyConnector,
-    GLSPTheiaDiagramServer,
     GLSPNotificationManager
 } from "@eclipse-glsp/theia-integration/lib/browser";
 import { MessageService } from "@theia/core";
 import { WidgetManager } from "@theia/core/lib/browser";
 import { EditorManager } from "@theia/editor/lib/browser";
 import { inject, injectable } from "inversify";
-import { DiagramServer, ModelSource, RequestModelAction, TYPES } from "sprotty";
-import { DiagramWidget, DiagramWidgetOptions, TheiaFileSaver } from "sprotty-theia";
+import { TheiaFileSaver } from "sprotty-theia";
 
 import { CMMNLanguage } from "../../common/cmmn-language";
 import { CMMNGLSPDiagramClient } from "./cmmn-glsp-diagram-client";
-
 
 @injectable()
 export class CMMNDiagramManager extends GLSPDiagramManager {
@@ -35,16 +30,6 @@ export class CMMNDiagramManager extends GLSPDiagramManager {
 
     private _diagramConnector: GLSPTheiaSprottyConnector;
 
-    async createWidget(options?: any): Promise<DiagramWidget> {
-        if (DiagramWidgetOptions.is(options)) {
-            const clientId = this.createClientId();
-            const config = this.diagramConfigurationRegistry.get(options.diagramType);
-            const diContainer = config.createContainer(clientId);
-            const diagramWidget = new CMMNDiagramWidget(options, clientId + '_widget', diContainer, this.editorPreferences, this.diagramConnector);
-            return diagramWidget;
-        }
-        throw Error('DiagramWidgetFactory needs DiagramWidgetOptions but got ' + JSON.stringify(options));
-    }
     constructor(
         @inject(CMMNGLSPDiagramClient) diagramClient: CMMNGLSPDiagramClient,
         @inject(TheiaFileSaver) fileSaver: TheiaFileSaver,
@@ -60,29 +45,8 @@ export class CMMNDiagramManager extends GLSPDiagramManager {
     get fileExtensions() {
         return [CMMNLanguage.FileExtension];
     }
+
     get diagramConnector() {
         return this._diagramConnector;
-    }
-}
-
-export class CMMNDiagramWidget extends GLSPDiagramWidget {
-    protected initializeSprotty() {
-        const modelSource = this.diContainer.get<ModelSource>(TYPES.ModelSource);
-        if (modelSource instanceof DiagramServer)
-            modelSource.clientId = this.id;
-        if (modelSource instanceof GLSPTheiaDiagramServer && this.connector)
-            this.connector.connect(modelSource);
-        this.disposed.connect(() => {
-            if (modelSource instanceof GLSPTheiaDiagramServer && this.connector)
-                this.connector.disconnect(modelSource);
-        });
-
-        this.actionDispatcher.dispatch(new RequestModelAction({
-            sourceUri: this.options.uri.replace("file://", ""),
-            needsClientLayout: `${this.viewerOptions.needsClientLayout}`,
-            ...this.options
-        }));
-        this.actionDispatcher.dispatch(new RequestTypeHintsAction("cmmndiagram"));
-        this.actionDispatcher.dispatch(new EnableToolPaletteAction());
     }
 }

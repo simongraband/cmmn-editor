@@ -1,3 +1,4 @@
+/* eslint-disable*/
 /********************************************************************************
  * Copyright (c) 2019-2020 EclipseSource and others.
  *
@@ -10,8 +11,8 @@
  ********************************************************************************/
 import { JsonRpcServer } from "@theia/core/lib/common/messaging";
 
-export const FileGenServer = Symbol('FileGenServer');
-export const FILEGEN_SERVICE_PATH = '/services/codegen';
+export const FileGenServer = Symbol("FileGenServer");
+export const FILEGEN_SERVICE_PATH = "/services/codegen";
 
 export interface FileGenServer extends JsonRpcServer<undefined> {
 }

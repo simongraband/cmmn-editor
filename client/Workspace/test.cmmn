@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<org.eclipse.emfcloud.cmmn.metamodel:CMMNDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.emfcloud.cmmn.metamodel="https://org/eclipse/cmmnmetamodel" name="testpackage">
-  <cmmnElements xsi:type="org.eclipse.emfcloud.cmmn.metamodel:Case" name="NewCase0"/>
-  <cmmnElements xsi:type="org.eclipse.emfcloud.cmmn.metamodel:Stage" name="NewStage1"/>
-  <cmmnElements xsi:type="org.eclipse.emfcloud.cmmn.metamodel:Task" name="NewTask2"/>
-  <cmmnElements xsi:type="org.eclipse.emfcloud.cmmn.metamodel:Stage" name="NewStage3"/>
-</org.eclipse.emfcloud.cmmn.metamodel:CMMNDiagram>

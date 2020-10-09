@@ -24,15 +24,14 @@ import {
     withEditLabelFeature,
     SEdge
 } from "sprotty/lib";
-import { SShapeElement, boundsFeature, layoutContainerFeature, layoutableChildFeature, fadeFeature } from "@eclipse-glsp/client";
-
+import { SShapeElement, boundsFeature, layoutContainerFeature, layoutableChildFeature, fadeFeature, DiamondNode } from "@eclipse-glsp/client";
 
 export class LabeledNode extends RectangularNode implements WithEditableLabel, Nameable {
 
     get editableLabel() {
-        const headerComp = this.children.find(element => element.type === 'comp:header');
+        const headerComp = this.children.find(element => element.type === "comp:header");
         if (headerComp) {
-            const label = headerComp.children.find(element => element.type === 'label:heading');
+            const label = headerComp.children.find(element => element.type === "label:heading");
             if (label && isEditableLabel(label)) {
                 return label;
             }
@@ -58,7 +57,7 @@ export class SEditableLabel extends SLabel implements EditableLabel {
 }
 
 export class SLabelNode extends SLabel implements EditableLabel {
-    hoverFeedback: boolean = false;
+    hoverFeedback = false;
     imageName: string;
 
     hasFeature(feature: symbol): boolean {
@@ -71,6 +70,14 @@ export class ArrowEdge extends SEdge {
     public readonly targetAnchorCorrection = 0;
 }
 
+export class ActivityNode extends DiamondNode {
+    size = {
+        width: 32,
+        height: 32
+    };
+    strokeWidth = 1;
+}
+
 export class Icon extends SShapeElement {
     iconImageName: string;
 
@@ -80,5 +87,9 @@ export class Icon extends SShapeElement {
 }
 
 export class IconEventListener extends Icon {
+    iconImageName = "EventListener.svg";
+}
+
+export class IconMandatory extends Icon {
     iconImageName = "EventListener.svg";
 }

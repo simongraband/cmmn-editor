@@ -11,24 +11,25 @@
 import "@eclipse-glsp/client/css/glsp-sprotty.css";
 import "sprotty/css/edit-label.css";
 
+import "balloon-css/balloon.min.css";
+
 import {
     boundsModule,
     buttonModule,
-    commandPaletteModule,
     configureModelElement,
     configureViewerOptions,
     ConsoleLogger,
-    decorationModule,
     defaultGLSPModule,
     defaultModule,
     edgeLayoutModule,
+    executeCommandModule,
     expandModule,
     exportModule,
     fadeModule,
     glspCommandPaletteModule,
-    glspEditLabelValidationModule,
     GLSPGraph,
     glspMouseToolModule,
+    glspDecorationModule,
     glspSelectModule,
     HtmlRoot,
     HtmlRootView,
@@ -38,10 +39,11 @@ import {
     LogLevel,
     modelHintsModule,
     modelSourceModule,
+    markerNavigatorModule,
+    navigationModule,
     openModule,
     paletteModule,
     PolylineEdgeView,
-    requestResponseModule,
     routingModule,
     saveModule,
     SCompartment,
@@ -62,27 +64,24 @@ import {
     glspServerCopyPasteModule,
     glspContextMenuModule,
     copyPasteContextMenuModule,
-    EditLabelUI
+    EditLabelUI,
+    glspEditLabelModule, PreRenderedElement, PreRenderedView
 } from "@eclipse-glsp/client/lib";
-import executeCommandModule from "@eclipse-glsp/client/lib/features/execute/di.config";
 import { Container, ContainerModule } from "inversify";
-import { contextMenuModule } from "sprotty/lib";
 
 import { LabelSelectionFeedback } from "./feedback";
 import {
     ArrowEdge,
     LabeledNode,
     SEditableLabel,
-    IconEventListener
+    ActivityNode
 } from "./model";
 import {
-    EntryEdgeView,
     ExitEdgeView,
     StageNodeView,
     TaskNodeView,
     CaseNodeView,
-    IconView,
-    EventListenerNodeView
+    EventListenerNodeView, DecoratorNodeView, CaseFileNodeView, HumanTaskNodeView, ProcessTaskNodeView, EntryEdgeView
 } from "./views";
 import { EditLabelUIModelValidation } from "./features/model-validation";
 
@@ -94,26 +93,32 @@ export default (containerId: string) => {
 
         const context = { bind, unbind, isBound, rebind };
         bind(TYPES.IVNodePostprocessor).to(LabelSelectionFeedback);
-        configureModelElement(context, 'graph', GLSPGraph, SGraphView);
-        configureModelElement(context, 'node:case', LabeledNode, CaseNodeView);
-        configureModelElement(context, 'node:stage', LabeledNode, StageNodeView);
-        configureModelElement(context, 'node:task', LabeledNode, TaskNodeView);
-        configureModelElement(context, 'label:name', SEditableLabel, SLabelView);
-        configureModelElement(context, 'label:edge-name', SEditableLabel, SLabelView);
-        configureModelElement(context, 'label:edge-multiplicity', SEditableLabel, SLabelView);
-        configureModelElement(context, 'node:event-listener', IconEventListener, EventListenerNodeView);
-        configureModelElement(context, 'label:text', SLabel, SLabelView);
-        configureModelElement(context, 'comp:comp', SCompartment, SCompartmentView);
-        configureModelElement(context, 'comp:header', SCompartment, SCompartmentView);
-        configureModelElement(context, 'comp:decorator', SCompartment, SCompartmentView);
-        configureModelElement(context, 'label:icon', SLabel, SLabelView);
-        configureModelElement(context, 'html', HtmlRoot, HtmlRootView);
-        configureModelElement(context, 'routing-point', SRoutingHandle, SRoutingHandleView);
-        configureModelElement(context, 'volatile-routing-point', SRoutingHandle, SRoutingHandleView);
-        configureModelElement(context, 'edge:sentry-entry', ArrowEdge, EntryEdgeView);
-        configureModelElement(context, 'edge:sentry-exit', ArrowEdge, ExitEdgeView);
-        configureModelElement(context, 'edge', SEdge, PolylineEdgeView);
-        configureModelElement(context, 'icon:eventlistener', IconEventListener, IconView);
+        configureModelElement(context, "pre-rendered", PreRenderedElement, PreRenderedView);
+        configureModelElement(context, "graph", GLSPGraph, SGraphView);
+        configureModelElement(context, "node:case", LabeledNode, CaseNodeView);
+        configureModelElement(context, "node:casefile", LabeledNode, CaseFileNodeView);
+        configureModelElement(context, "node:stage", LabeledNode, StageNodeView);
+        configureModelElement(context, "node:task-human", LabeledNode, HumanTaskNodeView);
+        configureModelElement(context, "node:task-process", LabeledNode, ProcessTaskNodeView);
+        configureModelElement(context, "node:event-listener", LabeledNode, EventListenerNodeView);
+        configureModelElement(context, "label:name", SEditableLabel, SLabelView);
+        configureModelElement(context, "label:edge-name", SEditableLabel, SLabelView);
+        configureModelElement(context, "label:edge-multiplicity", SEditableLabel, SLabelView);
+        configureModelElement(context, "label:request", SEditableLabel, SLabelView);
+        configureModelElement(context, "label:value", SEditableLabel, SLabelView);
+        configureModelElement(context, "label:text", SLabel, SLabelView);
+        configureModelElement(context, "comp:comp", SCompartment, SCompartmentView);
+        configureModelElement(context, "comp:header", SCompartment, SCompartmentView);
+        configureModelElement(context, "decorator:http", LabeledNode, TaskNodeView);
+        configureModelElement(context, "decorator:mandatory", ActivityNode, DecoratorNodeView);
+        configureModelElement(context, "label:icon", SLabel, SLabelView);
+        configureModelElement(context, "html", HtmlRoot, HtmlRootView);
+        configureModelElement(context, "routing-point", SRoutingHandle, SRoutingHandleView);
+        configureModelElement(context, "volatile-routing-point", SRoutingHandle, SRoutingHandleView);
+        configureModelElement(context, "edge:sentry-entry", ArrowEdge, EntryEdgeView);
+        configureModelElement(context, "edge:sentry-exit", ArrowEdge, ExitEdgeView);
+        configureModelElement(context, "edge", SEdge, PolylineEdgeView);
+        //configureModelElement(context, "icon:eventlistener", IconEventListener, IconView);
         configureViewerOptions(context, {
             needsClientLayout: false, //was true
             baseDiv: containerId
@@ -121,11 +126,11 @@ export default (containerId: string) => {
     });
 
     const container = new Container();
-    container.load(decorationModule, validationModule, defaultModule, glspMouseToolModule, defaultGLSPModule, glspSelectModule, boundsModule, viewportModule, toolsModule,
-        glspHoverModule, fadeModule, exportModule, expandModule, openModule, buttonModule, modelSourceModule, labelEditModule, labelEditUiModule, glspEditLabelValidationModule,
-        classDiagramModule, saveModule, executeCommandModule, toolFeedbackModule, modelHintsModule, contextMenuModule, glspContextMenuModule, glspServerCopyPasteModule,
-        copyPasteContextMenuModule, commandPaletteModule, glspCommandPaletteModule, paletteModule, requestResponseModule, routingModule, edgeLayoutModule, zorderModule,
-        layoutCommandsModule);
+    container.load(validationModule, defaultModule, glspMouseToolModule, defaultGLSPModule, glspSelectModule, boundsModule, viewportModule, toolsModule,
+        glspHoverModule, fadeModule, exportModule, expandModule, openModule, buttonModule, modelSourceModule, labelEditModule, labelEditUiModule, glspEditLabelModule,
+        classDiagramModule, saveModule, executeCommandModule, toolFeedbackModule, modelHintsModule, glspContextMenuModule, glspServerCopyPasteModule,
+        copyPasteContextMenuModule, navigationModule, glspCommandPaletteModule, paletteModule, routingModule, edgeLayoutModule, zorderModule,
+        layoutCommandsModule, markerNavigatorModule, glspDecorationModule);
 
     return container;
 

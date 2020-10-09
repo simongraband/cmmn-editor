@@ -1,3 +1,4 @@
+/* eslint-disable*/
 /********************************************************************************
  * Copyright (c) 2019-2020 EclipseSource and others.
  *
@@ -17,13 +18,13 @@ import {
 } from "@theia/core/lib/browser";
 import { ContainerModule, interfaces } from "inversify";
 import { DiagramConfiguration, DiagramManager, DiagramManagerProvider } from "sprotty-theia/lib";
-
 import { FILEGEN_SERVICE_PATH, FileGenServer } from "../common/generate-protocol";
 import { CMMNDiagramConfiguration } from "./diagram/cmmn-diagram-configuration";
 import { CMMNDiagramManager } from "./diagram/cmmn-diagram-manager";
 import { CMMNGLSPDiagramClient } from "./diagram/cmmn-glsp-diagram-client";
 import { CMMNGLSPClientContribution } from "./cmmn-glsp-contribution";
-
+import { CMMNCommandContribution } from "./command-contribution";
+import { CommandContribution } from "@theia/core";
 
 export default new ContainerModule((bind: interfaces.Bind, unbind: interfaces.Unbind, isBound: interfaces.IsBound, rebind: interfaces.Rebind) => {
     bind(CMMNGLSPClientContribution).toSelf().inSingletonScope();
@@ -33,10 +34,11 @@ export default new ContainerModule((bind: interfaces.Bind, unbind: interfaces.Un
     bind(CMMNDiagramManager).toSelf().inSingletonScope();
     bind(FrontendApplicationContribution).toService(CMMNDiagramManager);
     bind(OpenHandler).toService(CMMNDiagramManager);
+    bind(CommandContribution).to(CMMNCommandContribution);
     bind(WidgetFactory).toService(CMMNDiagramManager);
-    bind(DiagramManagerProvider).toProvider<DiagramManager>((context) => {
+    bind(DiagramManagerProvider).toProvider<DiagramManager>(context => {
         return () => {
-            return new Promise<DiagramManager>((resolve) => {
+            return new Promise<DiagramManager>(resolve => {
                 const diagramManager = context.container.get<CMMNDiagramManager>(CMMNDiagramManager);
                 resolve(diagramManager);
             });

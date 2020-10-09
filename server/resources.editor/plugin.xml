@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated CMMN -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.emfcloud.metamodel.CMMN.presentation.CMMNModelWizardID"
+            name="%_UI_CMMNModelWizard_label"
+            class="org.eclipse.emfcloud.metamodel.CMMN.presentation.CMMNModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CMMNModelFile.gif">
+         <description>%_UI_CMMNModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated CMMN -->
+      <editor
+            id="org.eclipse.emfcloud.metamodel.CMMN.presentation.CMMNEditorID"
+            name="%_UI_CMMNEditor_label"
+            icon="icons/full/obj16/CMMNModelFile.gif"
+            extensions="cmmn"
+            class="org.eclipse.emfcloud.metamodel.CMMN.presentation.CMMNEditor"
+            contributorClass="org.eclipse.emfcloud.metamodel.CMMN.presentation.CMMNActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

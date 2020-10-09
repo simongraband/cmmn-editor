@@ -1,3 +1,4 @@
+/* eslint-disable*/
 /********************************************************************************
  * Copyright (c) 2019-2020 EclipseSource and others.
  *
@@ -20,7 +21,7 @@ import {
   toDegrees,
 } from "sprotty/lib";
 
-import { LabeledNode, Icon} from "./model";
+import { LabeledNode, Icon, ActivityNode} from "./model";
 import { IView } from "@eclipse-glsp/client";
 
 /** @jsx svg */
@@ -29,21 +30,50 @@ const JSX = { createElement: snabbdom.svg };
 export class TaskNodeView extends RectangularNodeView {
   render(node: LabeledNode, context: RenderingContext): VNode {
 
-    const rhombStr = "M 0,38  L " + node.bounds.width + ",38";
-
     return <g class-node={true}>
       <defs>
         <filter id="dropShadow">
           <feDropShadow dx="0.5" dy="0.5" stdDeviation="0.4" />
         </filter>
       </defs>
+      <rect class-sprotty-node={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
+        x={0} y={0} rx={6} ry={6}
+        width={node.bounds.width} height={node.bounds.height} />
+      {context.renderChildren(node)}
+    </g>;
+  }
+}
+
+@injectable()
+export class ProcessTaskNodeView extends RectangularNodeView {
+  render(node: LabeledNode, context: RenderingContext): VNode {
+    const image = require("../images/Process.svg");
+
+    return <g class-node={true}>
 
       <rect class-sprotty-node={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
         x={0} y={0} rx={6} ry={6}
-        width={Math.max(0, node.bounds.width)} height={Math.max(0, node.bounds.height)} />
+        width={node.bounds.width} height={node.bounds.height} />
+        <image class-sprotty-icon={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
+       href={image} x={2} y={2} width={12} height={12}></image>
       {context.renderChildren(node)}
-      {(node.children[1] && node.children[1].children.length > 0) ?
-        <path class-sprotty-edge={true} d={rhombStr}></path> : ''}
+    </g>;
+  }
+}
+
+@injectable()
+export class HumanTaskNodeView extends RectangularNodeView {
+  render(node: LabeledNode, context: RenderingContext): VNode {
+    const image = require("../images/Human.svg");
+
+    return <g class-node={true}>
+
+      <rect class-sprotty-node={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
+        x={0} y={0} rx={6} ry={6}
+        width={node.bounds.width} height={node.bounds.height} />
+        <image class-sprotty-icon={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
+       href={image} x={2} y={2} width={12} height={12}></image>
+      {context.renderChildren(node)}
     </g>;
   }
 }
@@ -52,8 +82,6 @@ export class TaskNodeView extends RectangularNodeView {
 export class StageNodeView extends RectangularNodeView {
   render(node: LabeledNode, context: RenderingContext): VNode {
 
-    const rhombStr = "M 0,38  L " + node.bounds.width + ",38";
-
     return <g class-node={true}>
       <defs>
         <filter id="dropShadow">
@@ -61,13 +89,10 @@ export class StageNodeView extends RectangularNodeView {
         </filter>
       </defs>
 
-
       <rect class-sprotty-node={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
         x={0} y={0} rx={0} ry={0}
-        width={Math.max(450, node.bounds.width)} height={Math.max(200, node.bounds.height)} />
+        width={node.bounds.width} height={node.bounds.height} />
       {context.renderChildren(node)}
-      {(node.children[1] && node.children[1].children.length > 0) ?
-        <path class-sprotty-edge={true} d={rhombStr}></path> : ''}
     </g>;
   }
 }
@@ -75,9 +100,6 @@ export class StageNodeView extends RectangularNodeView {
 @injectable()
 export class CaseNodeView extends RectangularNodeView {
   render(node: LabeledNode, context: RenderingContext): VNode {
-
-    const rhombStr = "M 0,38  L " + node.bounds.width + ",38";
-
     return <g class-node={true}>
       <defs>
         <filter id="dropShadow">
@@ -89,24 +111,43 @@ export class CaseNodeView extends RectangularNodeView {
 
       <rect class-sprotty-node={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
         x={-20} y={35} rx={0} ry={0}
-        width={Math.max(1000, node.bounds.width)} height={Math.max(500, node.bounds.height)} />
+        width={node.bounds.width} height={node.bounds.height} />
       {context.renderChildren(node)}
-      {(node.children[1] && node.children[1].children.length > 0) ?
-        <path class-sprotty-edge={true} d={rhombStr}></path> : ''}
+    </g>;
+  }
+}
+@injectable()
+export class EventListenerNodeView extends RectangularNodeView {
+  render(node: LabeledNode, context: RenderingContext): VNode {
+    const image = require("../images/EventListener.svg");
+
+    return <g class-node={true}>
+
+      <image class-sprotty-icon={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
+       href={image} x={(node.bounds.width/2)-32} y={-64} width={64} height={64}></image>
+      <rect class-sprotty-node={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
+        x={0} y={0} rx={6} ry={6}
+        width={node.bounds.width} height={node.bounds.height} />
+      {context.renderChildren(node)}
     </g>;
   }
 }
 
 @injectable()
-export class EventListenerNodeView implements IView {
-    render(element: Icon, context: RenderingContext): VNode {
-      const image = require("../images/" + element.iconImageName);
-  
-      return <g>
-        <image class-sprotty-icon={true} href={image} x={0} y={0} width={200} height={200}></image>
-        {context.renderChildren(element)}
-      </g>;
-    }
+export class CaseFileNodeView extends RectangularNodeView {
+  render(node: LabeledNode, context: RenderingContext): VNode {
+    const image = require("../images/CaseFile.svg");
+
+    return <g class-node={true}>
+
+      <image class-sprotty-icon={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
+       href={image} x={(node.bounds.width/2)-32} y={-64} width={64} height={64}></image>
+      <rect class-sprotty-node={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
+        x={0} y={0} rx={6} ry={6}
+        width={node.bounds.width} height={node.bounds.height} />
+      {context.renderChildren(node)}
+    </g>;
+  }
 }
 
 @injectable()
@@ -115,10 +156,25 @@ export class EntryEdgeView extends PolylineEdgeView {
     //const p1 = segments[segments.length - 2];
     const p2 = segments[segments.length - 1];
     return [
-      <path class-sprotty-edge={true} class-fill={true} d="M 0,-14 L 8,0 L 0,14 L -8,0 Z"
+      <path class-sprotty-edge={true} class-entry={true} d="M 0,-14 L 8,0 L 0,14 L -8,0 Z"
         transform={`translate(${p2.x} ${p2.y})`} />,
     ];
   }
+}
+
+@injectable()
+export class DecoratorNodeView extends RectangularNodeView {
+    render(node: ActivityNode, context: RenderingContext): VNode {
+      const image = require("../images/Mandatory.svg");
+        const graph = <g>
+            <rect class-sprotty-node={true}
+                class-mouseover={node.hoverFeedback} class-selected={node.selected}
+                width={16} height={16}></rect>
+            <image class-sprotty-icon={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
+       href={image} x={2} y={2} width={12} height={12}></image>
+        </g>;
+        return graph;
+    }
 }
 
 @injectable()
@@ -127,10 +183,22 @@ export class IconView implements IView {
     const image = require("../images/" + element.iconImageName);
 
     return <g>
-      <image class-sprotty-icon={true} href={image} x={0} y={0} width={200} height={200}></image>
+      <image class-sprotty-icon={true} href={image} x={0} y={0} width={16} height={16}></image>
       {context.renderChildren(element)}
     </g>;
   }
+}
+
+@injectable()
+export class ArrowEdgeView extends PolylineEdgeView {
+    protected renderAdditionals(edge: SEdge, segments: Point[], context: RenderingContext): VNode[] {
+        const p1 = segments[segments.length - 2];
+        const p2 = segments[segments.length - 1];
+        return [
+            <path class-sprotty-edge={true} d="M 10,-4 L 0,0 L 10,4"
+                transform={`rotate(${angle(p2, p1)} ${p2.x} ${p2.y}) translate(${p2.x} ${p2.y})`} />
+        ];
+    }
 }
 
 @injectable()
