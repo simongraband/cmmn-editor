@@ -35,7 +35,7 @@ export class CMMNModelServerLaunchOptions implements LaunchOptions {
     jarPath = resolve(join(__dirname, "..", "..", "build", "org.eclipse.emfcloud.cmmn.modelserver-0.0.1-SNAPSHOT-standalone.jar"));
     additionalArgs = [
         "--errorsOnly",
-        `-r=${resolve(join(__dirname, "..", "..", "..", "Workspace"))}`
+        `-r=${resolve(join(__dirname, "..", "..", "..", "workspace"))}`
     ];
 }
 
