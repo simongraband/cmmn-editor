@@ -13,7 +13,6 @@ import {
     OpenerService,
     QuickOpenService
 } from "@theia/core/lib/browser";
-import { GLSPActionDispatcher, TYPES } from "@eclipse-glsp/client/lib";
 import { Command, CommandContribution, CommandRegistry } from "@theia/core/lib/common/command";
 import { MessageService } from "@theia/core/lib/common/message-service";
 import { ProgressService } from "@theia/core/lib/common/progress-service";
@@ -27,6 +26,8 @@ import { NAVIGATOR_CONTEXT_MENU } from "@theia/navigator/lib/browser/navigator-c
 import { WorkspaceService } from "@theia/workspace/lib/browser";
 import { inject, injectable } from "inversify";
 import { ToggleValidationAction } from "sprotty-cmmn/lib/features/model-validation";
+import { DiagramManagerProvider, DiagramWidget } from "@eclipse-glsp/theia-integration/lib/browser";
+import { CMMNDiagramManager } from "./diagram/cmmn-diagram-manager";
 //import { ReturnToggleValidationAction, ToggleValidationAction} from "../../../sprotty-cmmn/lib/features/model-validation";
 
 export const EXAMPLE_NAVIGATOR = [...NAVIGATOR_CONTEXT_MENU, "example"];
@@ -52,12 +53,19 @@ export class CMMNCommandContribution implements CommandContribution {
     @inject(WorkspaceService) protected readonly workspaceService: WorkspaceService;
     @inject(ProgressService) protected readonly progressService: ProgressService;
     @inject(QuickOpenService) protected readonly quickOpenService: QuickOpenService;
+    @inject(DiagramManagerProvider) protected readonly diagramManagerProvider: DiagramManagerProvider;
 
     registerCommands(registry: CommandRegistry): void {
         registry.registerCommand(TOGGLE_CONSTRAINT, this.newWorkspaceRootUriAwareCommandHandler({
             execute: uri => this.getDirectory(uri).then(parent => {
-                new CallToggleValidation(new GLSPActionDispatcher);
-            })
+
+            this.diagramManagerProvider().then(provider => {
+                            const myprovider = provider as CMMNDiagramManager;
+                            const widget = myprovider.diagramConnector.widgetManager.getWidgets(provider.id)[0] as DiagramWidget;
+                            widget.actionDispatcher.dispatch(new ToggleValidationAction());
+            });
+
+        }),
         }));
     }
 
@@ -119,11 +127,5 @@ export class WorkspaceRootUriAwareCommandHandler extends UriAwareCommandHandler<
             return new URI(this.workspaceService.tryGetRoots()[0].uri);
         }
         return undefined;
-    }
-}
-
-export class CallToggleValidation{
-    constructor(@inject(TYPES.IActionDispatcher) protected actionDispatcher: GLSPActionDispatcher) {
-        actionDispatcher.requestUntil(new ToggleValidationAction());
     }
 }

@@ -10,29 +10,22 @@
  ********************************************************************************/
 package org.eclipse.emfcloud.cmmn.glsp.operationhandler;
 
-import java.util.Collection;
 import java.util.Optional;
 
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.EcoreUtil.UsageCrossReferencer;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelServerAccess;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
-import org.eclipse.emfcloud.metamodel.CMMN.CMMNElement;
 import org.eclipse.emfcloud.metamodel.CMMN.Stage;
 import org.eclipse.emfcloud.metamodel.CMMN.Task;
 import org.eclipse.emfcloud.metamodel.enotation.NotationElement;
-import org.eclipse.glsp.api.model.GraphicalModelState;
 import org.eclipse.glsp.graph.GModelIndex;
-import org.eclipse.glsp.server.operationhandler.DeleteOperationHandler;
+import org.eclipse.glsp.server.model.GModelState;
+import org.eclipse.glsp.server.operations.gmodel.DeleteOperationHandler;
 
 public class CMMNDeleteOperationHandler extends DeleteOperationHandler {
 	@Override
-	protected boolean delete(String elementId, GModelIndex index, GraphicalModelState graphicalModelState) {
+	protected boolean delete(String elementId, GModelIndex index, GModelState graphicalModelState) {
 		super.delete(elementId, index, graphicalModelState);
 		CMMNModelState modelState = CMMNModelState.getModelState(graphicalModelState);
 

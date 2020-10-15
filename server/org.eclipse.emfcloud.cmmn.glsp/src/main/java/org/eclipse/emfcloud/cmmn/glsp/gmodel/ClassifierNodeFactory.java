@@ -72,29 +72,41 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 	}
 
 	public GNode create(Case cmmnCase) {
+		List<CMMNElement> allChildren = new ArrayList<>();
+		if(cmmnCase.getCasefile() != null) allChildren.add(cmmnCase.getCasefile());
+		allChildren.addAll(cmmnCase.getStages());
+		allChildren.addAll(cmmnCase.getTasks());
+		allChildren.addAll(cmmnCase.getEventListeners());
 		GNodeBuilder b = new GNodeBuilder(Types.CASE) //
 				.id(toId(cmmnCase)) //
-				.layout(GConstants.Layout.STACK) //
+				.layout(GConstants.Layout.VBOX) //
 				.addCssClass(CSS.CASE) //
 				.add(buildHeader(cmmnCase))//
-				.add(createCaseFileChildrenCompartment(cmmnCase.getCasefile(), cmmnCase))
-				.add(createStageChildrenCompartment(cmmnCase.getStages(), cmmnCase))
-				.add(createTaskChildrenCompartment(cmmnCase.getTasks(), cmmnCase))
-				.add(createEventListenerChildrenCompartment(cmmnCase.getEventListeners(), cmmnCase));
+				//.add(createCaseFileChildrenCompartment(cmmnCase.getCasefile(), cmmnCase))
+				//.add(createStageChildrenCompartment(cmmnCase.getStages(), cmmnCase))
+				//.add(createTaskChildrenCompartment(cmmnCase.getTasks(), cmmnCase))
+				//.add(createEventListenerChildrenCompartment(cmmnCase.getEventListeners(), cmmnCase));
+				.add(createChildrenCompartment(allChildren, cmmnCase));
+			
 		applyShapeData(cmmnCase, b);
 		return b.build();
 	}
 
 	public GNode create(Stage cmmnStage) {
+		List<CMMNElement> allChildren = new ArrayList<>();
+		allChildren.addAll(cmmnStage.getTasks());
+		allChildren.addAll(cmmnStage.getEventListeners());
+		allChildren.addAll(cmmnStage.getDecorators());
 		GNodeBuilder b = new GNodeBuilder(Types.STAGE) //
 				.id(toId(cmmnStage)) //
-				.layout(GConstants.Layout.STACK) //
+				.layout(GConstants.Layout.VBOX) //
 				.layoutOptions(new GLayoutOptions().resizeContainer(true)) //
 				.addCssClass(CSS.STAGE) //
 				.add(buildHeader(cmmnStage))//
-				.add(createTaskChildrenCompartment(cmmnStage.getTasks(), cmmnStage))
-				.add(createEventListenerChildrenCompartment(cmmnStage.getEventListeners(), cmmnStage))
-				.add(createDecoratorChildrenCompartment(cmmnStage.getDecorators(), cmmnStage));
+				//.add(createTaskChildrenCompartment(cmmnStage.getTasks(), cmmnStage))
+				//.add(createEventListenerChildrenCompartment(cmmnStage.getEventListeners(), cmmnStage))
+				//.add(createDecoratorChildrenCompartment(cmmnStage.getDecorators(), cmmnStage));
+				.add(createChildrenCompartment(allChildren, cmmnStage));
 		applyShapeData(cmmnStage, b);
 
 		return b.build();
@@ -105,7 +117,7 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 		if(cmmnTask.getTaskRole() == TaskRole.HUMAN) role = Types.TASK_HUMAN;
 		GNodeBuilder b = new GNodeBuilder(role) //
 				.id(toId(cmmnTask)) //
-				.layout(GConstants.Layout.STACK) //
+				.layout(GConstants.Layout.VBOX) //
 				.layoutOptions(new GLayoutOptions().resizeContainer(true)) //
 				.addCssClass(CSS.TASK) //
 				.add(createDecoratorChildrenCompartment(cmmnTask.getDecorators(), cmmnTask))
@@ -115,11 +127,10 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 		return b.build();
 	}
 
-	// TODO refactor Task
 	public GNode create(EventListener cmmnTask) {
 		GNodeBuilder b = new GNodeBuilder(Types.EVENTLISTENER) //
 				.id(toId(cmmnTask)) //
-				.layout(GConstants.Layout.STACK) //
+				.layout(GConstants.Layout.VBOX) //
 				.layoutOptions(new GLayoutOptions().resizeContainer(true)) //
 				.addCssClass(CSS.ICON) //
 				.add(buildHeader(cmmnTask));
@@ -131,7 +142,7 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 	public GNode create(CaseFile caseFile) {
 		GNodeBuilder b = new GNodeBuilder(Types.CASEFILE) //
 				.id(toId(caseFile)) //
-				.layout(GConstants.Layout.STACK) //
+				.layout(GConstants.Layout.VBOX) //
 				.layoutOptions(new GLayoutOptions().resizeContainer(true)) //
 				.addCssClass(CSS.ICON) //
 				.add(buildHeader(caseFile));
@@ -143,7 +154,7 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 	public GNode create(MandatoryDecorator mandatoryDecorator) {
 		GNodeBuilder b = new GNodeBuilder(Types.MANDATORYDECORATOR) //
 				.id(toId(mandatoryDecorator)) //
-				.layout(GConstants.Layout.STACK) //
+				.layout(GConstants.Layout.VBOX) //
 				.layoutOptions(new GLayoutOptions().resizeContainer(true)) //
 				.addCssClass(CSS.TASK) //
 				.add(buildHeader(mandatoryDecorator));
@@ -155,7 +166,7 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 	public GNode create(HTTPHookDecorator httpHookDecorator) {
 		GNodeBuilder b = new GNodeBuilder(Types.HTTPDECORATOR) //
 				.id(toId(httpHookDecorator)) //
-				.layout(GConstants.Layout.STACK) //
+				.layout(GConstants.Layout.VBOX) //
 				.layoutOptions(new GLayoutOptions().resizeContainer(true)) //
 				.addCssClass(CSS.ICON) //
 				.add(buildHTTPHook(httpHookDecorator));//
@@ -220,9 +231,18 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 				.build();
 	}
 	
+	private GCompartment createChildrenCompartment(Collection<? extends EObject> children, CMMNElement parent) {
+		return new GCompartmentBuilder(Types.COMP)
+				.id(toId(parent) + "_ChildCompartment")
+				.addAll(children.stream() //
+						.map(parentFactory::create) //
+						.collect(Collectors.toList()))
+				.build();
+	}
+	
 	private GCompartment createStageChildrenCompartment(Collection<? extends EObject> children, CMMNElement parent) {
 		return new GCompartmentBuilder(Types.COMP)
-				.id(toId(parent) + "_StageCompartment").layout(GConstants.Layout.STACK) //
+				.id(toId(parent) + "_StageCompartment").layout(GConstants.Layout.VBOX) //
 				.layoutOptions(new GLayoutOptions() //
 						.hAlign(GConstants.HAlign.LEFT) //
 						.resizeContainer(true)) //
@@ -234,7 +254,7 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 
 	private GCompartment createTaskChildrenCompartment(Collection<? extends EObject> children, CMMNElement parent) {
 		return new GCompartmentBuilder(Types.COMP) //
-				.id(toId(parent) + "_taskCompartment").layout(GConstants.Layout.STACK) //
+				.id(toId(parent) + "_taskCompartment").layout(GConstants.Layout.VBOX) //
 				.layoutOptions(new GLayoutOptions() //
 						.hAlign(GConstants.HAlign.LEFT) //
 						.resizeContainer(true)) //
@@ -246,7 +266,7 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 	
 	private GCompartment createEventListenerChildrenCompartment(Collection<? extends EObject> children, CMMNElement parent) {
 		return new GCompartmentBuilder(Types.COMP) //
-				.id(toId(parent) + "_eventListenerCompartment").layout(GConstants.Layout.STACK) //
+				.id(toId(parent) + "_eventListenerCompartment").layout(GConstants.Layout.VBOX) //
 				.layoutOptions(new GLayoutOptions() //
 						.hAlign(GConstants.HAlign.LEFT) //
 						.resizeContainer(true)) //
@@ -277,7 +297,7 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 	
 	private GCompartment createDecoratorChildrenCompartment(Collection<? extends EObject> children, CMMNElement parent) {
 		return new GCompartmentBuilder(Types.COMP) //
-				.id(toId(parent) + "_decoratorCompartment").layout(GConstants.Layout.STACK) //
+				.id(toId(parent) + "_decoratorCompartment").layout(GConstants.Layout.VBOX) //
 				.layoutOptions(new GLayoutOptions() //
 						.hAlign(GConstants.HAlign.CENTER) //
 						.vAlign(GConstants.VAlign.BOTTOM)

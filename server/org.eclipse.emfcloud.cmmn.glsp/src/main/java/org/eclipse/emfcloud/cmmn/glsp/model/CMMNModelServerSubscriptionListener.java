@@ -19,7 +19,7 @@ import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emfcloud.modelserver.client.XmiToEObjectSubscriptionListener;
 import org.eclipse.emfcloud.modelserver.command.CCommand;
-import org.eclipse.glsp.api.action.ActionDispatcher;
+import org.eclipse.glsp.server.actions.ActionDispatcher;
 
 public class CMMNModelServerSubscriptionListener extends XmiToEObjectSubscriptionListener {
 

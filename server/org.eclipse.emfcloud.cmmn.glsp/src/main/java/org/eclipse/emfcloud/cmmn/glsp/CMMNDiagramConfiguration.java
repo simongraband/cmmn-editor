@@ -16,11 +16,11 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emfcloud.cmmn.glsp.util.CMMNConfig.Types;
-import org.eclipse.glsp.api.diagram.DiagramConfiguration;
-import org.eclipse.glsp.api.types.EdgeTypeHint;
-import org.eclipse.glsp.api.types.ShapeTypeHint;
 import org.eclipse.glsp.graph.DefaultTypes;
 import org.eclipse.glsp.graph.GraphPackage;
+import org.eclipse.glsp.server.diagram.DiagramConfiguration;
+import org.eclipse.glsp.server.diagram.EdgeTypeHint;
+import org.eclipse.glsp.server.diagram.ShapeTypeHint;
 
 import com.google.common.collect.Lists;
 
@@ -47,8 +47,8 @@ public class CMMNDiagramConfiguration implements DiagramConfiguration {
 		List<ShapeTypeHint> hints = new ArrayList<>();
 		hints.add(new ShapeTypeHint(DefaultTypes.GRAPH, false, false, false, true,
 				List.of(Types.CASE)));
-		hints.add(new ShapeTypeHint(Types.CASE, true, true, true, false, List.of(Types.TASK_HUMAN, Types.TASK_PROCESS, Types.CASEFILE, Types.STAGE, Types.EVENTLISTENER)));
-		hints.add(new ShapeTypeHint(Types.STAGE, true, true, true, true, List.of(Types.TASK_HUMAN, Types.TASK_PROCESS, Types.EVENTLISTENER, Types.HTTPDECORATOR, Types.MANDATORYDECORATOR)));
+		hints.add(new ShapeTypeHint(Types.CASE, true, true, false, false, List.of(Types.TASK_HUMAN, Types.TASK_PROCESS, Types.CASEFILE, Types.STAGE, Types.EVENTLISTENER)));
+		hints.add(new ShapeTypeHint(Types.STAGE, true, true, false, true, List.of(Types.TASK_HUMAN, Types.TASK_PROCESS, Types.EVENTLISTENER, Types.HTTPDECORATOR, Types.MANDATORYDECORATOR)));
 		hints.add(new ShapeTypeHint(Types.TASK_HUMAN, true, true, false, true, List.of(Types.HTTPDECORATOR, Types.MANDATORYDECORATOR)));
 		hints.add(new ShapeTypeHint(Types.TASK_PROCESS, true, true, false, true, List.of(Types.HTTPDECORATOR, Types.MANDATORYDECORATOR)));
 		hints.add(new ShapeTypeHint(Types.CASEFILE, true, true, false, true));

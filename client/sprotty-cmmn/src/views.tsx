@@ -22,7 +22,7 @@ import {
 } from "sprotty/lib";
 
 import { LabeledNode, Icon, ActivityNode} from "./model";
-import { IView } from "@eclipse-glsp/client";
+import { getSubType, IView, SCompartment, setAttr } from "@eclipse-glsp/client";
 
 /** @jsx svg */
 const JSX = { createElement: snabbdom.svg };
@@ -91,7 +91,7 @@ export class StageNodeView extends RectangularNodeView {
 
       <rect class-sprotty-node={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
         x={0} y={0} rx={0} ry={0}
-        width={node.bounds.width} height={node.bounds.height} />
+        width={Math.max(node.bounds.width,700)} height={Math.max(node.bounds.height, 350)} />
       {context.renderChildren(node)}
     </g>;
   }
@@ -111,7 +111,7 @@ export class CaseNodeView extends RectangularNodeView {
 
       <rect class-sprotty-node={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
         x={-20} y={35} rx={0} ry={0}
-        width={node.bounds.width} height={node.bounds.height} />
+        width={Math.max(node.bounds.width,1600)} height={Math.max(node.bounds.height, 800)} />
       {context.renderChildren(node)}
     </g>;
   }
@@ -211,6 +211,19 @@ export class ExitEdgeView extends PolylineEdgeView {
         transform={`translate(${p2.x} ${p2.y})`} />,
     ];
   }
+}
+
+@injectable()
+export class CustomCompartmentView implements IView {
+    render(compartment: Readonly<SCompartment>, context: RenderingContext): VNode | undefined {
+        const vnode = <g class-sprotty-comp="{true}">
+            {context.renderChildren(compartment)}
+        </g>;
+        const subType = getSubType(compartment);
+        if (subType)
+            setAttr(vnode, "class", subType);
+        return vnode;
+    }
 }
 
 export function angle(x0: Point, x1: Point): number {

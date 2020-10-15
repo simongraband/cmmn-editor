@@ -29,8 +29,8 @@ import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
 import org.eclipse.emfcloud.metamodel.CMMN.CMMNPackage;
 import org.eclipse.emfcloud.metamodel.CMMN.util.CMMNAdapterFactory;
 import org.eclipse.emfcloud.metamodel.enotation.EnotationPackage;
-import org.eclipse.glsp.api.protocol.GLSPServerException;
-import org.eclipse.glsp.api.utils.ClientOptions;
+import org.eclipse.glsp.server.protocol.GLSPServerException;
+import org.eclipse.glsp.server.utils.ClientOptions;
 
 public class ResourceManager {
 	public static final String CMMN_EXTENSION = ".cmmn";

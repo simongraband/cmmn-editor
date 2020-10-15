@@ -17,19 +17,19 @@ import org.eclipse.emfcloud.cmmn.glsp.CMMNEditorContext;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNRecordingCommand;
 import org.eclipse.emfcloud.cmmn.glsp.gmodel.GModelFactory;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
-import org.eclipse.glsp.api.action.Action;
-import org.eclipse.glsp.api.action.kind.RequestBoundsAction;
-import org.eclipse.glsp.api.action.kind.SetDirtyStateAction;
-import org.eclipse.glsp.api.handler.OperationHandler;
-import org.eclipse.glsp.api.model.GraphicalModelState;
-import org.eclipse.glsp.api.operation.Operation;
 import org.eclipse.glsp.graph.GModelRoot;
-import org.eclipse.glsp.server.actionhandler.OperationActionHandler;
+import org.eclipse.glsp.server.actions.Action;
+import org.eclipse.glsp.server.actions.RequestBoundsAction;
+import org.eclipse.glsp.server.actions.SetDirtyStateAction;
+import org.eclipse.glsp.server.model.GModelState;
+import org.eclipse.glsp.server.operations.Operation;
+import org.eclipse.glsp.server.operations.OperationActionHandler;
+import org.eclipse.glsp.server.operations.OperationHandler;
 
 public class CMMNOperationActionHandler extends OperationActionHandler {
 
 	@Override
-	public List<Action> executeAction(Operation operation, GraphicalModelState modelState) {
+	public List<Action> executeAction(Operation operation, GModelState modelState) {
 		// Disable the special handling for CreateOperation, as we don't register
 		// 1 handler per element type to create.
 		Optional<? extends OperationHandler> operationHandler = operationHandlerRegistry.get(operation);
@@ -41,7 +41,7 @@ public class CMMNOperationActionHandler extends OperationActionHandler {
 
 	@Override
 	protected List<Action> executeHandler(Operation operation, OperationHandler handler,
-			GraphicalModelState graphicalModelState) {
+			GModelState graphicalModelState) {
 		CMMNModelState modelState = CMMNModelState.getModelState(graphicalModelState);
 		CMMNEditorContext context = modelState.getEditorContext();
 		String label = handler.getLabel();

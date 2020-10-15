@@ -31,7 +31,6 @@ public class CMMNServerLauncher {
 		
 		configureLogger();
 		CMMNPackage.eINSTANCE.eClass();
-		ElkLayoutEngine.initialize(new LayeredMetaDataProvider());
 		Logger.getRootLogger().setLevel(Level.DEBUG);
 		GLSPServerLauncher launcher = new DefaultGLSPServerLauncher(new CMMNGLSPModule());
 		launcher.start("localhost", port);

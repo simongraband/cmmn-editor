@@ -7,19 +7,15 @@ import java.util.Optional;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNModelIndex;
-import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNRequestMarkersActionHandler;
 import org.eclipse.emfcloud.validation.ValidationResult;
 import org.eclipse.emfcloud.validation.ValidationResultChangeListener;
-import org.eclipse.glsp.api.action.ActionDispatcher;
-import org.eclipse.glsp.api.action.kind.RequestMarkersAction;
-import org.eclipse.glsp.api.action.kind.SetMarkersAction;
-import org.eclipse.glsp.api.markers.Marker;
-import org.eclipse.glsp.api.markers.MarkerKind;
 import org.eclipse.glsp.graph.GModelElement;
+import org.eclipse.glsp.server.actions.ActionDispatcher;
+import org.eclipse.glsp.server.actions.ActionMessage;
+import org.eclipse.glsp.server.features.validation.Marker;
+import org.eclipse.glsp.server.features.validation.MarkerKind;
+import org.eclipse.glsp.server.features.validation.SetMarkersAction;
 
 import com.google.inject.Inject;
 
@@ -32,7 +28,7 @@ public class CMMNValidationResultChangeListener extends ValidationResultChangeLi
 	
 	@Override
 	public void changed(List<ValidationResult> newResult) {
-		actionDispatcher.dispatch(modelState.getClientId(), new SetMarkersAction(createMarkers(newResult, modelState)));
+		actionDispatcher.dispatch(new ActionMessage(modelState.getClientId(), new SetMarkersAction(createMarkers(newResult, modelState))));
 	}
 	
 	public CMMNValidationResultChangeListener(CMMNModelState cmmnModelState, ActionDispatcher actionDispatcher) {
@@ -85,6 +81,9 @@ public class CMMNValidationResultChangeListener extends ValidationResultChangeLi
     		}
     		if(featureName.equals("tasks")) {
     			return elementMap.get("name") + " needs at least 1 Task";
+    		}
+    		if(featureName.equals("cmmnElements")) {
+    			return "Diagram is empty";
     		}
     		
     	}

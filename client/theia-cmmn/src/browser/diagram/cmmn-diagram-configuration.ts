@@ -21,12 +21,13 @@ import {
 } from "@eclipse-glsp/theia-integration/lib/browser/diagram/glsp-theia-marker-manager";
 import { CMMNLanguage } from "../../common/cmmn-language";
 import { CMMNGLSPTheiaDiagramServer } from "./cmmn-glsp-theia-diagram-server";
-import { TheiaNavigateToTargetHandler } from "@eclipse-glsp/theia-integration/lib/browser";
+import { connectTheiaContextMenuService, TheiaContextMenuService, TheiaContextMenuServiceFactory, TheiaNavigateToTargetHandler } from "@eclipse-glsp/theia-integration/lib/browser";
 
 @injectable()
 export class CMMNDiagramConfiguration implements DiagramConfiguration {
     @inject(SelectionService) protected selectionService: SelectionService;
     @inject(TheiaNavigateToTargetHandler) protected navigateToTargetHandler: TheiaNavigateToTargetHandler;
+    @inject(TheiaContextMenuServiceFactory) protected readonly contextMenuServiceFactory: () => TheiaContextMenuService;
     @inject(TheiaMarkerManagerFactory) protected readonly theiaMarkerManager: () => TheiaMarkerManager;
     diagramType: string = CMMNLanguage.DiagramType;
 
@@ -38,6 +39,7 @@ export class CMMNDiagramConfiguration implements DiagramConfiguration {
         container.bind(TYPES.IActionHandlerInitializer).to(TheiaSprottySelectionForwarder);
         container.bind(ExternalNavigateToTargetHandler).toConstantValue(this.navigateToTargetHandler);
         container.bind(SelectionService).toConstantValue(this.selectionService);
+        connectTheiaContextMenuService(container, this.contextMenuServiceFactory);
         connectTheiaMarkerManager(container, this.theiaMarkerManager, this.diagramType);
         return container;
     }

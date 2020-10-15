@@ -16,13 +16,11 @@ import org.eclipse.emfcloud.metamodel.CMMN.CMMNFactory;
 import org.eclipse.emfcloud.metamodel.CMMN.Case;
 import org.eclipse.emfcloud.metamodel.enotation.Diagram;
 import org.eclipse.emfcloud.metamodel.enotation.Shape;
-import org.eclipse.glsp.api.model.GraphicalModelState;
-import org.eclipse.glsp.api.operation.Operation;
-import org.eclipse.glsp.api.operation.kind.CreateNodeOperation;
-import org.eclipse.glsp.graph.GDimension;
 import org.eclipse.glsp.graph.GraphPackage;
-import org.eclipse.glsp.graph.impl.GDimensionImpl;
-import org.eclipse.glsp.server.operationhandler.BasicOperationHandler;
+import org.eclipse.glsp.server.model.GModelState;
+import org.eclipse.glsp.server.operations.BasicOperationHandler;
+import org.eclipse.glsp.server.operations.CreateNodeOperation;
+import org.eclipse.glsp.server.operations.Operation;
 
 public class CreateNodeOperationHandler extends BasicOperationHandler<CreateNodeOperation> {
 
@@ -38,7 +36,7 @@ public class CreateNodeOperationHandler extends BasicOperationHandler<CreateNode
 	}
 
 	@Override
-	public void executeOperation(CreateNodeOperation operation, GraphicalModelState modelState) {
+	public void executeOperation(CreateNodeOperation operation, GModelState modelState) {
 		String elementTypeId = operation.getElementTypeId();
 		CMMNEditorContext context = CMMNModelState.getEditorContext(modelState);
 		CMMNFacade facade = context.getCMMNFacade();
@@ -62,7 +60,7 @@ public class CreateNodeOperationHandler extends BasicOperationHandler<CreateNode
         access.update();
 	}
 
-	protected void setName(CMMNElement element, GraphicalModelState modelState) {
+	protected void setName(CMMNElement element, GModelState modelState) {
 		Function<Integer, String> nameProvider = i -> "Unknown" + i;
 		if (element instanceof Case) {
 			nameProvider = i -> "NewCase" + i;

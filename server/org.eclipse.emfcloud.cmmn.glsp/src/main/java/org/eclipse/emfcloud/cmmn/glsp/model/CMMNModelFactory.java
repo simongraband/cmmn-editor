@@ -19,14 +19,14 @@ import org.eclipse.emfcloud.cmmn.glsp.ModelServerClientProvider;
 import org.eclipse.emfcloud.metamodel.enotation.Diagram;
 import org.eclipse.emfcloud.modelserver.client.ModelServerClient;
 import org.eclipse.emfcloud.modelserver.edit.CommandCodec;
-import org.eclipse.glsp.api.action.ActionDispatcher;
-import org.eclipse.glsp.api.action.kind.RequestModelAction;
-import org.eclipse.glsp.api.factory.ModelFactory;
-import org.eclipse.glsp.api.model.GraphicalModelState;
-import org.eclipse.glsp.api.utils.ClientOptions;
 import org.eclipse.glsp.graph.DefaultTypes;
 import org.eclipse.glsp.graph.GModelRoot;
 import org.eclipse.glsp.graph.builder.impl.GGraphBuilder;
+import org.eclipse.glsp.server.actions.ActionDispatcher;
+import org.eclipse.glsp.server.actions.RequestModelAction;
+import org.eclipse.glsp.server.factory.ModelFactory;
+import org.eclipse.glsp.server.model.GModelState;
+import org.eclipse.glsp.server.utils.ClientOptions;
 
 import com.google.inject.Inject;
 
@@ -44,7 +44,7 @@ public class CMMNModelFactory implements ModelFactory {
 	private CommandCodec commandCodec;
 
 	@Override
-	public GModelRoot loadModel(RequestModelAction action, GraphicalModelState graphicalModelState) {
+	public GModelRoot loadModel(RequestModelAction action, GModelState graphicalModelState) {
 		// 1. Load models and create ecore facade
 		Optional<String> sourceURI = ClientOptions.getValue(action.getOptions(), ClientOptions.SOURCE_URI);
 		if (sourceURI.isEmpty()) {

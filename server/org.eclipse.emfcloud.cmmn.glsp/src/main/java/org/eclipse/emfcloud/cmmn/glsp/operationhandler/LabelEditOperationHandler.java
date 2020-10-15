@@ -10,8 +10,6 @@
  ********************************************************************************/
 package org.eclipse.emfcloud.cmmn.glsp.operationhandler;
 
-import static org.eclipse.glsp.api.protocol.GLSPServerException.getOrThrow;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,16 +35,17 @@ import org.eclipse.emfcloud.metamodel.CMMN.Sentry;
 import org.eclipse.emfcloud.metamodel.CMMN.Stage;
 import org.eclipse.emfcloud.metamodel.CMMN.Task;
 import org.eclipse.emfcloud.metamodel.enotation.Shape;
-import org.eclipse.glsp.api.model.GraphicalModelState;
-import org.eclipse.glsp.api.operation.kind.ApplyLabelEditOperation;
 import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.GNode;
-import org.eclipse.glsp.server.operationhandler.BasicOperationHandler;
+import org.eclipse.glsp.server.features.directediting.ApplyLabelEditOperation;
+import org.eclipse.glsp.server.model.GModelState;
+import org.eclipse.glsp.server.operations.BasicOperationHandler;
+import static org.eclipse.glsp.server.protocol.GLSPServerException.getOrThrow;
 
 public class LabelEditOperationHandler extends BasicOperationHandler<ApplyLabelEditOperation> {
 
 	@Override
-	public void executeOperation(ApplyLabelEditOperation editLabelOperation, GraphicalModelState graphicalModelState) {
+	public void executeOperation(ApplyLabelEditOperation editLabelOperation, GModelState graphicalModelState) {
 		CMMNFacade facade = CMMNModelState.getCMMNFacade(graphicalModelState);
 		CMMNModelIndex index = CMMNModelState.getModelState(graphicalModelState).getIndex();
 		Optional<String> type = index.findElementByClass(editLabelOperation.getLabelId(), GModelElement.class).map(e -> e.getType());

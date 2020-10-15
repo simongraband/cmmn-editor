@@ -1,6 +1,6 @@
 package org.eclipse.emfcloud.cmmn.glsp.actions;
 
-import org.eclipse.glsp.api.action.kind.RequestAction;
+import org.eclipse.glsp.server.actions.RequestAction;
 
 public class ToggleValidationAction extends RequestAction<ReturnToggleValidationAction>{
 

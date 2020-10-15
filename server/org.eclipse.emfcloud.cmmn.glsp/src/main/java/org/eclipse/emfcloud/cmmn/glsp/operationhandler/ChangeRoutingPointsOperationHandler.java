@@ -16,16 +16,18 @@ import java.util.List;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNModelIndex;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
 import org.eclipse.emfcloud.metamodel.enotation.Edge;
-import org.eclipse.glsp.api.model.GraphicalModelState;
-import org.eclipse.glsp.api.operation.kind.ChangeRoutingPointsOperation;
-import org.eclipse.glsp.api.types.ElementAndRoutingPoints;
 import org.eclipse.glsp.graph.GPoint;
-import org.eclipse.glsp.server.operationhandler.BasicOperationHandler;
+import org.eclipse.glsp.server.model.GModelState;
+import org.eclipse.glsp.server.operations.BasicOperationHandler;
+import org.eclipse.glsp.server.operations.ChangeRoutingPointsOperation;
+import org.eclipse.glsp.server.types.ElementAndRoutingPoints;
+
+
 
 public class ChangeRoutingPointsOperationHandler extends BasicOperationHandler<ChangeRoutingPointsOperation> {
 
     @Override
-    public void executeOperation(ChangeRoutingPointsOperation operation, GraphicalModelState modelState) {
+    public void executeOperation(ChangeRoutingPointsOperation operation, GModelState modelState) {
         CMMNModelIndex index = CMMNModelState.getModelState(modelState).getIndex();
         rerouteEdge(operation, index);
     }

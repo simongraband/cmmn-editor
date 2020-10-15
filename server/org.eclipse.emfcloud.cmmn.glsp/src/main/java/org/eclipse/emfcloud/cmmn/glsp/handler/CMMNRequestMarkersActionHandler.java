@@ -7,16 +7,16 @@ import java.util.concurrent.ExecutionException;
 
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelServerAccess;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
-import org.eclipse.glsp.api.action.Action;
-import org.eclipse.glsp.api.action.kind.RequestMarkersAction;
-import org.eclipse.glsp.api.markers.Marker;
-import org.eclipse.glsp.api.model.GraphicalModelState;
-import org.eclipse.glsp.server.actionhandler.RequestMarkersHandler;
+import org.eclipse.glsp.server.actions.Action;
+import org.eclipse.glsp.server.features.validation.Marker;
+import org.eclipse.glsp.server.features.validation.RequestMarkersAction;
+import org.eclipse.glsp.server.features.validation.RequestMarkersHandler;
+import org.eclipse.glsp.server.model.GModelState;
 
 public class CMMNRequestMarkersActionHandler extends RequestMarkersHandler {
 
     @Override
-    public List<Action> executeAction(final RequestMarkersAction action, final GraphicalModelState modelState) {
+    public List<Action> executeAction(final RequestMarkersAction action, final GModelState modelState) {
         List<Marker> markers = new ArrayList<>();
             CMMNModelState cmmnModelState = CMMNModelState.getModelState(modelState);
             CMMNModelServerAccess access = cmmnModelState.getModelServerAccess();

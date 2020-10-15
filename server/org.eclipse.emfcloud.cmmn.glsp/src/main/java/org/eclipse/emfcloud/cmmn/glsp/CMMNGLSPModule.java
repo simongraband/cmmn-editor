@@ -13,6 +13,7 @@ package org.eclipse.emfcloud.cmmn.glsp;
 import org.eclipse.emfcloud.cmmn.glsp.actions.ReturnToggleValidationAction;
 import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNOperationActionHandler;
 import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNRequestContextActionsHandler;
+import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNRequestMarkersActionHandler;
 import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNSaveModelActionHandler;
 import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNToggleValidationActionHandler;
 import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNUndoRedoActionHandler;
@@ -29,50 +30,46 @@ import org.eclipse.emfcloud.cmmn.glsp.palette.CMMNToolPaletteItemProvider;
 import org.eclipse.emfcloud.cmmn.glsp.registry.CMMNDIOperationHandlerRegistry;
 import org.eclipse.emfcloud.modelserver.edit.CommandCodec;
 import org.eclipse.emfcloud.modelserver.edit.DefaultCommandCodec;
-import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNRequestMarkersActionHandler;
-import org.eclipse.glsp.api.action.Action;
-import org.eclipse.glsp.api.configuration.ServerConfiguration;
-import org.eclipse.glsp.api.diagram.DiagramConfiguration;
-import org.eclipse.glsp.api.factory.ModelFactory;
-import org.eclipse.glsp.api.handler.ActionHandler;
-import org.eclipse.glsp.api.handler.OperationHandler;
-import org.eclipse.glsp.api.labeledit.LabelEditValidator;
-import org.eclipse.glsp.api.layout.ILayoutEngine;
-import org.eclipse.glsp.api.model.ModelStateProvider;
-import org.eclipse.glsp.api.protocol.GLSPServer;
-import org.eclipse.glsp.api.provider.ContextMenuItemProvider;
-import org.eclipse.glsp.api.provider.ToolPaletteItemProvider;
-import org.eclipse.glsp.api.registry.OperationHandlerRegistry;
-import org.eclipse.glsp.server.actionhandler.OperationActionHandler;
-import org.eclipse.glsp.server.actionhandler.RequestContextActionsHandler;
-import org.eclipse.glsp.server.actionhandler.RequestMarkersHandler;
-import org.eclipse.glsp.server.actionhandler.SaveModelActionHandler;
-import org.eclipse.glsp.server.actionhandler.UndoRedoActionHandler;
-import org.eclipse.glsp.server.di.DefaultGLSPModule;
-import org.eclipse.glsp.server.di.MultiBindConfig;
-import org.eclipse.glsp.server.operationhandler.LayoutOperationHandler;
+import org.eclipse.glsp.server.DefaultGLSPModule;
+import org.eclipse.glsp.server.actions.Action;
+import org.eclipse.glsp.server.actions.ActionHandler;
+import org.eclipse.glsp.server.actions.DisposeClientSessionActionHandler;
+import org.eclipse.glsp.server.actions.SaveModelActionHandler;
+import org.eclipse.glsp.server.actions.UndoRedoActionHandler;
+import org.eclipse.glsp.server.diagram.DiagramConfiguration;
+import org.eclipse.glsp.server.factory.ModelFactory;
+import org.eclipse.glsp.server.features.contextactions.RequestContextActionsHandler;
+import org.eclipse.glsp.server.features.contextmenu.ContextMenuItemProvider;
+import org.eclipse.glsp.server.features.directediting.LabelEditValidator;
+import org.eclipse.glsp.server.features.toolpalette.ToolPaletteItemProvider;
+import org.eclipse.glsp.server.features.validation.RequestMarkersHandler;
+import org.eclipse.glsp.server.internal.action.DefaultActionDispatcher;
+import org.eclipse.glsp.server.layout.ServerLayoutConfiguration;
+import org.eclipse.glsp.server.model.ModelStateProvider;
+import org.eclipse.glsp.server.operations.OperationActionHandler;
+import org.eclipse.glsp.server.operations.OperationHandler;
+import org.eclipse.glsp.server.operations.OperationHandlerRegistry;
+import org.eclipse.glsp.server.operations.gmodel.LayoutOperationHandler;
+import org.eclipse.glsp.server.protocol.GLSPServer;
+import org.eclipse.glsp.server.utils.MultiBinding;
 
 public class CMMNGLSPModule extends DefaultGLSPModule {
 
 	@Override
-	protected void configureActionHandlers(MultiBindConfig<ActionHandler> bindings) {
+	protected void configureActionHandlers(MultiBinding<ActionHandler> bindings) {
 		super.configureActionHandlers(bindings);
 		bindings.rebind(RequestContextActionsHandler.class, CMMNRequestContextActionsHandler.class);
 		bindings.rebind(OperationActionHandler.class, CMMNOperationActionHandler.class);
 		bindings.rebind(SaveModelActionHandler.class, CMMNSaveModelActionHandler.class);
 		bindings.rebind(UndoRedoActionHandler.class, CMMNUndoRedoActionHandler.class);
 		bindings.rebind(RequestMarkersHandler.class, CMMNRequestMarkersActionHandler.class);
+		bindings.rebind(DisposeClientSessionActionHandler.class, CMMNDisposeClientSessionActionHandler.class);
 		bindings.add(CMMNToggleValidationActionHandler.class);
 	}
 
 	@Override
 	public Class<? extends ModelFactory> bindModelFactory() {
 		return CMMNModelFactory.class;
-	}
-
-	@Override
-	protected Class<? extends ILayoutEngine> bindLayoutEngine() {
-		return CMMNLayoutEngine.class;
 	}
 	
 	@Override
@@ -86,9 +83,14 @@ public class CMMNGLSPModule extends DefaultGLSPModule {
 	}
 	
 	@Override
-	   protected Class<? extends ContextMenuItemProvider> bindContextMenuItemProvider() {
-	      return CMMNContextMenuItemProvider.class;
-	   }
+	protected Class<? extends ContextMenuItemProvider> bindContextMenuItemProvider() {
+      return CMMNContextMenuItemProvider.class;
+	}
+	
+	@Override
+	protected Class<? extends ServerLayoutConfiguration> bindServerLayoutConfiguration() {
+		return CMMNServerConfiguration.class;
+	}
 	
 	@Override
 	protected Class<? extends OperationHandlerRegistry> bindOperationHandlerRegistry() {
@@ -96,7 +98,7 @@ public class CMMNGLSPModule extends DefaultGLSPModule {
 	}
 
 	@Override
-	protected void configureOperationHandlers(MultiBindConfig<OperationHandler> bindings) {
+	protected void configureOperationHandlers(MultiBinding<OperationHandler> bindings) {
 		bindings.add(LayoutOperationHandler.class);
 		bindings.add(CreateNodeOperationHandler.class);
 		bindings.add(CreateNodeChildOperationHandler.class);
@@ -107,14 +109,9 @@ public class CMMNGLSPModule extends DefaultGLSPModule {
 		bindings.add(LabelEditOperationHandler.class);
 		super.configureOperationHandlers(bindings);
 	}
-
-	@Override
-	protected Class<? extends ServerConfiguration> bindServerConfiguration() {
-		return CMMNServerConfiguration.class;
-	}
 	
 	@Override
-	protected void configureClientActions(MultiBindConfig<Action> bindings) {
+	protected void configureClientActions(MultiBinding<Action> bindings) {
 		super.configureClientActions(bindings);
 		bindings.add(ReturnToggleValidationAction.class);
 	}
@@ -125,7 +122,7 @@ public class CMMNGLSPModule extends DefaultGLSPModule {
 	}
 
 	@Override
-	protected void configureDiagramConfigurations(MultiBindConfig<DiagramConfiguration> bindings) {
+	protected void configureDiagramConfigurations(MultiBinding<DiagramConfiguration> bindings) {
 		bindings.add(CMMNDiagramConfiguration.class);
 	}
 	

@@ -10,30 +10,25 @@
  ********************************************************************************/
 package org.eclipse.emfcloud.cmmn.glsp.operationhandler;
 
-import static org.eclipse.glsp.api.protocol.GLSPServerException.getOrThrow;
-
 import java.util.List;
 
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNEditorContext;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNFacade;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNModelIndex;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelServerAccess;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
 import org.eclipse.emfcloud.cmmn.glsp.util.CMMNConfig.Types;
-import org.eclipse.emfcloud.metamodel.CMMN.CMMNElement;
 import org.eclipse.emfcloud.metamodel.CMMN.CMMNFactory;
 import org.eclipse.emfcloud.metamodel.CMMN.PlanItemDefinition;
 import org.eclipse.emfcloud.metamodel.CMMN.Sentry;
 import org.eclipse.emfcloud.metamodel.CMMN.SentryType;
 import org.eclipse.emfcloud.metamodel.enotation.Diagram;
-import org.eclipse.emfcloud.metamodel.enotation.NotationElement;
-import org.eclipse.glsp.api.model.GraphicalModelState;
-import org.eclipse.glsp.api.operation.Operation;
-import org.eclipse.glsp.api.operation.kind.CreateEdgeOperation;
 import org.eclipse.glsp.graph.GEdge;
-import org.eclipse.glsp.server.operationhandler.BasicOperationHandler;
+import org.eclipse.glsp.server.model.GModelState;
+import org.eclipse.glsp.server.operations.BasicOperationHandler;
+import org.eclipse.glsp.server.operations.CreateEdgeOperation;
+import org.eclipse.glsp.server.operations.Operation;
+import static org.eclipse.glsp.server.protocol.GLSPServerException.getOrThrow;
 
 import com.google.common.collect.Lists;
 
@@ -50,7 +45,7 @@ public class CreateSentryOperationHandler extends BasicOperationHandler<CreateEd
 	}
 
 	@Override
-	public void executeOperation(CreateEdgeOperation operation, GraphicalModelState modelState) {
+	public void executeOperation(CreateEdgeOperation operation, GModelState modelState) {
 		String elementTypeId = operation.getElementTypeId();
 
 		CMMNEditorContext context = CMMNModelState.getEditorContext(modelState);
@@ -82,8 +77,8 @@ public class CreateSentryOperationHandler extends BasicOperationHandler<CreateEd
 
 	private Sentry createSentry(PlanItemDefinition source, PlanItemDefinition target, String elementTypeId) {
 		Sentry sentry = CMMNFactory.eINSTANCE.createSentry();
-		sentry.setOnPart(target);
-		sentry.setAnchor(source);
+		sentry.setOnPart(source);
+		sentry.setAnchor(target);
 		if(elementTypeId.equals(Types.SENTRY_ENTRY)) {
 			sentry.setSentryType(SentryType.ENTRY);
 		} else {

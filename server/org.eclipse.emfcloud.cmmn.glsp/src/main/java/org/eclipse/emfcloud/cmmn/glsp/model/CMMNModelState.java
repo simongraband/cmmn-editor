@@ -25,15 +25,15 @@ import org.eclipse.emfcloud.cmmn.glsp.CMMNEditorContext;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNFacade;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNModelIndex;
 import org.eclipse.emfcloud.cmmn.glsp.ResourceManager;
-import org.eclipse.glsp.api.model.GraphicalModelState;
-import org.eclipse.glsp.server.model.ModelStateImpl;
+import org.eclipse.glsp.server.model.GModelState;
+import org.eclipse.glsp.server.model.GModelStateImpl;
 
-public class CMMNModelState extends ModelStateImpl implements GraphicalModelState {
+public class CMMNModelState extends GModelStateImpl implements GModelState {
 
 	private CMMNEditorContext editorContext;
 	private CMMNModelServerAccess modelServerAccess;
 
-	public static CMMNModelState getModelState(GraphicalModelState state) {
+	public static CMMNModelState getModelState(GModelState state) {
 		if (!(state instanceof CMMNModelState)) {
 			throw new IllegalArgumentException("Argument must be a ModelServer aware EcoreModelState");
 		}
@@ -41,13 +41,13 @@ public class CMMNModelState extends ModelStateImpl implements GraphicalModelStat
 	}
 
 	
-	public static CMMNEditorContext getEditorContext(GraphicalModelState state) {
+	public static CMMNEditorContext getEditorContext(GModelState state) {
 		return getModelState(state).getEditorContext();
 	}
-	public static ResourceManager getResourceManager(GraphicalModelState modelState) {
+	public static ResourceManager getResourceManager(GModelState modelState) {
 		return getEditorContext(modelState).getResourceManager();
 	}
-	public static CMMNFacade getCMMNFacade(GraphicalModelState modelState) {
+	public static CMMNFacade getCMMNFacade(GModelState modelState) {
 		return getEditorContext(modelState).getCMMNFacade();
 	}
 	public CMMNEditorContext getEditorContext() {
@@ -58,7 +58,7 @@ public class CMMNModelState extends ModelStateImpl implements GraphicalModelStat
 		setCommandStack((BasicCommandStack) editorContext.getResourceManager().getEditingDomain().getCommandStack());
 	}
 
-	public static CMMNModelServerAccess getModelServerAccess(GraphicalModelState state) {
+	public static CMMNModelServerAccess getModelServerAccess(GModelState state) {
 		return getModelState(state).getModelServerAccess();
 	}
 

@@ -18,15 +18,21 @@ package org.eclipse.emfcloud.cmmn.glsp.handler;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.glsp.api.action.Action;
-import org.eclipse.glsp.api.action.kind.RequestContextActions;
-import org.eclipse.glsp.api.model.GraphicalModelState;
-import org.eclipse.glsp.server.actionhandler.RequestContextActionsHandler;
+import org.eclipse.glsp.server.actions.Action;
+import org.eclipse.glsp.server.features.contextactions.RequestContextActions;
+import org.eclipse.glsp.server.features.contextactions.RequestContextActionsHandler;
+import org.eclipse.glsp.server.features.contextactions.SetContextActions;
+import org.eclipse.glsp.server.model.GModelState;
+
 
 public class CMMNRequestContextActionsHandler extends RequestContextActionsHandler {
-   @Override
-   public List<Action> executeAction(final RequestContextActions action, final GraphicalModelState modelState) {
-      List<Action> actions = new ArrayList<>(super.executeAction(action, modelState));
-      return actions;
-   }
+	 	@Override
+	   public List<Action> executeAction(final RequestContextActions action, final GModelState modelState) {
+	      List<Action> actions = new ArrayList<>(super.executeAction(action, modelState));
+	      actions.stream()
+	         .filter(SetContextActions.class::isInstance)
+	         .map(SetContextActions.class::cast)
+	         .findAny();
+	      return actions;
+	   }
 }

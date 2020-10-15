@@ -30,17 +30,17 @@ import org.eclipse.emfcloud.metamodel.CMMN.Sentry;
 import org.eclipse.emfcloud.metamodel.CMMN.Stage;
 import org.eclipse.emfcloud.metamodel.CMMN.Task;
 import org.eclipse.emfcloud.validation.EMFFacetConstraints;
-import org.eclipse.glsp.api.labeledit.LabelEditValidator;
-import org.eclipse.glsp.api.model.GraphicalModelState;
-import org.eclipse.glsp.api.types.ValidationStatus;
 import org.eclipse.glsp.graph.GCompartment;
 import org.eclipse.glsp.graph.GLabel;
 import org.eclipse.glsp.graph.GModelElement;
+import org.eclipse.glsp.server.features.directediting.LabelEditValidator;
+import org.eclipse.glsp.server.features.directediting.ValidationStatus;
+import org.eclipse.glsp.server.model.GModelState;
 
 public class CMMNLabelEditValidator implements LabelEditValidator {
 
 	@Override
-	public ValidationStatus validate(final GraphicalModelState modelState, final String label,
+	public ValidationStatus validate(final GModelState modelState, final String label,
 			final GModelElement element) {
 		CMMNModelState ecoreModelState = CMMNModelState.getModelState(modelState);
 		String type = element.getType();

@@ -22,12 +22,11 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.eclipse.glsp.api.handler.OperationHandler;
-import org.eclipse.glsp.api.operation.Operation;
-import org.eclipse.glsp.api.registry.MapRegistry;
-import org.eclipse.glsp.api.registry.OperationHandlerRegistry;
-import org.eclipse.glsp.api.utils.ReflectionUtil;
-import org.eclipse.glsp.server.registry.DIOperationHandlerRegistry;
+import org.eclipse.glsp.server.internal.di.MapRegistry;
+import org.eclipse.glsp.server.internal.util.ReflectionUtil;
+import org.eclipse.glsp.server.operations.Operation;
+import org.eclipse.glsp.server.operations.OperationHandler;
+import org.eclipse.glsp.server.operations.OperationHandlerRegistry;
 
 import com.google.inject.Inject;
 

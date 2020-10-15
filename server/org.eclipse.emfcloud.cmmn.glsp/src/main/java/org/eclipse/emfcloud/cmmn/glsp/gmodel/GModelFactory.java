@@ -33,7 +33,6 @@ import org.eclipse.emfcloud.metamodel.CMMN.Sentry;
 import org.eclipse.emfcloud.metamodel.CMMN.SentryType;
 import org.eclipse.emfcloud.metamodel.CMMN.Stage;
 import org.eclipse.emfcloud.metamodel.enotation.Edge;
-import org.eclipse.glsp.api.protocol.GLSPServerException;
 import org.eclipse.glsp.graph.GPoint;
 import org.eclipse.glsp.graph.GEdge;
 import org.eclipse.glsp.graph.GGraph;
@@ -46,6 +45,7 @@ import org.eclipse.glsp.graph.builder.impl.GGraphBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLabelBuilder;
 import org.eclipse.glsp.graph.util.GConstants;
 import org.eclipse.glsp.graph.util.GraphUtil;
+import org.eclipse.glsp.server.protocol.GLSPServerException;
 
 public class GModelFactory extends AbstractGModelFactory<EObject, GModelElement> {
 
@@ -99,10 +99,10 @@ public class GModelFactory extends AbstractGModelFactory<EObject, GModelElement>
 				.collect(Collectors.toList()));
 		
 		//All Case Tasks
-				graph.getChildren().addAll(cmmnDiagram.getCmmnElements().stream()
-						.flatMap(cases -> ((Case) cases).getEventListeners().stream())// //
-						.flatMap(task -> createEdges(task).stream()) //
-						.collect(Collectors.toList()));
+		graph.getChildren().addAll(cmmnDiagram.getCmmnElements().stream()
+				.flatMap(cases -> ((Case) cases).getEventListeners().stream())// //
+				.flatMap(task -> createEdges(task).stream()) //
+				.collect(Collectors.toList()));
 		
 		//All Tasks in Stages
 		graph.getChildren().addAll(cmmnDiagram.getCmmnElements().stream()
@@ -130,8 +130,8 @@ public class GModelFactory extends AbstractGModelFactory<EObject, GModelElement>
 	}
 
 	public GEdge create(Sentry sentry) {
-		PlanItemDefinition target = sentry.getOnPart();
-		PlanItemDefinition source = sentry.getAnchor();
+		PlanItemDefinition target = sentry.getAnchor();
+		PlanItemDefinition source = sentry.getOnPart();
 		String id = toId(sentry);
 
 		GEdgeBuilder builder = new GEdgeBuilder().id(id)
