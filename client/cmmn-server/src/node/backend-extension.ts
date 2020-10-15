@@ -20,7 +20,7 @@ import { join, resolve } from "path";
 
 @injectable()
 export class CMMNGlspLaunchOptions implements GLSPLaunchOptions {
-    isRunning = true;
+    isRunning = false;
     hostname = "localhost";
     jarPath = resolve(join(__dirname, "..", "..", "build", "org.eclipse.emfcloud.cmmn.glsp-0.0.1-glsp.jar"));
     serverPort = 5007;
@@ -28,7 +28,7 @@ export class CMMNGlspLaunchOptions implements GLSPLaunchOptions {
 
 @injectable()
 export class CMMNModelServerLaunchOptions implements LaunchOptions {
-    isRunning = true;
+    isRunning = false;
     baseURL = "api/v1/";
     serverPort = 8081;
     hostname = "localhost";
