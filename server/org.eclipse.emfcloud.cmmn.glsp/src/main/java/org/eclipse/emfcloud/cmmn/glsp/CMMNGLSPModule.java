@@ -15,6 +15,7 @@ import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNOperationActionHandler;
 import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNRequestContextActionsHandler;
 import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNRequestMarkersActionHandler;
 import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNSaveModelActionHandler;
+import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNToggleExitActionHandler;
 import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNToggleValidationActionHandler;
 import org.eclipse.emfcloud.cmmn.glsp.handler.CMMNUndoRedoActionHandler;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelFactory;
@@ -43,7 +44,6 @@ import org.eclipse.glsp.server.features.contextmenu.ContextMenuItemProvider;
 import org.eclipse.glsp.server.features.directediting.LabelEditValidator;
 import org.eclipse.glsp.server.features.toolpalette.ToolPaletteItemProvider;
 import org.eclipse.glsp.server.features.validation.RequestMarkersHandler;
-import org.eclipse.glsp.server.internal.action.DefaultActionDispatcher;
 import org.eclipse.glsp.server.layout.ServerLayoutConfiguration;
 import org.eclipse.glsp.server.model.ModelStateProvider;
 import org.eclipse.glsp.server.operations.OperationActionHandler;
@@ -65,6 +65,7 @@ public class CMMNGLSPModule extends DefaultGLSPModule {
 		bindings.rebind(RequestMarkersHandler.class, CMMNRequestMarkersActionHandler.class);
 		bindings.rebind(DisposeClientSessionActionHandler.class, CMMNDisposeClientSessionActionHandler.class);
 		bindings.add(CMMNToggleValidationActionHandler.class);
+		bindings.add(CMMNToggleExitActionHandler.class);
 	}
 
 	@Override

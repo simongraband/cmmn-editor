@@ -10,15 +10,20 @@
  ********************************************************************************/
 package org.eclipse.emfcloud.cmmn.glsp.model;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.ExecutionException;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNEditorContext;
 import org.eclipse.emfcloud.cmmn.glsp.CMMNFacade;
 import org.eclipse.emfcloud.cmmn.glsp.ModelServerClientProvider;
+import org.eclipse.emfcloud.metamodel.CMMN.util.CMMNValidator;
 import org.eclipse.emfcloud.metamodel.enotation.Diagram;
 import org.eclipse.emfcloud.modelserver.client.ModelServerClient;
 import org.eclipse.emfcloud.modelserver.edit.CommandCodec;
+import org.eclipse.emfcloud.validation.ValidationFilter;
 import org.eclipse.glsp.graph.DefaultTypes;
 import org.eclipse.glsp.graph.GModelRoot;
 import org.eclipse.glsp.graph.builder.impl.GGraphBuilder;
@@ -74,6 +79,12 @@ public class CMMNModelFactory implements ModelFactory {
 		CMMNValidationResultChangeListener changeListener = new CMMNValidationResultChangeListener(modelState, actionDispatcher);
 		CMMNModelServerAccess modelServerAccess = new CMMNModelServerAccess(modelUri, modelServerClient.get(),
 				commandCodec, changeListener);
+		try {
+			modelServerAccess.addValidationFilter(List.of(new ValidationFilter(CMMNValidator.CASE__HAS_EXIT_SENTRY, "org.eclipse.emfcloud.metamodel.CMMN")));
+		} catch (IOException | InterruptedException | ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		modelServerAccess.subscribeToValidation();
 		modelServerAccess.initConstraintList();
 		

@@ -10,7 +10,8 @@
  ********************************************************************************/
 import {
     ToggleValidationAction,
-    ReturnToggleValidationAction
+    ReturnToggleValidationAction,
+    ToggleExitAction
 } from "../../../../sprotty-cmmn/lib/features/model-validation";
 import { ActionHandlerRegistry } from "@eclipse-glsp/client/lib";
 import { GLSPTheiaDiagramServer } from "@eclipse-glsp/theia-integration/lib/browser";
@@ -22,6 +23,7 @@ export class CMMNGLSPTheiaDiagramServer extends GLSPTheiaDiagramServer {
         super.initialize(registry);
 
         registry.register(ToggleValidationAction.KIND, this);
+        registry.register(ToggleExitAction.KIND, this);
         registry.register(ReturnToggleValidationAction.KIND, this);
     }
 }

@@ -25,10 +25,9 @@ import { FileStat, FileSystem } from "@theia/filesystem/lib/common/filesystem";
 import { NAVIGATOR_CONTEXT_MENU } from "@theia/navigator/lib/browser/navigator-contribution";
 import { WorkspaceService } from "@theia/workspace/lib/browser";
 import { inject, injectable } from "inversify";
-import { ToggleValidationAction } from "sprotty-cmmn/lib/features/model-validation";
+import { ToggleValidationAction, ToggleExitAction } from "sprotty-cmmn/lib/features/model-validation";
 import { DiagramManagerProvider, DiagramWidget } from "@eclipse-glsp/theia-integration/lib/browser";
 import { CMMNDiagramManager } from "./diagram/cmmn-diagram-manager";
-//import { ReturnToggleValidationAction, ToggleValidationAction} from "../../../sprotty-cmmn/lib/features/model-validation";
 
 export const EXAMPLE_NAVIGATOR = [...NAVIGATOR_CONTEXT_MENU, "example"];
 export const EXAMPLE_EDITOR = [...EDITOR_CONTEXT_MENU, "example"];
@@ -37,6 +36,12 @@ export const TOGGLE_CONSTRAINT: Command = {
     id: "validation.toggleConstraint",
     category: "Validation",
     label: "Toggle (Object is unused) Warning"
+};
+
+export const ENABLE_ONEEXIT: Command = {
+    id: "validation.enableOneExit",
+    category: "Validation",
+    label: "Toggle 'Case must have one Exit Criterion'-Rule"
 };
 
 @injectable()
@@ -63,6 +68,18 @@ export class CMMNCommandContribution implements CommandContribution {
                             const myprovider = provider as CMMNDiagramManager;
                             const widget = myprovider.diagramConnector.widgetManager.getWidgets(provider.id)[0] as DiagramWidget;
                             widget.actionDispatcher.dispatch(new ToggleValidationAction());
+            });
+
+        }),
+        }));
+
+        registry.registerCommand(ENABLE_ONEEXIT, this.newWorkspaceRootUriAwareCommandHandler({
+            execute: uri => this.getDirectory(uri).then(parent => {
+
+            this.diagramManagerProvider().then(provider => {
+                            const myprovider = provider as CMMNDiagramManager;
+                            const widget = myprovider.diagramConnector.widgetManager.getWidgets(provider.id)[0] as DiagramWidget;
+                            widget.actionDispatcher.dispatch(new ToggleExitAction());
             });
 
         }),

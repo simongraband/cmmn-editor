@@ -190,7 +190,7 @@ public class PlanItemDefinitionImpl extends CMMNElementImpl implements PlanItemD
 		    // If Anchor is not the goal add current to visited nodes and repeat for s.getAnchor()
 		    if (!visited.contains(s.getAnchor())) {
 		    	visited.add(current);
-		    	return hasCircle(goal, s.getAnchor(), visited);
+		    	if(s.getAnchor() instanceof PlanItemDefinition) return hasCircle(goal, (PlanItemDefinition) s.getAnchor(), visited);
 		    }
 		}
 		return false;

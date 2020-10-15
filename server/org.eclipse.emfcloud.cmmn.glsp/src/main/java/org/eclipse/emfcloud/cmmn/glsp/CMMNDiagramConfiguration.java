@@ -33,13 +33,19 @@ public class CMMNDiagramConfiguration implements DiagramConfiguration {
 
 	@Override
 	public List<EdgeTypeHint> getEdgeTypeHints() {
-		return Lists.newArrayList(createDefaultEdgeTypeHint(Types.SENTRY_ENTRY), createDefaultEdgeTypeHint(Types.SENTRY_EXIT));
+		return Lists.newArrayList(createDefaultEdgeTypeHint(Types.SENTRY_ENTRY), createExitEdgeTypeHint(Types.SENTRY_EXIT));
 	}
 
 	@Override
 	public EdgeTypeHint createDefaultEdgeTypeHint(String elementId) {
 		List<String> allowed = Lists.newArrayList(Types.TASK_HUMAN, Types.TASK_PROCESS, Types.EVENTLISTENER, Types.STAGE);
 		return new EdgeTypeHint(elementId, true, true, true, allowed, allowed);
+	}
+	
+	public EdgeTypeHint createExitEdgeTypeHint(String elementId) {
+		List<String> allowed = Lists.newArrayList(Types.TASK_HUMAN, Types.TASK_PROCESS, Types.EVENTLISTENER, Types.STAGE);
+		List<String> allowedDestination = Lists.newArrayList(Types.TASK_HUMAN, Types.TASK_PROCESS, Types.EVENTLISTENER, Types.STAGE, Types.CASE);
+		return new EdgeTypeHint(elementId, true, true, true, allowed, allowedDestination);
 	}
 
 	@Override

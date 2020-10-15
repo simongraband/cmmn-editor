@@ -414,6 +414,15 @@ public class CMMNPackageImpl extends EPackageImpl implements CMMNPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCase_IncomingEdges() {
+		return (EReference)caseEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getCase__DuplicateStageNames__DiagnosticChain_Map() {
 		return caseEClass.getEOperations().get(0);
 	}
@@ -425,6 +434,15 @@ public class CMMNPackageImpl extends EPackageImpl implements CMMNPackage {
 	 */
 	public EOperation getCase__DuplicateTaskNames__DiagnosticChain_Map() {
 		return caseEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCase__HasExitSentry__DiagnosticChain_Map() {
+		return caseEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -841,8 +859,10 @@ public class CMMNPackageImpl extends EPackageImpl implements CMMNPackage {
 		createEReference(caseEClass, CASE__TASKS);
 		createEAttribute(caseEClass, CASE__NAME);
 		createEReference(caseEClass, CASE__EVENT_LISTENERS);
+		createEReference(caseEClass, CASE__INCOMING_EDGES);
 		createEOperation(caseEClass, CASE___DUPLICATE_STAGE_NAMES__DIAGNOSTICCHAIN_MAP);
 		createEOperation(caseEClass, CASE___DUPLICATE_TASK_NAMES__DIAGNOSTICCHAIN_MAP);
+		createEOperation(caseEClass, CASE___HAS_EXIT_SENTRY__DIAGNOSTICCHAIN_MAP);
 
 		stageEClass = createEClass(STAGE);
 		createEReference(stageEClass, STAGE__TASKS);
@@ -969,6 +989,7 @@ public class CMMNPackageImpl extends EPackageImpl implements CMMNPackage {
 		initEReference(getCase_Tasks(), this.getTask(), null, "tasks", null, 0, -1, Case.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCase_Name(), this.getString100Chars(), "name", null, 0, 1, Case.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCase_EventListeners(), this.getEventListener(), null, "eventListeners", null, 0, -1, Case.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCase_IncomingEdges(), this.getSentry(), null, "incomingEdges", null, 0, -1, Case.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getCase__DuplicateStageNames__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "duplicateStageNames", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -980,6 +1001,15 @@ public class CMMNPackageImpl extends EPackageImpl implements CMMNPackage {
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getCase__DuplicateTaskNames__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "duplicateTaskNames", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getCase__HasExitSentry__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "hasExitSentry", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType();
@@ -1014,7 +1044,7 @@ public class CMMNPackageImpl extends EPackageImpl implements CMMNPackage {
 		initEAttribute(getSentry_IfPart(), this.getIfCondition(), "ifPart", null, 0, 1, Sentry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSentry_SentryType(), this.getSentryType(), "SentryType", null, 0, 1, Sentry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSentry_OnPart(), this.getPlanItemDefinition(), null, "onPart", null, 1, 1, Sentry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSentry_Anchor(), this.getPlanItemDefinition(), null, "anchor", null, 1, 1, Sentry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSentry_Anchor(), this.getCMMNElement(), null, "anchor", null, 1, 1, Sentry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(planItemDefinitionEClass, PlanItemDefinition.class, "PlanItemDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPlanItemDefinition_OutgoingSentrys(), this.getSentry(), null, "outgoingSentrys", null, 0, -1, PlanItemDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

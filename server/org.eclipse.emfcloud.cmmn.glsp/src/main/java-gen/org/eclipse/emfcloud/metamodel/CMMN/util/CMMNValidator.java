@@ -67,12 +67,20 @@ public class CMMNValidator extends EObjectValidator {
 	public static final int CASE__DUPLICATE_TASK_NAMES = 3;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Has Exit Sentry' of 'Case'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int CASE__HAS_EXIT_SENTRY = 4;
+
+	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Duplicate Names' of 'Stage'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int STAGE__DUPLICATE_NAMES = 4;
+	public static final int STAGE__DUPLICATE_NAMES = 5;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Is Used' of 'Plan Item Definition'.
@@ -80,7 +88,7 @@ public class CMMNValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int PLAN_ITEM_DEFINITION__IS_USED = 5;
+	public static final int PLAN_ITEM_DEFINITION__IS_USED = 6;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Is No Circle' of 'Plan Item Definition'.
@@ -88,7 +96,7 @@ public class CMMNValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int PLAN_ITEM_DEFINITION__IS_NO_CIRCLE = 6;
+	public static final int PLAN_ITEM_DEFINITION__IS_NO_CIRCLE = 7;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -96,7 +104,7 @@ public class CMMNValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 6;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 7;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -253,6 +261,7 @@ public class CMMNValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(case_, diagnostics, context);
 		if (result || diagnostics != null) result &= validateCase_duplicateStageNames(case_, diagnostics, context);
 		if (result || diagnostics != null) result &= validateCase_duplicateTaskNames(case_, diagnostics, context);
+		if (result || diagnostics != null) result &= validateCase_hasExitSentry(case_, diagnostics, context);
 		return result;
 	}
 
@@ -274,6 +283,16 @@ public class CMMNValidator extends EObjectValidator {
 	 */
 	public boolean validateCase_duplicateTaskNames(Case case_, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return case_.duplicateTaskNames(diagnostics, context);
+	}
+
+	/**
+	 * Validates the hasExitSentry constraint of '<em>Case</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCase_hasExitSentry(Case case_, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return case_.hasExitSentry(diagnostics, context);
 	}
 
 	/**

@@ -80,7 +80,7 @@ import {
     StageNodeView,
     TaskNodeView,
     CaseNodeView,
-    EventListenerNodeView, DecoratorNodeView, CaseFileNodeView, HumanTaskNodeView, ProcessTaskNodeView, EntryEdgeView, CustomCompartmentView
+    EventListenerNodeView, DecoratorNodeView, CaseFileNodeView, HumanTaskNodeView, ProcessTaskNodeView, EntryEdgeView, CustomCompartmentView, IconNodeView
 } from "./views";
 import { EditLabelUIModelValidation } from "./features/model-validation";
 
@@ -110,6 +110,7 @@ export default (containerId: string) => {
         configureModelElement(context, "comp:header", SCompartment, CustomCompartmentView);
         configureModelElement(context, "decorator:http", LabeledNode, TaskNodeView);
         configureModelElement(context, "decorator:mandatory", ActivityNode, DecoratorNodeView);
+        configureModelElement(context, "decorator:httpIcon", ActivityNode, IconNodeView);
         configureModelElement(context, "label:icon", SLabel, SLabelView);
         configureModelElement(context, "html", HtmlRoot, HtmlRootView);
         configureModelElement(context, "routing-point", SRoutingHandle, SRoutingHandleView);

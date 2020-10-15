@@ -40,6 +40,15 @@
         </eGenericType>
       </eParameters>
     </eOperations>
+    <eOperations name="hasExitSentry" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="chain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+      <eParameters name="context">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments/>
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="casefile" lowerBound="1"
         eType="#//CaseFile" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stages" lowerBound="1"
@@ -49,6 +58,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//String100Chars"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eventListeners" upperBound="-1"
         eType="#//EventListener" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingEdges" upperBound="-1"
+        eType="#//Sentry"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Stage" eSuperTypes="#//PlanItemDefinition">
     <eOperations name="duplicateNames" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -80,7 +91,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="onPart" lowerBound="1"
         eType="#//PlanItemDefinition"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="anchor" lowerBound="1"
-        eType="#//PlanItemDefinition"/>
+        eType="#//CMMNElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TaskRole">
     <eLiterals name="Human"/>

@@ -97,12 +97,12 @@ public interface Sentry extends CMMNElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Anchor</em>' reference.
-	 * @see #setAnchor(PlanItemDefinition)
+	 * @see #setAnchor(CMMNElement)
 	 * @see org.eclipse.emfcloud.metamodel.CMMN.CMMNPackage#getSentry_Anchor()
 	 * @model required="true"
 	 * @generated
 	 */
-	PlanItemDefinition getAnchor();
+	CMMNElement getAnchor();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.emfcloud.metamodel.CMMN.Sentry#getAnchor <em>Anchor</em>}' reference.
@@ -112,6 +112,6 @@ public interface Sentry extends CMMNElement {
 	 * @see #getAnchor()
 	 * @generated
 	 */
-	void setAnchor(PlanItemDefinition value);
+	void setAnchor(CMMNElement value);
 
 } // Sentry

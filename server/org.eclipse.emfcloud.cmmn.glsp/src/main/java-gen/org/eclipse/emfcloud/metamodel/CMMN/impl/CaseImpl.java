@@ -20,11 +20,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emfcloud.metamodel.CMMN.CMMNPackage;
 import org.eclipse.emfcloud.metamodel.CMMN.Case;
 import org.eclipse.emfcloud.metamodel.CMMN.CaseFile;
 import org.eclipse.emfcloud.metamodel.CMMN.EventListener;
+import org.eclipse.emfcloud.metamodel.CMMN.Sentry;
 import org.eclipse.emfcloud.metamodel.CMMN.Stage;
 import org.eclipse.emfcloud.metamodel.CMMN.Task;
 import org.eclipse.emfcloud.metamodel.CMMN.util.CMMNValidator;
@@ -42,6 +44,7 @@ import org.eclipse.emfcloud.metamodel.CMMN.util.CMMNValidator;
  *   <li>{@link org.eclipse.emfcloud.metamodel.CMMN.impl.CaseImpl#getTasks <em>Tasks</em>}</li>
  *   <li>{@link org.eclipse.emfcloud.metamodel.CMMN.impl.CaseImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emfcloud.metamodel.CMMN.impl.CaseImpl#getEventListeners <em>Event Listeners</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.metamodel.CMMN.impl.CaseImpl#getIncomingEdges <em>Incoming Edges</em>}</li>
  * </ul>
  *
  * @generated
@@ -106,6 +109,16 @@ public class CaseImpl extends CMMNElementImpl implements Case {
 	 * @ordered
 	 */
 	protected EList<EventListener> eventListeners;
+
+	/**
+	 * The cached value of the '{@link #getIncomingEdges() <em>Incoming Edges</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIncomingEdges()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Sentry> incomingEdges;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -229,6 +242,18 @@ public class CaseImpl extends CMMNElementImpl implements Case {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Sentry> getIncomingEdges() {
+		if (incomingEdges == null) {
+			incomingEdges = new EObjectResolvingEList<Sentry>(Sentry.class, this, CMMNPackage.CASE__INCOMING_EDGES);
+		}
+		return incomingEdges;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean duplicateStageNames(DiagnosticChain chain, Map<?, ?> context) {
@@ -261,6 +286,27 @@ public class CaseImpl extends CMMNElementImpl implements Case {
 						 CMMNValidator.DIAGNOSTIC_SOURCE,
 						 CMMNValidator.CASE__DUPLICATE_TASK_NAMES,
 						 "Cannot have more than one task with the same name",
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean hasExitSentry(DiagnosticChain chain, Map<?, ?> context) {
+		if (this.getIncomingEdges().isEmpty()) {
+			if (chain != null) {
+				chain.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CMMNValidator.DIAGNOSTIC_SOURCE,
+						 CMMNValidator.CASE__HAS_EXIT_SENTRY,
+						 this.name + " needs at least one Exit Criterion",
 						 new Object [] { this }));
 			}
 			return false;
@@ -342,6 +388,8 @@ public class CaseImpl extends CMMNElementImpl implements Case {
 				return getName();
 			case CMMNPackage.CASE__EVENT_LISTENERS:
 				return getEventListeners();
+			case CMMNPackage.CASE__INCOMING_EDGES:
+				return getIncomingEdges();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -373,6 +421,10 @@ public class CaseImpl extends CMMNElementImpl implements Case {
 				getEventListeners().clear();
 				getEventListeners().addAll((Collection<? extends EventListener>)newValue);
 				return;
+			case CMMNPackage.CASE__INCOMING_EDGES:
+				getIncomingEdges().clear();
+				getIncomingEdges().addAll((Collection<? extends Sentry>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -400,6 +452,9 @@ public class CaseImpl extends CMMNElementImpl implements Case {
 			case CMMNPackage.CASE__EVENT_LISTENERS:
 				getEventListeners().clear();
 				return;
+			case CMMNPackage.CASE__INCOMING_EDGES:
+				getIncomingEdges().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -422,6 +477,8 @@ public class CaseImpl extends CMMNElementImpl implements Case {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CMMNPackage.CASE__EVENT_LISTENERS:
 				return eventListeners != null && !eventListeners.isEmpty();
+			case CMMNPackage.CASE__INCOMING_EDGES:
+				return incomingEdges != null && !incomingEdges.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -438,6 +495,8 @@ public class CaseImpl extends CMMNElementImpl implements Case {
 				return duplicateStageNames((DiagnosticChain)arguments.get(0), (Map<?, ?>)arguments.get(1));
 			case CMMNPackage.CASE___DUPLICATE_TASK_NAMES__DIAGNOSTICCHAIN_MAP:
 				return duplicateTaskNames((DiagnosticChain)arguments.get(0), (Map<?, ?>)arguments.get(1));
+			case CMMNPackage.CASE___HAS_EXIT_SENTRY__DIAGNOSTICCHAIN_MAP:
+				return hasExitSentry((DiagnosticChain)arguments.get(0), (Map<?, ?>)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

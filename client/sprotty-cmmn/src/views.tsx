@@ -21,7 +21,7 @@ import {
   toDegrees,
 } from "sprotty/lib";
 
-import { LabeledNode, Icon, ActivityNode} from "./model";
+import { LabeledNode, ActivityNode} from "./model";
 import { getSubType, IView, SCompartment, setAttr } from "@eclipse-glsp/client";
 
 /** @jsx svg */
@@ -31,11 +31,6 @@ export class TaskNodeView extends RectangularNodeView {
   render(node: LabeledNode, context: RenderingContext): VNode {
 
     return <g class-node={true}>
-      <defs>
-        <filter id="dropShadow">
-          <feDropShadow dx="0.5" dy="0.5" stdDeviation="0.4" />
-        </filter>
-      </defs>
       <rect class-sprotty-node={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
         x={0} y={0} rx={6} ry={6}
         width={node.bounds.width} height={node.bounds.height} />
@@ -178,15 +173,15 @@ export class DecoratorNodeView extends RectangularNodeView {
 }
 
 @injectable()
-export class IconView implements IView {
-  render(element: Icon, context: RenderingContext): VNode {
-    const image = require("../images/" + element.iconImageName);
-
-    return <g>
-      <image class-sprotty-icon={true} href={image} x={0} y={0} width={16} height={16}></image>
-      {context.renderChildren(element)}
-    </g>;
-  }
+export class IconNodeView extends RectangularNodeView {
+    render(node: ActivityNode, context: RenderingContext): VNode {
+      const image = require("../images/HTTPHook.svg");
+        const graph = <g>
+            <image class-sprotty-icon={true} class-selected={node.selected} class-mouseover={node.hoverFeedback}
+       href={image} x={-12} y={8} width={16} height={16}></image>
+        </g>;
+        return graph;
+    }
 }
 
 @injectable()

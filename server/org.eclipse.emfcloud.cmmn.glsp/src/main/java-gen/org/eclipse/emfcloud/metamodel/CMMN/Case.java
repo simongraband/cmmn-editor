@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.emfcloud.metamodel.CMMN.Case#getTasks <em>Tasks</em>}</li>
  *   <li>{@link org.eclipse.emfcloud.metamodel.CMMN.Case#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emfcloud.metamodel.CMMN.Case#getEventListeners <em>Event Listeners</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.metamodel.CMMN.Case#getIncomingEdges <em>Incoming Edges</em>}</li>
  * </ul>
  *
  * @see org.eclipse.emfcloud.metamodel.CMMN.CMMNPackage#getCase()
@@ -108,6 +109,18 @@ public interface Case extends CMMNElement {
 	EList<EventListener> getEventListeners();
 
 	/**
+	 * Returns the value of the '<em><b>Incoming Edges</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.emfcloud.metamodel.CMMN.Sentry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Incoming Edges</em>' reference list.
+	 * @see org.eclipse.emfcloud.metamodel.CMMN.CMMNPackage#getCase_IncomingEdges()
+	 * @model
+	 * @generated
+	 */
+	EList<Sentry> getIncomingEdges();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -122,5 +135,13 @@ public interface Case extends CMMNElement {
 	 * @generated
 	 */
 	boolean duplicateTaskNames(DiagnosticChain chain, Map<?, ?> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean hasExitSentry(DiagnosticChain chain, Map<?, ?> context);
 
 } // Case

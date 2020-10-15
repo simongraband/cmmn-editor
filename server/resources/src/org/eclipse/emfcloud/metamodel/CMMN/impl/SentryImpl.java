@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNElement;
 import org.eclipse.emfcloud.metamodel.CMMN.CMMNPackage;
 import org.eclipse.emfcloud.metamodel.CMMN.PlanItemDefinition;
 import org.eclipse.emfcloud.metamodel.CMMN.Sentry;
@@ -88,7 +89,7 @@ public class SentryImpl extends CMMNElementImpl implements Sentry {
 	 * @generated
 	 * @ordered
 	 */
-	protected PlanItemDefinition anchor;
+	protected CMMNElement anchor;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,10 +195,10 @@ public class SentryImpl extends CMMNElementImpl implements Sentry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PlanItemDefinition getAnchor() {
+	public CMMNElement getAnchor() {
 		if (anchor != null && anchor.eIsProxy()) {
 			InternalEObject oldAnchor = (InternalEObject)anchor;
-			anchor = (PlanItemDefinition)eResolveProxy(oldAnchor);
+			anchor = (CMMNElement)eResolveProxy(oldAnchor);
 			if (anchor != oldAnchor) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CMMNPackage.SENTRY__ANCHOR, oldAnchor, anchor));
@@ -211,7 +212,7 @@ public class SentryImpl extends CMMNElementImpl implements Sentry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PlanItemDefinition basicGetAnchor() {
+	public CMMNElement basicGetAnchor() {
 		return anchor;
 	}
 
@@ -220,8 +221,8 @@ public class SentryImpl extends CMMNElementImpl implements Sentry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAnchor(PlanItemDefinition newAnchor) {
-		PlanItemDefinition oldAnchor = anchor;
+	public void setAnchor(CMMNElement newAnchor) {
+		CMMNElement oldAnchor = anchor;
 		anchor = newAnchor;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CMMNPackage.SENTRY__ANCHOR, oldAnchor, anchor));
@@ -267,7 +268,7 @@ public class SentryImpl extends CMMNElementImpl implements Sentry {
 				setOnPart((PlanItemDefinition)newValue);
 				return;
 			case CMMNPackage.SENTRY__ANCHOR:
-				setAnchor((PlanItemDefinition)newValue);
+				setAnchor((CMMNElement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -291,7 +292,7 @@ public class SentryImpl extends CMMNElementImpl implements Sentry {
 				setOnPart((PlanItemDefinition)null);
 				return;
 			case CMMNPackage.SENTRY__ANCHOR:
-				setAnchor((PlanItemDefinition)null);
+				setAnchor((CMMNElement)null);
 				return;
 		}
 		super.eUnset(featureID);

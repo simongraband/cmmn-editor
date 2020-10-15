@@ -298,13 +298,22 @@ public interface CMMNPackage extends EPackage {
 	int CASE__EVENT_LISTENERS = CMMN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Incoming Edges</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASE__INCOMING_EDGES = CMMN_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Case</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CASE_FEATURE_COUNT = CMMN_ELEMENT_FEATURE_COUNT + 5;
+	int CASE_FEATURE_COUNT = CMMN_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Duplicate Stage Names</em>' operation.
@@ -325,13 +334,22 @@ public interface CMMNPackage extends EPackage {
 	int CASE___DUPLICATE_TASK_NAMES__DIAGNOSTICCHAIN_MAP = CMMN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Has Exit Sentry</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASE___HAS_EXIT_SENTRY__DIAGNOSTICCHAIN_MAP = CMMN_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Case</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CASE_OPERATION_COUNT = CMMN_ELEMENT_OPERATION_COUNT + 2;
+	int CASE_OPERATION_COUNT = CMMN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emfcloud.metamodel.CMMN.impl.PlanItemDefinitionImpl <em>Plan Item Definition</em>}' class.
@@ -1496,6 +1514,17 @@ public interface CMMNPackage extends EPackage {
 	EReference getCase_EventListeners();
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.emfcloud.metamodel.CMMN.Case#getIncomingEdges <em>Incoming Edges</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Incoming Edges</em>'.
+	 * @see org.eclipse.emfcloud.metamodel.CMMN.Case#getIncomingEdges()
+	 * @see #getCase()
+	 * @generated
+	 */
+	EReference getCase_IncomingEdges();
+
+	/**
 	 * Returns the meta object for the '{@link org.eclipse.emfcloud.metamodel.CMMN.Case#duplicateStageNames(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Duplicate Stage Names</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1514,6 +1543,16 @@ public interface CMMNPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getCase__DuplicateTaskNames__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.emfcloud.metamodel.CMMN.Case#hasExitSentry(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Has Exit Sentry</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Has Exit Sentry</em>' operation.
+	 * @see org.eclipse.emfcloud.metamodel.CMMN.Case#hasExitSentry(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getCase__HasExitSentry__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emfcloud.metamodel.CMMN.Stage <em>Stage</em>}'.
@@ -2097,6 +2136,14 @@ public interface CMMNPackage extends EPackage {
 		EReference CASE__EVENT_LISTENERS = eINSTANCE.getCase_EventListeners();
 
 		/**
+		 * The meta object literal for the '<em><b>Incoming Edges</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CASE__INCOMING_EDGES = eINSTANCE.getCase_IncomingEdges();
+
+		/**
 		 * The meta object literal for the '<em><b>Duplicate Stage Names</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2111,6 +2158,14 @@ public interface CMMNPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation CASE___DUPLICATE_TASK_NAMES__DIAGNOSTICCHAIN_MAP = eINSTANCE.getCase__DuplicateTaskNames__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Exit Sentry</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CASE___HAS_EXIT_SENTRY__DIAGNOSTICCHAIN_MAP = eINSTANCE.getCase__HasExitSentry__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emfcloud.metamodel.CMMN.impl.StageImpl <em>Stage</em>}' class.

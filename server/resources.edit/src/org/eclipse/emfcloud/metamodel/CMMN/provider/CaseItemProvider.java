@@ -49,6 +49,7 @@ public class CaseItemProvider extends CMMNElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addIncomingEdgesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -71,6 +72,28 @@ public class CaseItemProvider extends CMMNElementItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Incoming Edges feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIncomingEdgesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Case_incomingEdges_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Case_incomingEdges_feature", "_UI_Case_type"),
+				 CMMNPackage.Literals.CASE__INCOMING_EDGES,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

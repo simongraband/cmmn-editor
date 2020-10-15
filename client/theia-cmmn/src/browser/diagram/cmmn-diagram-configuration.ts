@@ -8,7 +8,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  ********************************************************************************/
-import { TYPES} from "@eclipse-glsp/client/lib";
+import { CommandPalette, TYPES} from "@eclipse-glsp/client/lib";
 import { SelectionService } from "@theia/core";
 import { ExternalNavigateToTargetHandler } from "@eclipse-glsp/client/lib";
 import { Container, inject, injectable } from "inversify";
@@ -21,7 +21,8 @@ import {
 } from "@eclipse-glsp/theia-integration/lib/browser/diagram/glsp-theia-marker-manager";
 import { CMMNLanguage } from "../../common/cmmn-language";
 import { CMMNGLSPTheiaDiagramServer } from "./cmmn-glsp-theia-diagram-server";
-import { connectTheiaContextMenuService, TheiaContextMenuService, TheiaContextMenuServiceFactory, TheiaNavigateToTargetHandler } from "@eclipse-glsp/theia-integration/lib/browser";
+import { connectTheiaContextMenuService, TheiaCommandPalette, TheiaContextMenuService,
+     TheiaContextMenuServiceFactory, TheiaNavigateToTargetHandler } from "@eclipse-glsp/theia-integration/lib/browser";
 
 @injectable()
 export class CMMNDiagramConfiguration implements DiagramConfiguration {
@@ -37,8 +38,9 @@ export class CMMNDiagramConfiguration implements DiagramConfiguration {
         container.bind(TheiaDiagramServer).toService(CMMNGLSPTheiaDiagramServer);
         //container.rebind(KeyTool).to(TheiaKeyTool).inSingletonScope()
         container.bind(TYPES.IActionHandlerInitializer).to(TheiaSprottySelectionForwarder);
-        container.bind(ExternalNavigateToTargetHandler).toConstantValue(this.navigateToTargetHandler);
         container.bind(SelectionService).toConstantValue(this.selectionService);
+        container.bind(ExternalNavigateToTargetHandler).toConstantValue(this.navigateToTargetHandler);
+        container.rebind(CommandPalette).to(TheiaCommandPalette);
         connectTheiaContextMenuService(container, this.contextMenuServiceFactory);
         connectTheiaMarkerManager(container, this.theiaMarkerManager, this.diagramType);
         return container;

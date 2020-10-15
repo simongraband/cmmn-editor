@@ -219,6 +219,9 @@ public class ClassifierNodeFactory extends AbstractGModelFactory<CMMNElement, GN
 						.vAlign(GConstants.VAlign.TOP)
 						.resizeContainer(true)) //
 				.id(toId(element) + "_header") //
+				.add(new GLabelBuilder(Types.HTTPDECORATORICON) //
+						.id(toId(element) + "_icon") //
+						.build()) //
 				.add(new GLabelBuilder(Types.LABEL_REQUEST) //
 						.id(toId(element) + "_request_label").text(element.getRequest().toString()) //
 						.build()) //

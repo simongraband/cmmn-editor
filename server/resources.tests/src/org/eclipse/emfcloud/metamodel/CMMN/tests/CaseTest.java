@@ -16,6 +16,7 @@ import org.eclipse.emfcloud.metamodel.CMMN.Case;
  * <ul>
  *   <li>{@link org.eclipse.emfcloud.metamodel.CMMN.Case#duplicateStageNames(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Duplicate Stage Names</em>}</li>
  *   <li>{@link org.eclipse.emfcloud.metamodel.CMMN.Case#duplicateTaskNames(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Duplicate Task Names</em>}</li>
+ *   <li>{@link org.eclipse.emfcloud.metamodel.CMMN.Case#hasExitSentry(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Has Exit Sentry</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -95,6 +96,19 @@ public class CaseTest extends CMMNElementTest {
 	 * @generated
 	 */
 	public void testDuplicateTaskNames__DiagnosticChain_Map() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.emfcloud.metamodel.CMMN.Case#hasExitSentry(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Has Exit Sentry</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emfcloud.metamodel.CMMN.Case#hasExitSentry(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	public void testHasExitSentry__DiagnosticChain_Map() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

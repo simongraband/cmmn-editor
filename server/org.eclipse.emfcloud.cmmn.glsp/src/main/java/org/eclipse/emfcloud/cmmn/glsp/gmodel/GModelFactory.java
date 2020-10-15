@@ -130,7 +130,7 @@ public class GModelFactory extends AbstractGModelFactory<EObject, GModelElement>
 	}
 
 	public GEdge create(Sentry sentry) {
-		PlanItemDefinition target = sentry.getAnchor();
+		CMMNElement target = sentry.getAnchor();
 		PlanItemDefinition source = sentry.getOnPart();
 		String id = toId(sentry);
 

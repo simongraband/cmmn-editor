@@ -55,6 +55,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//Case/tasks"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CMMN.ecore#//Case/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CMMN.ecore#//Case/eventListeners"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CMMN.ecore#//Case/incomingEdges"/>
       <genOperations ecoreOperation="CMMN.ecore#//Case/duplicateStageNames">
         <genParameters ecoreParameter="CMMN.ecore#//Case/duplicateStageNames/chain"/>
         <genParameters ecoreParameter="CMMN.ecore#//Case/duplicateStageNames/context"/>
@@ -62,6 +63,10 @@
       <genOperations ecoreOperation="CMMN.ecore#//Case/duplicateTaskNames">
         <genParameters ecoreParameter="CMMN.ecore#//Case/duplicateTaskNames/chain"/>
         <genParameters ecoreParameter="CMMN.ecore#//Case/duplicateTaskNames/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="CMMN.ecore#//Case/hasExitSentry">
+        <genParameters ecoreParameter="CMMN.ecore#//Case/hasExitSentry/chain"/>
+        <genParameters ecoreParameter="CMMN.ecore#//Case/hasExitSentry/context"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="CMMN.ecore#//Stage">

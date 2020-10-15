@@ -23,6 +23,7 @@ public final class CMMNConfig {
 		public static final String COMP_HEADER = "comp:header";
 		public static final String LABEL_ICON = "label:icon";
 		public static final String HTTPDECORATOR = "decorator:http";
+		public static final String HTTPDECORATORICON = "decorator:httpIcon";
 		public static final String MANDATORYDECORATOR = "decorator:mandatory";
 		public static final String CASE = "node:case";
 		public static final String STAGE = "node:stage";

@@ -36,6 +36,12 @@ export class ToggleValidationAction  implements RequestAction<ReturnToggleValida
     constructor(public readonly requestId: string = generateRequestId()) { }
 }
 
+export class ToggleExitAction  implements RequestAction<ReturnToggleValidationAction> {
+    static readonly KIND = "toggleExit";
+    kind = ToggleExitAction.KIND;
+    constructor(public readonly requestId: string = generateRequestId()) { }
+}
+
 export class ReturnToggleValidationAction implements ResponseAction {
     static readonly KIND = "returnToggleValidation";
     kind = ReturnToggleValidationAction.KIND;

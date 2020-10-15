@@ -18,7 +18,9 @@ import org.eclipse.emfcloud.cmmn.glsp.CMMNModelIndex;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelServerAccess;
 import org.eclipse.emfcloud.cmmn.glsp.model.CMMNModelState;
 import org.eclipse.emfcloud.cmmn.glsp.util.CMMNConfig.Types;
+import org.eclipse.emfcloud.metamodel.CMMN.CMMNElement;
 import org.eclipse.emfcloud.metamodel.CMMN.CMMNFactory;
+import org.eclipse.emfcloud.metamodel.CMMN.Case;
 import org.eclipse.emfcloud.metamodel.CMMN.PlanItemDefinition;
 import org.eclipse.emfcloud.metamodel.CMMN.Sentry;
 import org.eclipse.emfcloud.metamodel.CMMN.SentryType;
@@ -54,16 +56,21 @@ public class CreateSentryOperationHandler extends BasicOperationHandler<CreateEd
 		PlanItemDefinition sourceItem = getOrThrow(modelIndex.getSemantic(operation.getSourceElementId(), PlanItemDefinition.class),
 				"No semantic EClass found for source element with id " + operation.getSourceElementId());
 		sourceItem.setId(operation.getSourceElementId());
-		PlanItemDefinition targetItem = getOrThrow(modelIndex.getSemantic(operation.getTargetElementId(), PlanItemDefinition.class),
+		CMMNElement targetItem = getOrThrow(modelIndex.getSemantic(operation.getTargetElementId(), CMMNElement.class),
 				"No semantic EClass found for target element with id" + operation.getTargetElementId());
 		targetItem.setId(operation.getTargetElementId());
 
 		Diagram diagram = facade.getDiagram();
-
-		Sentry sentry = createSentry(sourceItem, targetItem, elementTypeId);
 		
+		Sentry sentry = createSentry(sourceItem, targetItem, elementTypeId);
 		sourceItem.getOutgoingSentrys().add(sentry);
-		targetItem.getIncomingSentrys().add(sentry);
+		
+		if(targetItem instanceof PlanItemDefinition) {
+			((PlanItemDefinition) targetItem).getIncomingSentrys().add(sentry);
+		}
+		if(targetItem instanceof Case) {
+			((Case) targetItem).getIncomingEdges().add(sentry);
+		}
 
 		GEdge edge = context.getGModelFactory().create(sentry);
 		diagram.getElements().add(facade.initializeEdge(sentry, edge));
@@ -75,7 +82,7 @@ public class CreateSentryOperationHandler extends BasicOperationHandler<CreateEd
 		access.update();
 	}
 
-	private Sentry createSentry(PlanItemDefinition source, PlanItemDefinition target, String elementTypeId) {
+	private Sentry createSentry(PlanItemDefinition source, CMMNElement target, String elementTypeId) {
 		Sentry sentry = CMMNFactory.eINSTANCE.createSentry();
 		sentry.setOnPart(source);
 		sentry.setAnchor(target);
@@ -86,7 +93,6 @@ public class CreateSentryOperationHandler extends BasicOperationHandler<CreateEd
 		}
 		sentry.setIfPart("a > 12");
 		return sentry;
-
 	}
 
 	@Override
